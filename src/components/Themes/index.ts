@@ -1,9 +1,10 @@
 import { Theme } from "@mui/material";
 
+import Themes from "./Themes";
 import DarkTheme from "./app/Dark/Dark";
 import LightTheme from "./app/Light/Light";
 
-const registredThemes: Record<string, Theme> = {
+let registredThemes: Record<string, Theme> = {
 	light: LightTheme,
 	dark: DarkTheme
 };
@@ -14,3 +15,19 @@ const registredThemes: Record<string, Theme> = {
  * @returns
  */
 export const getThemeByName = (name: string): Theme => registredThemes[name];
+
+/**
+ * Register a theme.
+ * @param name - The theme name.
+ * @param theme - The MUI theme.
+ */
+export const registerTheme = (name: string, theme: Theme) => registredThemes = {
+	...registredThemes,
+	[name]: theme
+};
+
+export {
+	Themes,
+	DarkTheme,
+	LightTheme
+};

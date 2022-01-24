@@ -1,22 +1,16 @@
 import { FC, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
 import { ParallaxProvider } from "react-scroll-parallax";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, Theme, ThemeProvider } from "@mui/material";
 
-import { getModalActive, getTheme } from "App/redux";
 import { getElementByXPath } from "utils/elements";
 
-import "App/styles/Main.scss";
+import "styles/Main.scss";
 
 /**
  * App themes.
- * @todo - Hook for locking page scroll with empty scroll bar.
  */
-export const Themes: FC = ({ children }) =>
+export const Themes: FC<ThemesProps> = ({ theme, scrollLock, children }) =>
 {
-	const theme = useSelector(getTheme);
-	const isModalActive = useSelector(getModalActive);
-
 	const html = useRef<HTMLElement>(getElementByXPath("html") as HTMLElement);
 
 	/**
@@ -24,8 +18,8 @@ export const Themes: FC = ({ children }) =>
 	 */
 	useEffect(() =>
 	{
-		html.current.style.overflowY = isModalActive ? "hidden" : "visible";
-	}, [isModalActive]);
+		html.current.style.overflowY = scrollLock ? "hidden" : "visible";
+	}, [scrollLock]);
 
 	return (
 		<ParallaxProvider>
@@ -35,6 +29,11 @@ export const Themes: FC = ({ children }) =>
 			</ThemeProvider>
 		</ParallaxProvider>
 	);
+};
+
+export type ThemesProps = {
+	theme: Theme,
+	scrollLock?: boolean
 };
 
 export default Themes;
