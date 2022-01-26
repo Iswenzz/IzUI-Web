@@ -1,5 +1,4 @@
 import { FC, memo } from "react";
-import { Link } from "react-scroll";
 import classNames from "classnames";
 
 import { Grid } from "@mui/material";
@@ -27,9 +26,9 @@ const Header: FC<HeaderProps> = ({
 				<TrailText className="poiret bold noselect" align="center" variant="h3" component="h3">
 					{description}
 				</TrailText>
-				<Link to="intro-section" offset={5} smooth>
-					<FontAwesomeIcon icon={faChevronDown} size="3x" className={scss.arrow} />
-				</Link>
+				{/* <Link to="intro-section" offset={5} smooth> */}
+				<FontAwesomeIcon icon={faChevronDown} size="3x" className={scss.arrow} />
+				{/* </Link> */}
 			</Grid>
 		</Parallax>
 	</header>

@@ -29,8 +29,15 @@ module.exports.webpack = override(
 		...createWebpackAliasesFromTSConfig(),
 		"react/jsx-runtime": require.resolve("react/jsx-runtime")
 	}),
-	addWebpackPlugin(new StylelintPlugin({ configPaths: ".stylelintrc" }))
+	addWebpackPlugin(new StylelintPlugin({ configPaths: "../../.stylelintrc" }))
 );
+
+module.exports.paths = paths =>
+{
+	paths.appIndexJs = path.resolve(__dirname, "fixtures/src/index.tsx");
+	paths.appSrc = path.resolve(__dirname, "fixtures/src");
+	return paths;
+};
 
 module.exports.devServer = overrideDevServer(
 	watchAll()

@@ -1,5 +1,3 @@
-/// <reference types="react-scripts" />
-
 import "@mui/material/styles";
 
 declare global
