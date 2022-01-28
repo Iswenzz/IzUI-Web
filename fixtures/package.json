@@ -28,11 +28,10 @@
 	"eslintConfig": {
 		"extends": [
 			"react-app",
-			"../../.eslintrc"
+			".eslintrc"
 		]
 	},
 	"dependencies": {
-		"izui-react": "^1.0.0",
-		"react-router-dom": "^6.2.1"
+		"izui-react": "^1.0.0"
 	}
 }
