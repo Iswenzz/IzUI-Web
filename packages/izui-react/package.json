@@ -2,19 +2,21 @@
     "name": "izui-react",
     "version": "1.0.0",
     "private": true,
-    "main": "lib/index.js",
-  	"module": "esm/index.js",
+    "main": "build/index.js",
+    "types": "build/index.d.ts",
+    "files": [
+        "src",
+        "build"
+    ],
     "scripts": {
-        "build": "react-app-rewired build",
-		"build:cjs": "tsc",
-    	"build:es": "tsc -m esNext --outDir esm",
+        "build": "yarn webpack --progress",
         "doc": "jsdoc",
         "lint:scss": "stylelint **/*.{scss,css}",
         "lint:scss:fix": "stylelint **/*.scss --fix",
         "lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
         "lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
-        "test": "react-app-rewired test --watchAll=false --coverage --coverageDirectory=coverage",
-        "test:watch": "react-app-rewired test --watchAll=true --coverage --coverageDirectory=coverage",
+        "test": "jest --watchAll=false --coverage --coverageDirectory=coverage",
+        "test:watch": "jest --watchAll=true --coverage --coverageDirectory=coverage",
         "prepare": "npm run build"
     },
     "dependencies": {
@@ -56,19 +58,7 @@
         "react": ">=16.8 || ^17.0.0",
         "react-dom": ">=16.8 || ^17.0.0",
         "react-i18next": "^11.15.3",
+        "react-router-dom": "^6.2.1",
         "react-use": "^17.3.2"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {}
+    }
 }
