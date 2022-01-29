@@ -1,6 +1,6 @@
 {
 	"extends": [
-		"react-app", 
+		"react-app",
 		"plugin:@typescript-eslint/recommended"
 	],
 	"rules": {
@@ -15,5 +15,6 @@
         "@typescript-eslint/quotes": ["error", "double"],
         "@typescript-eslint/semi": ["error", "always"],
 		"@typescript-eslint/brace-style": ["error", "allman", { "allowSingleLine": true }]
-	}
+	},
+	"ignorePatterns": ["build", "coverage"]
 }

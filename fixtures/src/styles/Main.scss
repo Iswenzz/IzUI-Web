@@ -1,0 +1,7 @@
+@import "~izui-react/styles/Main.scss";
+
+body, html {
+	@include darkMode {
+		background-color: red !important;
+	}
+}
