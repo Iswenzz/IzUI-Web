@@ -2,9 +2,9 @@
 @use "sass:list";
 @use "sass:map";
 
-@import "~styles/Baseline";
-@import "~styles/Fonts";
-@import "~styles/Markdown";
-@import "~styles/Responsive";
-@import "~styles/Transitions";
-@import "~styles/Themes";
+@import "./Baseline";
+@import "./Fonts";
+@import "./Markdown";
+@import "./Responsive";
+@import "./Transitions";
+@import "./Themes";

@@ -28,7 +28,7 @@ export const highlight = (content: string, language: string) =>
  * @param options - The markdown render options.
  * @returns
  */
-const markdown = (content: string, options?: Options) =>
+export const markdown = (content: string, options?: Options) =>
 {
 	const markdownIt: MarkdownIt = MarkdownIt({
 		html: true,
@@ -42,5 +42,3 @@ const markdown = (content: string, options?: Options) =>
 	});
 	return markdownIt.render(content);
 };
-
-export default markdown;

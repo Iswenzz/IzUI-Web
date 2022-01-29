@@ -1,6 +1,5 @@
 import { Theme } from "@mui/material";
 
-import Themes from "./Themes";
 import DarkTheme from "./app/Dark/Dark";
 import LightTheme from "./app/Light/Light";
 
@@ -26,8 +25,9 @@ export const registerTheme = (name: string, theme: Theme) => registredThemes = {
 	[name]: theme
 };
 
+export { default as Themes } from "./Themes";
+
 export {
-	Themes,
 	DarkTheme,
 	LightTheme
 };

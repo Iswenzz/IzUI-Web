@@ -1,9 +1,9 @@
-@import "~styles/Themes";
+@import "./Themes";
 
-@import "~styles/Highlights/AtomOneDark";
-@import "~styles/Highlights/AtomOneLight";
-@import "~styles/Highlights/NightOwl";
-@import "~styles/Highlights/VS2015";
+@import "./Highlights/AtomOneDark";
+@import "./Highlights/AtomOneLight";
+@import "./Highlights/NightOwl";
+@import "./Highlights/VS2015";
 
 .markdown {
 	@include darkMode {

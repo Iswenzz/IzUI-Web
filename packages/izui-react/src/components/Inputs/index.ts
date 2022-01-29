@@ -1,10 +1,5 @@
-import ButtonLink from "./ButtonLink/ButtonLink";
-import Link from "./Link/Link";
-
+export { default as ButtonLink } from "./ButtonLink/ButtonLink";
 export * from "./ButtonLink/ButtonLink";
-export * from "./Link/Link";
 
-export {
-	ButtonLink,
-	Link,
-};
+export { default as Link } from "./Link/Link";
+export * from "./Link/Link";

@@ -32,7 +32,7 @@ module.exports = () =>
 
 	return {
 		mode: argv.mode,
-		devtool: "eval-source-map",
+		devtool: "source-map",
 		externals: Object.keys(packageJson.peerDependencies),
 		entry: {
 			index: "./src/index.ts",
@@ -79,12 +79,16 @@ module.exports = () =>
 					use: "ts-loader",
 				},
 				{	// file loader
-					test: /\.(png|jpe?g|gif|svg|webp)$/,
-					use: "file-loader"
+					test: /\.(png|jpe?g|gif|webp)$/,
+					type: "asset"
 				},
 				{	// font loader
 					test: /\.(woff|woff2|eot|ttf|otf)$/,
-					use: "file-loader"
+					type: "asset"
+				},
+				{	// svg inline loader
+					test: /\.(svg)$/,
+					type: "asset/inline"
 				},
 				{	// css & sass & postcss loader
 					test: /\.(s[ac]ss|css)$/i,
@@ -107,7 +111,6 @@ module.exports = () =>
 		},
 		performance: {
 			hints: false
-		},
-		ignoreWarnings: [/Failed to parse source map/],
+		}
 	};
 };
