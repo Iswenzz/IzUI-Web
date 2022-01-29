@@ -1,7 +1,7 @@
 const path = require("path");
 const tsConfigPaths = require("./tsconfig.paths.json");
 const StylelintPlugin = require("stylelint-webpack-plugin");
-const createWebpackAliasesFromTSConfig = require("../scripts/createAliases");
+const { createWebpackAliasesFromTSConfig } = require("../scripts/createAliases");
 
 const {
 	override,

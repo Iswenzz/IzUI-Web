@@ -7,8 +7,16 @@
 	],
 	"scripts": {
 		"build": "yarn workspace izui-react build",
-		"build:fixtures": "yarn workspace fixtures build",
-		"start:fixtures": "yarn workspace fixtures start"
+		"build:fixtures": "yarn workspace izui-react-fixtures build",
+		"doc": "yarn workspace izui-react doc",
+		"lint:scss": "yarn workspace izui-react lint:scss",
+		"lint:scss:fix": "yarn workspace izui-react lint:scss:fix",
+		"lint:ts": "yarn workspace izui-react lint:ts",
+		"lint:ts:fix": "yarn workspace izui-react lint:ts:fix",
+		"prepublishOnly": "npm run build",
+		"start": "yarn workspace izui-react-fixtures start",
+		"test": "yarn workspace izui-react test",
+		"test:watch": "yarn workspace izui-react test:watch"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.16.12",

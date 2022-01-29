@@ -8,7 +8,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
-const createWebpackAliasesFromTSConfig = require("../../scripts/createAliases");
+const { createWebpackAliasesFromTSConfig } = require("../../scripts/createAliases");
 const packageJson = require("./package.json");
 const tsConfigPaths = require("./tsconfig.paths.json");
 
@@ -73,7 +73,7 @@ module.exports = () =>
 					use: "ts-loader"
 				},
 				{	// file loader
-					test: /\.(png|jpe?g|gif|webp)$/,
+					test: /\.(png|jpg|gif|webp)$/,
 					type: "asset"
 				},
 				{	// font loader

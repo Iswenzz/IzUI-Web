@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "main": "src/index.ts",
-	"types": "src/izui-react.d.ts",
+    "types": "src/izui-react.d.ts",
     "scripts": {
         "build": "node scripts/build",
         "doc": "jsdoc",
@@ -11,9 +11,9 @@
         "lint:scss:fix": "stylelint **/*.scss --fix",
         "lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
         "lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
+        "prepublishOnly": "npm run build",
         "test": "jest --watchAll=false --coverage --coverageDirectory=coverage",
-        "test:watch": "jest --watchAll=true --coverage --coverageDirectory=coverage",
-        "prepublishOnly": "npm run build"
+        "test:watch": "jest --watchAll=true --coverage --coverageDirectory=coverage"
     },
     "dependencies": {
         "@fortawesome/react-fontawesome": "^0.1.16",
