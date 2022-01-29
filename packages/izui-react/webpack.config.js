@@ -67,24 +67,24 @@ module.exports = () =>
 			new ESLintPlugin({
 				extensions: ["js", "jsx", "ts", "tsx"]
 			}),
-			new ForkTsCheckerWebpackPlugin({
-				typescript: {
-					mode: "write-references"
-				}
+			new CopyPlugin({
+				patterns: [
+					{ from: "src/types", to: "types" },
+					{ from: "src/izui-react.d.ts" },
+				],
 			}),
-			// new CopyPlugin({
-			// 	patterns: [
-			// 		{ from: "src/types", to: "types" },
-			// 		{ from: "src/izui-react.d.ts", to: "index.d.ts" },
-			// 	],
-			// }),
 		],
 		module: {
 			rules: [
 				{	// typescript babel
 					test: /\.(tsx?)$/,
 					exclude: /(node_modules|dist)/,
-					use: "babel-loader",
+					use: "babel-loader"
+				},
+				{	// typescript definitions
+					test: /\.(tsx?)$/,
+					exclude: /(node_modules|dist)/,
+					use: "ts-loader"
 				},
 				{	// file loader
 					test: /\.(png|jpe?g|gif|webp)$/,
@@ -107,8 +107,8 @@ module.exports = () =>
 							options: {
 								modules: {
 									mode: "local",
-									localIdentName: "[local]--[hash:base64:5]",
-								},
+									localIdentName: "[local]--[hash:base64:5]"
+								}
 							}
 						},
 						"postcss-loader",
