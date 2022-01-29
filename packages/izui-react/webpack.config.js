@@ -27,8 +27,8 @@ module.exports = () =>
 			index: "./src/index.ts",
 		},
 		output: {
-			filename: "[name].js",
-			path: path.resolve(__dirname, "build"),
+			filename: "index.js",
+			path: path.resolve(__dirname, "build/dist"),
 			library: {
 				type: "umd"
 			}
@@ -41,9 +41,7 @@ module.exports = () =>
 			}
 		},
 		plugins: [
-			new CleanWebpackPlugin({
-				cleanStaleWebpackAssets: false,
-			}),
+			new CleanWebpackPlugin(),
 			new MiniCssExtractPlugin({
 				filename: "[name].css",
 				chunkFilename: "[id].css",
@@ -56,6 +54,7 @@ module.exports = () =>
 			}),
 			new CopyPlugin({
 				patterns: [
+					{ from: "src", to: "../src" },
 					{ from: "src/types", to: "types" },
 					{ from: "src/izui-react.d.ts" },
 				],
