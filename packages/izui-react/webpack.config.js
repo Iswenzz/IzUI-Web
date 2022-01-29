@@ -3,9 +3,11 @@ const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 
 const ESLintPlugin = require("eslint-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const StylelintPlugin = require("stylelint-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const packageJson = require("./package.json");
 const tsConfigPaths = require("./tsconfig.paths.json");
@@ -64,7 +66,18 @@ module.exports = () =>
 			}),
 			new ESLintPlugin({
 				extensions: ["js", "jsx", "ts", "tsx"]
-			})
+			}),
+			new ForkTsCheckerWebpackPlugin({
+				typescript: {
+					mode: "write-references"
+				}
+			}),
+			// new CopyPlugin({
+			// 	patterns: [
+			// 		{ from: "src/types", to: "types" },
+			// 		{ from: "src/izui-react.d.ts", to: "index.d.ts" },
+			// 	],
+			// }),
 		],
 		module: {
 			rules: [
@@ -72,11 +85,6 @@ module.exports = () =>
 					test: /\.(tsx?)$/,
 					exclude: /(node_modules|dist)/,
 					use: "babel-loader",
-				},
-				{	// typescript definitions
-					test: /\.(tsx?)$/,
-					exclude: /(node_modules|dist)/,
-					use: "ts-loader",
 				},
 				{	// file loader
 					test: /\.(png|jpe?g|gif|webp)$/,

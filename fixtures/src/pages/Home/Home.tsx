@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { Flip, HintDrag, Parallax } from "izui-react";
 
+const a: Nullable<number> = 0;
+
 /**
  * Home page.
  * @returns
