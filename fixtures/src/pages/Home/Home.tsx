@@ -9,7 +9,7 @@ const Home: FC = () => (
 	<section>
 		<HintDrag />
 		<Flip front={1} back={2} />
-		<Parallax spacingTop="100px" />
+		<Parallax />
 	</section>
 );
 

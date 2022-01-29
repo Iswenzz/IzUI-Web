@@ -1,32 +1,27 @@
 const path = require("path");
-const paths = require("react-scripts/config/paths");
 const tsConfigPaths = require("./tsconfig.paths.json");
 const StylelintPlugin = require("stylelint-webpack-plugin");
+const createWebpackAliasesFromTSConfig = require("../scripts/createAliases");
 
 const {
 	override,
 	overrideDevServer,
 	watchAll,
 	addWebpackAlias,
-	addWebpackPlugin
+	addWebpackPlugin,
+	babelInclude,
 } = require("customize-cra");
 
-const createWebpackAliasesFromTSConfig = () =>
-{
-	const aliasPaths = tsConfigPaths.compilerOptions.paths;
-	return Object.keys(aliasPaths).reduce((alias, currentPath) =>
-	{
-		const value = aliasPaths[currentPath];
-		const target = Array.isArray(value) ? value[0] : value;
-
-		alias[currentPath.replace(/\/\*$/, "")] = path.resolve(paths.appPath, target.replace(/\/\*$/, ""));
-		return alias;
-	}, {});
-};
-
 module.exports.webpack = override(
-	addWebpackAlias(createWebpackAliasesFromTSConfig()),
-	addWebpackPlugin(new StylelintPlugin({ configPaths: ".stylelintrc" }))
+	addWebpackAlias({
+		...createWebpackAliasesFromTSConfig(tsConfigPaths),
+		"react/jsx-runtime": require.resolve("react/jsx-runtime")
+	}),
+	addWebpackPlugin(new StylelintPlugin({ configPaths: ".stylelintrc" })),
+	babelInclude([
+		path.resolve("src"),
+		path.resolve("../packages/izui-react/src")
+	])
 );
 
 module.exports.devServer = overrideDevServer(

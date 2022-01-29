@@ -22,5 +22,5 @@
         "@typescript-eslint/semi": ["error", "always"],
 		"@typescript-eslint/brace-style": ["error", "allman", { "allowSingleLine": true }]
 	},
-	"ignorePatterns": ["build", "coverage"]
+	"ignorePatterns": ["node_modules", "build", "coverage"]
 }

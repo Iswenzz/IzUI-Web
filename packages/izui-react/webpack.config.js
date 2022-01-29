@@ -3,27 +3,14 @@ const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 
 const ESLintPlugin = require("eslint-webpack-plugin");
-const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const StylelintPlugin = require("stylelint-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
+const createWebpackAliasesFromTSConfig = require("../../scripts/createAliases");
 const packageJson = require("./package.json");
 const tsConfigPaths = require("./tsconfig.paths.json");
-
-const createWebpackAliasesFromTSConfig = () =>
-{
-	const aliasPaths = tsConfigPaths.compilerOptions.paths;
-	return Object.keys(aliasPaths).reduce((alias, currentPath) =>
-	{
-		const value = aliasPaths[currentPath];
-		const target = Array.isArray(value) ? value[0] : value;
-
-		alias[currentPath.replace(/\/\*$/, "")] = path.resolve(__dirname, target.replace(/\/\*$/, ""));
-		return alias;
-	}, {});
-};
 
 module.exports = () =>
 {
@@ -50,7 +37,7 @@ module.exports = () =>
 			extensions: ["*", ".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".json"],
 			alias: {
 				"react/jsx-runtime": require.resolve("react/jsx-runtime"),
-				...createWebpackAliasesFromTSConfig()
+				...createWebpackAliasesFromTSConfig(tsConfigPaths)
 			}
 		},
 		plugins: [

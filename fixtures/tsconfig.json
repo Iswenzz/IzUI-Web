@@ -21,6 +21,9 @@
 		"noEmit": true,
 		"jsx": "react-jsx",
 	},
-	"include": ["src"],
-	"exclude": ["build", "coverage", "**/__test__/**/*.{js,jsx,ts,tsx}"]
+	"include": [
+		"src",
+		"../packages/izui-react/src"
+	],
+	"exclude": ["**/__test__/**/*.{js,jsx,ts,tsx}"]
 }

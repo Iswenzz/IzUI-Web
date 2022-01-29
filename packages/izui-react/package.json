@@ -2,14 +2,13 @@
     "name": "izui-react",
     "version": "1.0.0",
     "private": true,
-    "main": "build/index.js",
-    "types": "build/izui-react.d.ts",
+    "main": "src/index.ts",
     "files": [
         "src",
         "build"
     ],
     "scripts": {
-        "build": "yarn webpack --progress",
+        "build": "node ../../scripts/build",
         "doc": "jsdoc",
         "lint:scss": "stylelint **/*.{scss,css}",
         "lint:scss:fix": "stylelint **/*.scss --fix",

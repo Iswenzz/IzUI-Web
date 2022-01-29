@@ -2,12 +2,29 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"izui-react/styles/*": ["../node_modules/izui-react/src/styles/*"],
-			"assets/*": ["src/assets/*"],
-			"styles/*": ["src/styles/*"],
-			"utils/*": ["src/utils/*"],
-			"components": ["src/components"],
-			"pages": ["src/pages"]
+			"assets/*": [
+				"src/assets/*",
+				"../packages/izui-react/src/assets/*"
+			],
+			"styles/*": [
+				"src/styles/*",
+				"../packages/izui-react/src/styles/*"
+			],
+			"utils/*": [
+				"src/utils/*",
+				"../packages/izui-react/src/utils/*"
+			],
+			"test/*": [
+				"src/__test__/*",
+				"../packages/izui-react/src/__test__/*"
+			],
+			"pages": [
+				"src/pages"
+			],
+			"components": [
+				"src/components",
+				"../packages/izui-react/src/components"
+			]
 		}
 	}
 }
