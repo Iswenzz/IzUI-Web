@@ -18,6 +18,9 @@
 				"src/__test__/*",
 				"../packages/izui-react/src/__test__/*"
 			],
+			"router/*": [
+				"src/router/*"
+			],
 			"pages": [
 				"src/pages"
 			],

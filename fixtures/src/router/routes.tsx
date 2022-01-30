@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
-import { Home } from "../pages";
+import { Home } from "pages";
+import { Layout } from "router/components";
 
 /**
  * App router.
@@ -9,7 +10,9 @@ import { Home } from "../pages";
 const Router: FC = () => (
 	<BrowserRouter>
 		<Routes>
-			<Route path="/" element={<Home />} />
+			<Route path="/" element={<Layout />}>
+				<Route path="/" element={<Home />} />
+			</Route>
 		</Routes>
 	</BrowserRouter>
 );
