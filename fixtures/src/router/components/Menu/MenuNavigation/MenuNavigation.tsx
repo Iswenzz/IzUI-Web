@@ -1,13 +1,15 @@
 import { FC } from "react";
-import { Divider, List, ListItem, ListItemText, Toolbar } from "@mui/material";
+import { Divider, List, ListItem, ListItemText } from "@mui/material";
+
+import MenuToolbar from "../MenuToolbar/MenuToolbar";
 
 /**
- * The documentation drawer.
+ * The drawer navigation.
  * @returns
  */
-const DrawerContent: FC = () => (
-	<div>
-		<Toolbar />
+const MenuNavigation: FC = () => (
+	<section>
+		<MenuToolbar />
 		<Divider />
 		<List>
 			{["Inbox", "Starred", "Send email", "Drafts"].map(text => (
@@ -24,7 +26,7 @@ const DrawerContent: FC = () => (
 				</ListItem>
 			))}
 		</List>
-	</div>
+	</section>
 );
 
-export default DrawerContent;
+export default MenuNavigation;

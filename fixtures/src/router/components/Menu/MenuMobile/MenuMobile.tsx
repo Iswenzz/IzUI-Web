@@ -1,17 +1,19 @@
 import { FC } from "react";
-import { Drawer } from "@mui/material";
+import { Box, Drawer } from "@mui/material";
 
-import { Navigation } from "router/components";
-import { drawerSx } from "./config";
+import { MenuNavigation } from "router/components";
+import { boxSx, drawerSx } from "./config";
 
 /**
  * Mobile documentation menu.
  */
 const MenuMobile: FC<Props> = ({ handleDrawerToggle, drawerOpen }) => (
-	<Drawer variant="temporary" open={drawerOpen} onClose={handleDrawerToggle}
-		ModalProps={{ keepMounted: true }} sx={drawerSx}>
-		<Navigation />
-	</Drawer>
+	<Box component="nav" sx={boxSx}>
+		<Drawer variant="temporary" open={drawerOpen} onClose={handleDrawerToggle}
+			ModalProps={{ keepMounted: true }} sx={drawerSx}>
+			<MenuNavigation />
+		</Drawer>
+	</Box>
 );
 
 type Props = {

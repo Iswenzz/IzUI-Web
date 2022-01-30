@@ -1,8 +1,8 @@
 import { FC, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 
-import { Menu, NavigationToolbar } from "router/components";
+import { Menu, LayoutToolbar } from "router/components";
 import { boxSx } from "./config";
 
 /**
@@ -20,10 +20,11 @@ const Layout: FC = () =>
 	const handleDrawerToggle = () => setDrawerOpen(!drawerOpen);
 
 	return (
-		<Box sx={{ display: "flex" }}>
+		<Box display={"flex"}>
 			<Menu handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} />
 			<Box component="main" sx={boxSx}>
-				<NavigationToolbar />
+				<LayoutToolbar handleDrawerToggle={handleDrawerToggle} />
+				<Toolbar />
 				<Outlet />
 			</Box>
 		</Box>

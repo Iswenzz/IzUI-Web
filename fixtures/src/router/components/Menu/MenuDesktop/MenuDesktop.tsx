@@ -1,16 +1,18 @@
 import { FC } from "react";
-import { Drawer } from "@mui/material";
+import { Box, Drawer } from "@mui/material";
 
-import { Navigation } from "router/components";
-import { drawerSx } from "./config";
+import { MenuNavigation } from "router/components";
+import { boxSx, drawerSx } from "./config";
 
 /**
  * Desktop documentation menu.
  */
 const MenuDesktop: FC = () => (
-	<Drawer variant="permanent" sx={drawerSx} open>
-		<Navigation />
-	</Drawer>
+	<Box component="nav" sx={boxSx}>
+		<Drawer variant="permanent" sx={drawerSx} open>
+			<MenuNavigation />
+		</Drawer>
+	</Box>
 );
 
 export default MenuDesktop;
