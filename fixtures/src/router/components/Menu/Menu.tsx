@@ -7,14 +7,17 @@ import MenuMobile from "./MenuMobile/MenuMobile";
 /**
  * Responsive documentation menu.
  */
-const Menu: FC<Props> = ({ handleDrawerToggle, drawerOpen }) => useResponsive({
-	desktop: <MenuDesktop />,
-	mobile: <MenuMobile handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} />
+const Menu: FC<Props> = ({ handleDrawerToggle, drawerOpen, desktopOpen = false }) => useResponsive({
+	desktop: <MenuDesktop handleDrawerToggle={handleDrawerToggle}
+		drawerOpen={drawerOpen || desktopOpen} desktopOpen={desktopOpen}  />,
+	mobile: <MenuMobile handleDrawerToggle={handleDrawerToggle}
+		drawerOpen={drawerOpen} />
 });
 
 type Props = {
-	handleDrawerToggle: () => void,
-	drawerOpen: boolean
+	handleDrawerToggle: (state: boolean) => void,
+	drawerOpen: boolean,
+	desktopOpen?: boolean
 };
 
 export default Menu;

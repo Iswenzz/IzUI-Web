@@ -7,3 +7,4 @@ export * from "./elements";
 export * from "./events";
 export * from "./markdown";
 export * from "./misc";
+export * from "./router";

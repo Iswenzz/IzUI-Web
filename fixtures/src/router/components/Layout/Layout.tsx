@@ -1,12 +1,11 @@
 import { FC, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Box, Toolbar } from "@mui/material";
+import { Toolbar } from "@mui/material";
 
-import { Menu, LayoutToolbar } from "router/components";
-import { boxSx } from "./config";
+import { LayoutToolbar, Menu } from "router/components";
 
 /**
- * The navigation layout.
+ * The page layout.
  * @returns
  */
 const Layout: FC = () =>
@@ -20,14 +19,12 @@ const Layout: FC = () =>
 	const handleDrawerToggle = () => setDrawerOpen(!drawerOpen);
 
 	return (
-		<Box display={"flex"}>
+		<>
 			<Menu handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} />
-			<Box component="main" sx={boxSx}>
-				<LayoutToolbar handleDrawerToggle={handleDrawerToggle} />
-				<Toolbar />
-				<Outlet />
-			</Box>
-		</Box>
+			<LayoutToolbar handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} />
+			<Toolbar />
+			<Outlet />
+		</>
 	);
 };
 

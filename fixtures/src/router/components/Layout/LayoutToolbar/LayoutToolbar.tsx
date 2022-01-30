@@ -1,32 +1,34 @@
 import { FC } from "react";
-import { AppBar, IconButton, Toolbar } from "@mui/material";
-import { Text } from "izui-react";
+import { AppBar, Grid, IconButton, SxProps, Toolbar } from "@mui/material";
 
-import { appBarSx, iconButtonSx } from "./config";
+import LayoutNavigation from "../LayoutNavigation/LayoutNavigation";
+import { iconButtonSx } from "./config";
 
 /**
  * Layout toolbar.
  */
-const LayoutToolbar: FC<Props> = ({ children, handleDrawerToggle }) => (
-	<AppBar component="section" position="fixed" sx={appBarSx}>
+const LayoutToolbar: FC<Props> = ({ children, handleDrawerToggle, drawerOpen, sx }) => (
+	<AppBar component="section" position="fixed" sx={sx}>
 		<Toolbar>
 			<IconButton
 				color="inherit"
 				aria-label="open drawer"
 				edge="start"
-				onClick={handleDrawerToggle}
+				onClick={() => handleDrawerToggle(!drawerOpen)}
 				sx={iconButtonSx}
 			/>
-			<Text variant="h6" noWrap component="div">
-				Responsive drawer
-			</Text>
-			{children}
+			<Grid container component={"ul"} justifyContent={"flex-end"} alignItems={"center"}>
+				<LayoutNavigation />
+				{children}
+			</Grid>
 		</Toolbar>
 	</AppBar>
 );
 
 type Props = {
-	handleDrawerToggle: () => void
+	handleDrawerToggle: (state: boolean) => void,
+	drawerOpen: boolean,
+	sx?: SxProps
 };
 
 export default LayoutToolbar;
