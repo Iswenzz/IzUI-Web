@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
-import { Home, Flip, Installation } from "pages";
+import { Home, Installation, Flip, SpringGrid } from "pages";
 import { Layout, LayoutDocumentation } from "router/components";
 
 /**
@@ -17,7 +17,8 @@ const Router: FC = () => (
 				<Route path="/start/installation" element={<Installation />} />
 			</Route>
 			<Route path="/components" element={<LayoutDocumentation />}>
-				<Route path="/components/flip" element={<Flip />} />
+				<Route path="/components/Flip" element={<Flip />} />
+				<Route path="/components/SpringGrid" element={<SpringGrid />} />
 			</Route>
 		</Routes>
 	</BrowserRouter>
