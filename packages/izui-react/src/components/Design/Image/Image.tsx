@@ -1,15 +1,15 @@
 import { FC } from "react";
-import LazyLoad, { LazyLoadProps } from "react-lazyload";
+import classNames from "classnames";
+
+import scss from "./Image.module.scss";
 
 /**
- * Lazy loaded component for images.
+ * Component for images.
  */
-const Image: FC<ImageProps> = ({ once, height, offset, overflow, alt = "", ...rest }) => (
-	<LazyLoad once={once} height={height} offset={offset} overflow={overflow}>
-		<img alt={alt} {...rest} height={height} />
-	</LazyLoad>
+const Image: FC<ImageProps> = ({ className, height, alt = "", ...rest }) => (
+	<img className={classNames(scss.image, className)} alt={alt} {...rest} height={height} />
 );
 
-export type ImageProps = LazyLoadProps & React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
+export type ImageProps = React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
 
 export default Image;
