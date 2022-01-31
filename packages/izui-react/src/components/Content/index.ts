@@ -20,6 +20,9 @@ export * from "./IFrame/IFrame";
 export { default as Jumbotron } from "./Jumbotron/Jumbotron";
 export * from "./Jumbotron/Jumbotron";
 
+export { default as Markdown } from "./Markdown/Markdown";
+export * from "./Markdown/Markdown";
+
 export { default as Paper } from "./Paper/Paper";
 export * from "./Paper/Paper";
 

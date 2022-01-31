@@ -7,6 +7,9 @@ export * from "./useCancellablePromises";
 export { default as useDoubleClick } from "./useDoubleClick";
 export * from "./useDoubleClick";
 
+export { default as useFile } from "./useFile";
+export * from "./useFile";
+
 export { default as usePortrait } from "./usePortrait";
 export * from "./usePortrait";
 
