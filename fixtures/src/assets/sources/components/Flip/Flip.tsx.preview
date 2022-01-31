@@ -1,0 +1,4 @@
+<Flip
+	front={<Image src={nature1} />}
+	back={<Image src={nature2} />}
+/>

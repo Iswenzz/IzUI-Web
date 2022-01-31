@@ -25,5 +25,5 @@
 		"src",
 		"../packages/izui-react/src"
 	],
-	"exclude": ["**/__test__/**/*.{js,jsx,ts,tsx}"]
+	"exclude": ["**/__test__/**/*.{js,jsx,ts,tsx}", "src/assets/sources"]
 }
