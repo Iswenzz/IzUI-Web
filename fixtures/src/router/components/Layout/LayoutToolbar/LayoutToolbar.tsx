@@ -4,11 +4,13 @@ import { AppBar, Grid, IconButton, SxProps, Toolbar } from "@mui/material";
 import LayoutNavigation from "../LayoutNavigation/LayoutNavigation";
 import { iconButtonSx } from "./config";
 
+import scss from "./LayoutToolbar.module.scss";
+
 /**
  * Layout toolbar.
  */
 const LayoutToolbar: FC<Props> = ({ children, handleDrawerToggle, drawerOpen, sx }) => (
-	<AppBar component="section" position="fixed" sx={sx}>
+	<AppBar className={scss.appBar} color="transparent" component="section" position="fixed" sx={sx}>
 		<Toolbar>
 			<IconButton
 				color="inherit"

@@ -29,7 +29,7 @@ const DarkTheme = responsiveFontSizes(createTheme({
 				body: {
 					scrollbarWidth: "thin",
 					scrollbarColor: "#3a3d41 #23272a",
-					backgroundColor: "black",
+					backgroundColor: "#111",
 				},
 				"::-webkit-scrollbar": {
 					width: "12px"
