@@ -7,6 +7,7 @@ import scss from "./SideMenu.module.scss";
  */
 const SideMenu: FC<Props> = ({ sections = [] }) =>
 {
+	console.log(sections);
 	return (
 		<h1>{sections}</h1>
 	);

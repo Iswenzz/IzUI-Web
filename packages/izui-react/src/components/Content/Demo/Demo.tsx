@@ -16,10 +16,10 @@ import scss from "./Demo.module.scss";
 const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 {
 	if (!children) return null;
-	const { previews = [], title, description, sandboxUrl, additionalComponent } = demo;
+	const { previews = [], title = "", description = "", sandboxUrl, additionalComponent } = demo;
 
 	const [codeCollapse, setCodeCollapse] = useState<boolean>(false);
-	const [iframeKey, setIframeKey] = useState(title);
+	const [iframeKey, setIframeKey] = useState(title || uuidv4());
 	const [tabIndex, setTabIndex] = useState(0);
 
 	/**
@@ -35,12 +35,12 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 	const handleTabChange = (_: React.SyntheticEvent<Element, Event>, value: number) => setTabIndex(value);
 
 	const View: FC = useMemo(() => ({ children }) => iframe
-		? <IFrame size={{ width: 820, height: 450 }} title={title} key={iframeKey}>{children}</IFrame>
+		? <IFrame key={iframeKey} size={{ width: 820, height: 450 }} title={iframeKey}>{children}</IFrame>
 		: <Fragment>{children}</Fragment>, [iframe, iframeKey, children]);
 
 	return (
 		<Grid container component={"article"} justifyContent={"flex-start"} alignItems={"center"} direction={"column"}>
-			<Text variant="h4" id={title}>{title}</Text>
+			<Text variant="h4" id={title || uuidv4()}>{title}</Text>
 			<Divider className={scss.divider} />
 			<Text className={scss.description} variant="subtitle1">{description}</Text>
 
@@ -102,8 +102,8 @@ export type DemoPreview = {
 };
 
 export type DemoSource = {
-	title: string,
-	description: string,
+	title?: string,
+	description?: string,
 	sandboxUrl?: string,
 	previews?: DemoPreview[],
 	iframe?: boolean,

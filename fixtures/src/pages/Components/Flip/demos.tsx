@@ -4,7 +4,7 @@ import Flip from "assets/sources/components/Flip/Flip";
 import TS_Flip from "assets/sources/components/Flip/Flip.tsx.preview";
 
 const demos: DemoSources = {
-	sections: [],
+	sections: ["Flip"],
 	sources: [
 		{
 			title: "Flip",
