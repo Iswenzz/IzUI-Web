@@ -15,12 +15,12 @@ import scss from "./Demo.module.scss";
  */
 const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 {
-	const { previews = [], title, description, sandboxUrl } = demo;
+	if (!children) return null;
+	const { previews = [], title, description, sandboxUrl, additionalComponent } = demo;
 
 	const [codeCollapse, setCodeCollapse] = useState<boolean>(false);
 	const [iframeKey, setIframeKey] = useState(title);
 	const [tabIndex, setTabIndex] = useState(0);
-	console.log(iframeKey);
 
 	/**
 	 * Reload the IFrame.
@@ -40,7 +40,7 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 
 	return (
 		<Grid container component={"article"} justifyContent={"flex-start"} alignItems={"center"} direction={"column"}>
-			<Text variant="h4">{title}</Text>
+			<Text variant="h4" id={title}>{title}</Text>
 			<Divider className={scss.divider} />
 			<Text className={scss.description} variant="subtitle1">{description}</Text>
 
@@ -82,12 +82,14 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 				</Tabs>
 				<DemoCode key={previews[tabIndex].label} preview={previews[tabIndex]} />
 			</Collapse>
+
+			{additionalComponent}
 		</Grid>
 	);
 };
 
 type Props = {
-	children: React.ReactElement,
+	children?: React.ReactElement,
 	demo: DemoSource,
 	iframe?: boolean
 };
@@ -104,6 +106,14 @@ export type DemoSource = {
 	description: string,
 	sandboxUrl?: string,
 	previews?: DemoPreview[],
+	iframe?: boolean,
+	render?: React.ReactElement,
+	additionalComponent?: React.ReactElement
+};
+
+export type DemoSources = {
+	sections?: string[],
+	sources: DemoSource[]
 };
 
 export default memo(Demo);

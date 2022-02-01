@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Box, Container, Toolbar } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 
 import { Menu, LayoutToolbar } from "router/components";
 import { appBarSx, boxSx } from "./config";
@@ -25,9 +25,7 @@ const LayoutDocumentation: FC = () =>
 			<Box component="main" sx={boxSx}>
 				<LayoutToolbar handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} sx={appBarSx} />
 				<Toolbar />
-				<Container maxWidth="md">
-					<Outlet />
-				</Container>
+				<Outlet />
 			</Box>
 		</Box>
 	);

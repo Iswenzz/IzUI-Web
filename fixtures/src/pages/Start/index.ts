@@ -1,4 +1,8 @@
+import { Route } from "router/components";
+
 export { default as Installation } from "./Installation";
 export * from "./Installation";
 
-export { default as StartConfig } from "./config.json";
+export const startConfig: Route[] = [
+	{ "route": "/start/installation", "name": "Installation" }
+];

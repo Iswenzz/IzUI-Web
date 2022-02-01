@@ -5,7 +5,7 @@ import { Divider } from "@mui/material";
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ArticleIcon from "@mui/icons-material/Article";
 
-import { StartConfig, ComponentsConfig } from "pages";
+import { componentsConfig, startConfig } from "pages";
 
 import MenuToolbar from "../MenuToolbar/MenuToolbar";
 import MenuCollapse from "../MenuCollapse/MenuCollapse";
@@ -27,12 +27,12 @@ const MenuNavigation: FC<Props> = ({ handleDrawerToggle }) =>
 			<Divider />
 			<MenuCollapse title={"Getting Started"} icon={<ArticleIcon />}
 				open={locationStartWith(location, "/start")}>
-				{buildCollapse(StartConfig.pages, "/start", handleClose)}
+				{buildCollapse(startConfig, handleClose)}
 			</MenuCollapse>
 			<Divider />
 			<MenuCollapse title={"Components"} icon={<ToggleOffIcon />}
 				open={locationStartWith(location, "/components")}>
-				{buildCollapse(ComponentsConfig.pages, "/components", handleClose)}
+				{buildCollapse(componentsConfig, handleClose)}
 			</MenuCollapse>
 		</section>
 	);

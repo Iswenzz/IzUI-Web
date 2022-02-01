@@ -1,0 +1,38 @@
+import { FC } from "react";
+import { Outlet } from "react-router-dom";
+import { Container, Grid } from "@mui/material";
+import { useResponsive } from "izui-react";
+
+import { SideMenu } from "router/components";
+
+/**
+ * Render the documentation.
+ */
+const Documentation: FC<Props> = ({ children, sections }) =>
+{
+	const size = useResponsive({
+		desktopAndPortrait: { page: 10, side: 2 },
+		mobile: { page: 10, side: 0 }
+	});
+
+	return (
+		<Grid container>
+			<Grid item xs={size.page}>
+				<Container maxWidth="md">
+					{children}
+				</Container>
+			</Grid>
+			{size.side > 0 && (
+				<Grid item xs={size.side}>
+					<SideMenu sections={sections} />
+				</Grid>
+			)}
+		</Grid>
+	);
+};
+
+type Props = {
+	sections?: string[]
+};
+
+export default Documentation;
