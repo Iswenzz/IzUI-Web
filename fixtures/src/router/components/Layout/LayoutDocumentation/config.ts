@@ -9,7 +9,7 @@ export const appBarSx: SxProps = {
 
 export const boxSx: SxProps = {
 	flexGrow: 1,
-	p: 3,
+	py: 3,
 	width: {
 		md: `calc(100% - ${drawerWidth}px)`
 	}

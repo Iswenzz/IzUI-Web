@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export { default as Documentation } from "./Documentation/Documentation";
 export * from "./Documentation/Documentation";
 
@@ -21,4 +23,8 @@ export * from "./config";
 export type Route = {
 	route: string,
 	name: string
+};
+
+export type RouteComponent = Route & {
+	component: ReactElement
 };

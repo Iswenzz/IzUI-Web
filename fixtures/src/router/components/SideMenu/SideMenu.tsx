@@ -1,4 +1,5 @@
-import { FC } from "react";
+import { FC, useState } from "react";
+import { Tab, Tabs } from "@mui/material";
 
 import scss from "./SideMenu.module.scss";
 
@@ -7,9 +8,20 @@ import scss from "./SideMenu.module.scss";
  */
 const SideMenu: FC<Props> = ({ sections = [] }) =>
 {
-	console.log(sections);
+	const [tabIndex, setTabIndex] = useState(0);
+
+	/**
+	 * Handle tab index change.
+	 * @param value - The tab index.
+	 * @returns
+	 */
+	const handleTabChange = (_: React.SyntheticEvent<Element, Event>, value: number) => setTabIndex(value);
+
 	return (
-		<h1>{sections}</h1>
+		<Tabs className={scss.menu} orientation="vertical" value={tabIndex} onChange={handleTabChange}
+			textColor="secondary" indicatorColor="secondary" variant="scrollable">
+			{sections.map(section => <Tab href={`#${section}`} label={section} />)}
+		</Tabs>
 	);
 };
 

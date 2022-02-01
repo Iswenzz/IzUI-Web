@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Box, Toolbar } from "@mui/material";
+import { Box, Grid, Toolbar } from "@mui/material";
 
 import { Menu, LayoutToolbar } from "router/components";
 import { appBarSx, boxSx } from "./config";
@@ -22,11 +22,11 @@ const LayoutDocumentation: FC = () =>
 	return (
 		<Box display={"flex"}>
 			<Menu handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} desktopOpen />
-			<Box component="main" sx={boxSx}>
+			<Grid container component="main" sx={boxSx}>
 				<LayoutToolbar handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} sx={appBarSx} />
 				<Toolbar />
 				<Outlet />
-			</Box>
+			</Grid>
 		</Box>
 	);
 };

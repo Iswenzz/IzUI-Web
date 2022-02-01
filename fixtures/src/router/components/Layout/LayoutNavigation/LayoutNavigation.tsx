@@ -1,7 +1,8 @@
-import { Button } from "@mui/material";
-import { Text } from "izui-react";
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import ArticleIcon from "@mui/icons-material/Article";
+import { Text } from "izui-react";
 
 /**
  * Layout toolbar navigation.
@@ -10,7 +11,7 @@ const LayoutNavigation: FC = () => (
 	<>
 		<li>
 			<Link className="nolink" to={"/start/installation"}>
-				<Button size="large" color="inherit">
+				<Button size="large" color="secondary" startIcon={<ArticleIcon />}>
 					<Text color="textPrimary">Documentation</Text>
 				</Button>
 			</Link>

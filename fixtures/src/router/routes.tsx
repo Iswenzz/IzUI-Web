@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
-import { Home, Installation, componentsConfig, Components } from "pages";
+import { Home, Installation, componentsConfig, Components, startConfig } from "pages";
 import { Layout, LayoutDocumentation, Documentation } from "router/components";
 
 /**
@@ -15,7 +15,13 @@ const Router: FC = () => (
 			</Route>
 
 			<Route path="/start" element={<LayoutDocumentation />}>
-				<Route path="/start/installation" element={<Installation />} />
+				{startConfig.map(({ route, component }) => (
+					<Route key={route} path={route} element={(
+						<Documentation>
+							{component}
+						</Documentation>
+					)} />
+				))}
 			</Route>
 
 			<Route path="/components" element={<LayoutDocumentation />}>
