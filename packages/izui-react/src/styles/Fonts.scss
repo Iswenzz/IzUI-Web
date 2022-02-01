@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Exo:100|Permanent+Marker|Ubuntu|Press+Start+2P|Roboto:300,400,500,700|Calligraffitti|Poiret+One|Raleway+Dots|Roboto+Mono|Raleway&display=swap");
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import "./Fonts/Faces";
 
-$font-sizes: (60px, 24px, 19px, 16px, 13px);
+$font-sizes: (32px, 24px, 19px, 16px, 13px, 10px);
 
 @mixin buildFont($name, $family...) {
 	.#{$name} {
@@ -10,7 +9,7 @@ $font-sizes: (60px, 24px, 19px, 16px, 13px);
 
 	@each $size in $font-sizes {
 		$i: list.index($font-sizes, $size);
-	
+
 		.#{$name}-h#{$i} {
 			font-family: $family !important;
 			font-size: $size !important;

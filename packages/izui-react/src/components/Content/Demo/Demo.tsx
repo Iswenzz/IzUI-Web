@@ -40,7 +40,7 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 
 	return (
 		<Grid container component={"article"} justifyContent={"flex-start"} alignItems={"center"} direction={"column"}>
-			<Text variant="h4" id={title || uuidv4()}>{title}</Text>
+			<Text id={title || uuidv4()} className="poiret-h1" variant="h2">{title}</Text>
 			<Divider className={scss.divider} />
 			<Text className={scss.description} variant="subtitle1">{description}</Text>
 

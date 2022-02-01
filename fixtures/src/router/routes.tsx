@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
-import { Home, Installation, componentsConfig, Components, startConfig } from "pages";
+import { Home, componentsConfig, Components, startConfig } from "pages";
 import { Layout, LayoutDocumentation, Documentation } from "router/components";
 
 /**

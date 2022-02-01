@@ -13,7 +13,7 @@ import { Route } from "router/components";
 export const buildCollapse = (
 	routes: Route[], onClick: React.MouseEventHandler<HTMLAnchorElement>
 ) => routes.map(({ name, route }) => (
-	<Link key={name} className="nolink calli-h1" to={route} onClick={onClick}>
+	<Link key={name} className="nolink" to={route} onClick={onClick}>
 		<ListItem button sx={{ pl: 5 }}>
 			<Text color={"textPrimary"}>{name}</Text>
 		</ListItem>
