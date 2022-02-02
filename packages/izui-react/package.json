@@ -1,9 +1,30 @@
 {
     "name": "izui-react",
     "version": "0.0.1",
-    "private": true,
+	"description": "UI component library allowing you to make modern designs using Material UI and the various components it offers. ",
     "main": "src/index.ts",
     "types": "src/izui-react.d.ts",
+	"keywords": [
+		"react",
+		"react-component",
+		"mui",
+		"material-ui",
+		"iswenzz"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Iswenzz/IzUI-React.git",
+		"directory": "packages/izui-react"
+	},
+	"license": "GPL-3.0+",
+	"bugs": {
+		"url": "https://github.com/Iswenzz/IzUI-React/issues"
+	},
+	"homepage": "https://iswenzz.com/",
+	"funding": {
+		"type": "github",
+		"url": "https://github.com/Iswenzz"
+	},
     "scripts": {
         "build": "node scripts/build",
         "doc": "jsdoc",
@@ -56,5 +77,11 @@
         "react-i18next": "^11.15.3",
         "react-router-dom": "^6.2.1",
         "react-use": "^17.3.2"
-    }
+    },
+	"publishConfig": {
+		"access": "public"
+	},
+	"engines": {
+		"node": ">=14.0.0"
+	}
 }
