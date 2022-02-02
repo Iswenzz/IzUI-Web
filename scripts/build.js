@@ -22,8 +22,10 @@ const buildLibraryPackage = async (config, options) =>
 module.exports = async (config, options) =>
 {
 	const compiler = webpack(config);
-	compiler.run(async () =>
+	compiler.run(async (errors, stats) =>
 	{
+		console.log(stats.toString({ minimal: true, colors: true, errorDetails: true, }));
+
 		// Build library package
 		if (!options.buildLibraryPackage)
 			options.buildLibraryPackage = buildLibraryPackage;

@@ -64,12 +64,12 @@ module.exports = () =>
 			rules: [
 				{	// typescript babel
 					test: /\.(tsx?)$/,
-					exclude: /(node_modules|dist)/,
+					include: /(src)/,
 					use: "babel-loader"
 				},
 				{	// typescript definitions
 					test: /\.(tsx?)$/,
-					exclude: /(node_modules|dist)/,
+					include: /(src)/,
 					use: "ts-loader"
 				},
 				{	// file loader
@@ -78,7 +78,7 @@ module.exports = () =>
 				},
 				{	// font loader
 					test: /\.(woff|woff2|eot|ttf|otf)$/,
-					type: "asset"
+					type: "asset/inline"
 				},
 				{	// svg inline loader
 					test: /\.(svg)$/,
