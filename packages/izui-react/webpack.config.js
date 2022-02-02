@@ -57,6 +57,7 @@ module.exports = () =>
 					{ from: "src", to: "../src" },
 					{ from: "src/types", to: "types" },
 					{ from: "src/izui-react.d.ts" },
+					{ from: "LICENSE", to: ".." }
 				],
 			}),
 		],
