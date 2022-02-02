@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Documentation, DocumentationRenderer } from "izui-react";
 
 import { Home, componentsConfig, Components, startConfig } from "pages";
-import { Layout, LayoutDocumentation, Documentation } from "router/components";
+import { Layout, MenuNavigation } from "router/components";
 
 /**
  * App router.
@@ -14,22 +15,22 @@ const Router: FC = () => (
 				<Route path="/" element={<Home />} />
 			</Route>
 
-			<Route path="/start" element={<LayoutDocumentation />}>
+			<Route path="/start" element={<Documentation MenuNavigation={MenuNavigation} />}>
 				{startConfig.map(({ route, component }) => (
 					<Route key={route} path={route} element={(
-						<Documentation>
+						<DocumentationRenderer>
 							{component}
-						</Documentation>
+						</DocumentationRenderer>
 					)} />
 				))}
 			</Route>
 
-			<Route path="/components" element={<LayoutDocumentation />}>
+			<Route path="/components" element={<Documentation MenuNavigation={MenuNavigation} />}>
 				{componentsConfig.map(({ route, demos }) => (
 					<Route key={route} path={route} element={(
-						<Documentation sections={demos.sections}>
+						<DocumentationRenderer sections={demos.sections}>
 							<Components demos={demos.sources} />
-						</Documentation>
+						</DocumentationRenderer>
 					)} />
 				))}
 			</Route>

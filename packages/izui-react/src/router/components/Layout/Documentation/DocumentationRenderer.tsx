@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { Container, Grid } from "@mui/material";
-import { useResponsive } from "izui-react";
 
+import { useResponsive } from "utils/hooks";
 import { SideMenu } from "router/components";
 
 /**
- * Render the documentation.
+ * Documentation container.
  */
-const Documentation: FC<Props> = ({ children, sections }) =>
+const DocumentationRenderer: FC<Props> = ({ children, sections }) =>
 {
 	const size = useResponsive({
 		desktop: { page: 10, side: 2 },
@@ -34,4 +34,4 @@ type Props = {
 	sections?: string[]
 };
 
-export default Documentation;
+export default DocumentationRenderer;

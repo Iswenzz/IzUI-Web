@@ -1,21 +1,17 @@
 import { FC } from "react";
 import { useLocation } from "react-router-dom";
-import { locationStartWith } from "izui-react";
 import { Divider } from "@mui/material";
 import ToggleOffIcon from "@mui/icons-material/ToggleOff";
 import ArticleIcon from "@mui/icons-material/Article";
+import { buildCollapse, MenuCollapse, locationStartWith, MenuNavigationProps, MenuToolbar } from "izui-react";
 
 import { componentsConfig, startConfig } from "pages";
-
-import MenuToolbar from "../MenuToolbar/MenuToolbar";
-import MenuCollapse from "../MenuCollapse/MenuCollapse";
-import { buildCollapse } from "../MenuCollapse";
 
 /**
  * The drawer navigation.
  * @returns
  */
-const MenuNavigation: FC<Props> = ({ handleDrawerToggle }) =>
+const MenuNavigation: FC<MenuNavigationProps> = ({ handleDrawerToggle }) =>
 {
 	const location = useLocation();
 
@@ -36,10 +32,6 @@ const MenuNavigation: FC<Props> = ({ handleDrawerToggle }) =>
 			</MenuCollapse>
 		</section>
 	);
-};
-
-type Props = {
-	handleDrawerToggle: (state: boolean) => void
 };
 
 export default MenuNavigation;

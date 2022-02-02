@@ -1,8 +1,7 @@
 import { FC, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Toolbar } from "@mui/material";
-
-import { LayoutToolbar, Menu } from "router/components";
+import { DocumentationToolbar, Menu } from "izui-react";
 
 /**
  * The page layout.
@@ -21,7 +20,7 @@ const Layout: FC = () =>
 	return (
 		<>
 			<Menu handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} />
-			<LayoutToolbar handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} />
+			<DocumentationToolbar handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} />
 			<Toolbar />
 			<Outlet />
 		</>

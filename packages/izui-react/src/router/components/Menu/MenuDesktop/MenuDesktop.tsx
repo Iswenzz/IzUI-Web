@@ -1,20 +1,20 @@
 import { FC } from "react";
 import { Box, Drawer } from "@mui/material";
 
-import { MenuNavigation } from "router/components";
+import { MenuNavigationProps } from "../Menu";
 import { boxSx, drawerSx } from "./config";
 
 /**
  * Desktop documentation menu.
  */
-const MenuDesktop: FC<Props> = ({ handleDrawerToggle, drawerOpen, desktopOpen }) =>
+const MenuDesktop: FC<Props> = ({ handleDrawerToggle, drawerOpen, desktopOpen, children: MenuNavigation }) =>
 {
 	const isOpen = drawerOpen && desktopOpen;
 
 	return (
 		<Box component="nav" sx={boxSx}>
 			<Drawer variant={isOpen ? "permanent" : undefined} sx={drawerSx} open={isOpen}>
-				<MenuNavigation handleDrawerToggle={handleDrawerToggle} />
+				{MenuNavigation && <MenuNavigation handleDrawerToggle={handleDrawerToggle} />}
 			</Drawer>
 		</Box>
 	);
@@ -22,6 +22,7 @@ const MenuDesktop: FC<Props> = ({ handleDrawerToggle, drawerOpen, desktopOpen })
 
 type Props = {
 	handleDrawerToggle: (state: boolean) => void,
+	children?: FC<MenuNavigationProps>,
 	drawerOpen: boolean,
 	desktopOpen: boolean
 };

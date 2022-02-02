@@ -1,5 +1,4 @@
-import { DemoSources } from "izui-react";
-import { Route } from "router/components";
+import { DemoSources, Route } from "izui-react";
 
 export { default as Components } from "./Components";
 

@@ -1,24 +1,26 @@
 import { FC } from "react";
 import { AppBar, Grid, IconButton, SxProps, Toolbar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import classNames from "classnames";
 
-import LayoutNavigation from "../LayoutNavigation/LayoutNavigation";
+import DocumentationNavigation from "../DocumentationNavigation/DocumentationNavigation";
 import { iconButtonSx } from "./config";
 
-import scss from "./LayoutToolbar.module.scss";
+import scss from "./DocumentationToolbar.module.scss";
 
 /**
- * Layout toolbar.
+ * Documentation toolbar.
  */
-const LayoutToolbar: FC<Props> = ({ children, handleDrawerToggle, drawerOpen, sx }) => (
-	<AppBar className={scss.appBar} color="transparent" component="section" position="fixed" sx={sx}>
+const DocumentationToolbar: FC<Props> = ({ children, className, handleDrawerToggle, drawerOpen, sx }) => (
+	<AppBar className={classNames(className, scss.appBar)} color="transparent"
+		component="section" position="fixed" sx={sx}>
 		<Toolbar>
 			<IconButton color="inherit" aria-label="open drawer" edge="start"
 				onClick={() => handleDrawerToggle(!drawerOpen)} sx={iconButtonSx}>
 				<MenuIcon />
 			</IconButton>
 			<Grid container component={"ul"} justifyContent={"flex-end"} alignItems={"center"}>
-				<LayoutNavigation />
+				<DocumentationNavigation />
 				{children}
 			</Grid>
 		</Toolbar>
@@ -26,9 +28,10 @@ const LayoutToolbar: FC<Props> = ({ children, handleDrawerToggle, drawerOpen, sx
 );
 
 type Props = {
+	className?: string,
 	handleDrawerToggle: (state: boolean) => void,
 	drawerOpen: boolean,
 	sx?: SxProps
 };
 
-export default LayoutToolbar;
+export default DocumentationToolbar;

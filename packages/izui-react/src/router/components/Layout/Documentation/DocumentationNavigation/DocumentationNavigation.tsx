@@ -2,12 +2,13 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import ArticleIcon from "@mui/icons-material/Article";
-import { Text } from "izui-react";
+
+import { Text } from "components";
 
 /**
- * Layout toolbar navigation.
+ * Documentation toolbar navigation.
  */
-const LayoutNavigation: FC = () => (
+const DocumentationNavigation: FC = () => (
 	<>
 		<li>
 			<Link className="nolink" to={"/start/installation"}>
@@ -19,4 +20,4 @@ const LayoutNavigation: FC = () => (
 	</>
 );
 
-export default LayoutNavigation;
+export default DocumentationNavigation;

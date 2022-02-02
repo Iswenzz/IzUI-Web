@@ -1,4 +1,4 @@
-import { RouteComponent } from "router/components";
+import { RouteComponent } from "izui-react";
 
 import Installation from "./Installation";
 export { default as Installation } from "./Installation";

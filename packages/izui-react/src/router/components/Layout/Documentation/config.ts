@@ -1,6 +1,6 @@
 import { SxProps } from "@mui/material";
 
-import { drawerWidth } from "../../config";
+import { drawerWidth } from "../../Menu/config";
 
 export const appBarSx: SxProps = {
 	width: { md: `calc(100% - ${drawerWidth}px)` },

@@ -1,6 +1,6 @@
 import { SxProps } from "@mui/material";
 
-import { drawerWidth } from "../../config";
+import { drawerWidth } from "../config";
 
 export const boxSx: SxProps = {
 	width: { md: drawerWidth },

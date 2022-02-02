@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { ListItem } from "@mui/material";
-import { Text } from "izui-react";
 
-import { Route } from "router/components";
+import { Text } from "components";
+import { Route } from "router/utils";
 
 /**
  * Build the navigation collapse.
