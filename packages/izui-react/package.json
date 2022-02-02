@@ -1,17 +1,18 @@
 {
     "name": "izui-react",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "private": true,
     "main": "src/index.ts",
     "types": "src/izui-react.d.ts",
     "scripts": {
         "build": "node scripts/build",
         "doc": "jsdoc",
+        "lint": "yarn lint:scss && yarn lint:ts",
         "lint:scss": "stylelint **/*.{scss,css}",
         "lint:scss:fix": "stylelint **/*.scss --fix",
         "lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
         "lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
-        "prepublishOnly": "npm run build",
+        "prepublishOnly": "yarn build",
         "test": "jest --watchAll=false --coverage --coverageDirectory=coverage",
         "test:watch": "jest --watchAll=true --coverage --coverageDirectory=coverage"
     },

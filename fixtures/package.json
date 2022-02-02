@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"build": "react-app-rewired build",
+		"lint": "yarn lint:scss && yarn lint:ts",
 		"lint:scss": "stylelint **/*.{scss,css}",
 		"lint:scss:fix": "stylelint **/*.scss --fix",
 		"lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
