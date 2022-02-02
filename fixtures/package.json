@@ -30,6 +30,6 @@
 		]
 	},
 	"dependencies": {
-		"izui-react": "^1.0.0"
+		"izui-react": "^0.0.1"
 	}
 }
