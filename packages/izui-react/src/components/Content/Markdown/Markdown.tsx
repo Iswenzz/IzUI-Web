@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useTheme } from "@mui/material";
 import classNames from "classnames";
 
-import { markdown } from "@utils/markdown";
+import { markdown } from "@/utils/markdown";
 
 /**
  * Render markdown string.

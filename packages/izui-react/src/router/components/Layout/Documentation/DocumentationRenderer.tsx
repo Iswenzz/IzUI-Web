@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Container, Grid } from "@mui/material";
 
-import { useResponsive } from "@utils/hooks";
-import { SideMenu } from "@router/components";
+import { useResponsive } from "@/utils/hooks";
+import { SideMenu } from "@/router/components";
 
 /**
  * Documentation container.

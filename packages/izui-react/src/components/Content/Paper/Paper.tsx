@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
 
-import useResponsive from "@utils/hooks/useResponsive";
+import useResponsive from "@/utils/hooks/useResponsive";
 
 import PaperDesktop from "./PaperDesktop/PaperDesktop";
 import PaperMobile from "./PaperMobile/PaperMobile";

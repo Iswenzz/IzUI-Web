@@ -1,6 +1,6 @@
 import { MouseEvent } from "react";
 
-import { delay } from "@utils/misc";
+import { delay } from "@/utils/misc";
 import useCancellablePromises, { cancellablePromise } from "./useCancellablePromises";
 
 /**

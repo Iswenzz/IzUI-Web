@@ -1,4 +1,4 @@
-import { defaultSize } from "@utils/default";
+import { defaultSize } from "@/utils/default";
 
 import type { Layout } from "../SpringGrid";
 import config from "../config";

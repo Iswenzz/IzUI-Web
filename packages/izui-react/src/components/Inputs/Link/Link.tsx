@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-import useDoubleClick from "@utils/hooks/useDoubleClick";
+import useDoubleClick from "@/utils/hooks/useDoubleClick";
 
 /**
  * React Router DOM Link wrapper.

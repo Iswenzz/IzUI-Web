@@ -4,7 +4,7 @@ import { Backdrop as MUIBackdrop, BackdropProps } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import classNames from "classnames";
 
-import { animationFade } from "@utils/animate";
+import { animationFade } from "@/utils/animate";
 
 import scss from "./Backdrop.module.scss";
 

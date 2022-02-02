@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { ButtonBase, Toolbar } from "@mui/material";
 
-import { Text } from "@components";
+import { Text } from "@/components";
 
 /**
  * Menu toolbar.

@@ -3,7 +3,7 @@ import { animated, useTransition } from "react-spring";
 import { Grid } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
-import useBreakpoint, { BreakpointValues } from "@utils/hooks/useBreakpoint";
+import useBreakpoint, { BreakpointValues } from "@/utils/hooks/useBreakpoint";
 
 import computeSimpleLayout from "./utils/computeSimpleLayout";
 import computeMasonryLayout from "./utils/computeMasonryLayout";

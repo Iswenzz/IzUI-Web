@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import { Markdown } from "@components";
-import { useFile } from "@utils/hooks";
+import { Markdown } from "@/components";
+import { useFile } from "@/utils/hooks";
 
 import { DemoPreview } from "../Demo";
 

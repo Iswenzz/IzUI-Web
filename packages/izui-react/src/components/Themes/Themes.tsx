@@ -2,9 +2,9 @@ import { FC, useEffect, useRef } from "react";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { CssBaseline, Theme, ThemeProvider } from "@mui/material";
 
-import { getElementByXPath } from "@utils/elements";
+import { getElementByXPath } from "@/utils/elements";
 
-import "@styles/Main.scss";
+import "@/styles/Main.scss";
 
 /**
  * App themes.

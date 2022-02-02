@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { useResponsive } from "@utils/hooks";
+import { useResponsive } from "@/utils/hooks";
 
 import MenuDesktop from "./MenuDesktop/MenuDesktop";
 import MenuMobile from "./MenuMobile/MenuMobile";

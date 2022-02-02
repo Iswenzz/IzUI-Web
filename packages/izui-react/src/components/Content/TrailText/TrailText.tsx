@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Typography, TypographyProps } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
-import { animationTrail } from "@utils/animate";
+import { animationTrail } from "@/utils/animate";
 
 import scss from "./TrailText.module.scss";
 

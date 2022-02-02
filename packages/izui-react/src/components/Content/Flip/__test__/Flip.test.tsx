@@ -1,5 +1,5 @@
-import { buildRender, fireEvent } from "@test/react";
-import { Flip, FlipProps } from "@components";
+import { buildRender, fireEvent } from "@/test/react";
+import { Flip, FlipProps } from "@/components";
 
 const setup = buildRender<FlipProps, Query>({
 	component: Flip,
