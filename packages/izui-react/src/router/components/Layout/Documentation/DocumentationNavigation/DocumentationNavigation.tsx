@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import ArticleIcon from "@mui/icons-material/Article";
 
-import { Text } from "components";
+import { Text } from "@components";
 
 /**
  * Documentation toolbar navigation.

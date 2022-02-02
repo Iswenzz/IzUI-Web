@@ -2,33 +2,20 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"assets/*": [
-				"src/assets/*",
-				"../packages/izui-react/src/assets/*"
-			],
-			"styles/*": [
-				"src/styles/*",
-				"../packages/izui-react/src/styles/*"
-			],
-			"utils/*": [
-				"src/utils/*",
-				"../packages/izui-react/src/utils/*"
-			],
-			"test/*": [
-				"src/__test__/*",
-				"../packages/izui-react/src/__test__/*"
-			],
-			"router/*": [
-				"src/router/*",
-				"../packages/izui-react/src/router/*"
-			],
-			"pages": [
-				"src/pages"
-			],
-			"components": [
-				"src/components",
-				"../packages/izui-react/src/components"
-			]
+			"assets/*": ["src/assets/*"],
+			"styles/*": ["src/styles/*"],
+			"utils/*": ["src/utils/*"],
+			"test/*": ["src/__test__/*"],
+			"router/*": ["src/router/*"],
+			"pages": ["src/pages"],
+			"components": ["src/components"],
+
+			"@assets/*": ["../packages/izui-react/src/assets/*"],
+			"@styles/*": ["../packages/izui-react/src/styles/*"],
+			"@utils/*": ["../packages/izui-react/src/utils/*"],
+			"@router/*": ["../packages/izui-react/src/router/*"],
+			"@test/*": ["../packages/izui-react/src/__test__/*"],
+			"@components": ["../packages/izui-react/src/components"]
 		}
 	}
 }

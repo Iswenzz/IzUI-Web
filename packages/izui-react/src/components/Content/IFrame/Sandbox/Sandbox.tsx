@@ -4,8 +4,8 @@ import createCache from "@emotion/cache";
 import { CacheProvider, Global } from "@emotion/react";
 import { useTheme } from "@mui/material";
 
-import { Themes } from "components";
-import { getComponentStyles, isStyleNode, isClassesInStyle } from "utils/elements";
+import { Themes } from "@components";
+import { getComponentStyles, isStyleNode, isClassesInStyle } from "@utils/elements";
 
 /**
  * Sandbox styles and react component within an IFrame.

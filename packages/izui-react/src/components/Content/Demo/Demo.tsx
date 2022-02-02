@@ -5,7 +5,7 @@ import CodeIcon from "@mui/icons-material/Code";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { v4 as uuidv4 } from "uuid";
 
-import { IFrame, Text, Image } from "components";
+import { IFrame, Text, Image } from "@components";
 
 import DemoCode from "./DemoCode/DemoCode";
 import scss from "./Demo.module.scss";

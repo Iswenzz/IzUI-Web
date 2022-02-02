@@ -2,12 +2,12 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"assets/*": ["src/assets/*"],
-			"styles/*": ["src/styles/*"],
-			"utils/*": ["src/utils/*"],
-			"router/*": ["src/router/*"],
-			"test/*": ["src/__test__/*"],
-			"components": ["src/components"]
+			"@assets/*": ["src/assets/*"],
+			"@styles/*": ["src/styles/*"],
+			"@utils/*": ["src/utils/*"],
+			"@router/*": ["src/router/*"],
+			"@test/*": ["src/__test__/*"],
+			"@components": ["src/components"]
 		}
 	}
 }

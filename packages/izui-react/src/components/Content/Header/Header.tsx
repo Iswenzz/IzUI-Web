@@ -5,7 +5,7 @@ import { Grid } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-import { TrailText, Parallax } from "components";
+import { TrailText, Parallax } from "@components";
 
 import scss from "./Header.module.scss";
 

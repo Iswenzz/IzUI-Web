@@ -1,8 +1,7 @@
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
 import ReactDOM from "react-dom";
-
-import { DarkTheme, Themes } from "components";
+import { DarkTheme, Themes } from "izui-react";
 
 import Router from "./router/routes";
 import { unregister } from "./serviceWorker";
