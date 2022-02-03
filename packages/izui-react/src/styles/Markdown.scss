@@ -1,17 +1,17 @@
-@import "./Themes";
+@use "./Themes";
 
-@import "./Highlights/AtomOneDark";
-@import "./Highlights/AtomOneLight";
-@import "./Highlights/NightOwl";
-@import "./Highlights/VS2015";
+@use "./Highlights/AtomOneDark" as AtomOneDark;
+@use "./Highlights/AtomOneLight" as AtomOneLight;
+@use "./Highlights/NightOwl" as NightOwl;
+@use "./Highlights/VS2015" as VS2015;
 
 .markdown {
-	@include darkMode {
-		@include highlightVS2015;
+	@include Themes.darkMode {
+		@include VS2015.highlight;
 	}
 
-	@include lightMode {
-		@include highlightAtomOneLight;
+	@include Themes.lightMode {
+		@include AtomOneLight.highlight;
 	}
 
 	* {

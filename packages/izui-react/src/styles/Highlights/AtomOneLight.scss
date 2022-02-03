@@ -16,7 +16,7 @@
 	hue-6:   #986801
 	hue-6-2: #c18401
 */
-@mixin highlightAtomOneLight {
+@mixin highlight {
 	.hljs {
 		display: block;
 		overflow-x: auto;

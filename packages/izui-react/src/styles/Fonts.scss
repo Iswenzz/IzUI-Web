@@ -1,4 +1,6 @@
-@import "./Fonts/Faces";
+@use "./Fonts/Faces";
+
+@use "sass:list";
 
 $font-sizes: (32px, 24px, 19px, 16px, 13px, 10px);
 

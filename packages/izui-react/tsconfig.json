@@ -23,5 +23,5 @@
 		"jsx": "react-jsx",
 	},
 	"include": ["src"],
-	"exclude": ["**/__test__/**/*.{js,jsx,ts,tsx}"]
+	"exclude": ["**/__test__/**/*"]
 }

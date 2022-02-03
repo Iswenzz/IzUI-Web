@@ -67,11 +67,13 @@ module.exports = () =>
 				{	// typescript babel
 					test: /\.(tsx?)$/,
 					include: /(src)/,
+					exclude: /(__test__)/,
 					use: "babel-loader"
 				},
 				{	// typescript definitions
 					test: /\.(tsx?)$/,
 					include: /(src)/,
+					exclude: /(__test__)/,
 					use: "ts-loader"
 				},
 				{	// file loader
