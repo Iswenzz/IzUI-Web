@@ -1,30 +1,30 @@
 {
     "name": "izui-react",
-    "version": "0.0.2",
-	"description": "UI component library allowing you to make modern designs using Material UI and the various components it offers. ",
+    "version": "0.0.4",
+    "description": "UI component library allowing you to make modern designs using Material UI and the various components it offers. ",
+    "keywords": [
+        "react",
+        "react-component",
+        "mui",
+        "material-ui",
+        "iswenzz"
+    ],
+    "homepage": "https://iswenzz.com",
+    "bugs": {
+        "url": "https://github.com/Iswenzz/IzUI-React/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Iswenzz/IzUI-React.git",
+        "directory": "packages/izui-react"
+    },
+    "funding": {
+        "type": "github",
+        "url": "https://github.com/Iswenzz"
+    },
+    "license": "GPL-3.0+",
     "main": "src/index.ts",
     "types": "src/izui-react.d.ts",
-	"keywords": [
-		"react",
-		"react-component",
-		"mui",
-		"material-ui",
-		"iswenzz"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Iswenzz/IzUI-React.git",
-		"directory": "packages/izui-react"
-	},
-	"license": "GPL-3.0+",
-	"bugs": {
-		"url": "https://github.com/Iswenzz/IzUI-React/issues"
-	},
-	"homepage": "https://iswenzz.com",
-	"funding": {
-		"type": "github",
-		"url": "https://github.com/Iswenzz"
-	},
     "scripts": {
         "build": "node scripts/build",
         "doc": "jsdoc",
@@ -34,6 +34,7 @@
         "lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
         "lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
         "prepublishOnly": "yarn build",
+        "publish": "yarn publish build",
         "test": "jest --watchAll=false --coverage --coverageDirectory=coverage",
         "test:watch": "jest --watchAll=true --coverage --coverageDirectory=coverage"
     },
@@ -78,10 +79,10 @@
         "react-router-dom": "^6.2.1",
         "react-use": "^17.3.2"
     },
-	"publishConfig": {
-		"access": "public"
-	},
-	"engines": {
-		"node": ">=14.0.0"
-	}
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
 }
