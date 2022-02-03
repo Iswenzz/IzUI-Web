@@ -13,10 +13,9 @@ const buildLibraryPackage = async (config, options) =>
 		throw new Error("'packageJsonPath' option should have the library's package.json resolved path.");
 	const packageJson = require(packageJsonPath);
 
-	packageJson.main = normalizePath(path.join("dist", filename));
-	packageJson.types = normalizePath(path.join("dist", `${packageJson.name}.d.ts`));
-	packageJson.files = ["src", "dist"];
-	fs.writeFileSync(path.join(outputPath, "..", "package.json"), JSON.stringify(packageJson, null, 4));
+	packageJson.main = filename;
+	packageJson.types = `${packageJson.name}.d.ts`;
+	fs.writeFileSync(path.join(outputPath, "package.json"), JSON.stringify(packageJson, null, 4));
 };
 
 module.exports = async (config, options) =>

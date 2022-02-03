@@ -28,7 +28,7 @@ module.exports = () =>
 		},
 		output: {
 			filename: "index.js",
-			path: path.resolve(__dirname, "build/dist"),
+			path: path.resolve(__dirname, "build"),
 			library: {
 				type: "umd"
 			}
@@ -54,11 +54,11 @@ module.exports = () =>
 			}),
 			new CopyPlugin({
 				patterns: [
-					{ from: "src", to: "../src" },
+					{ from: "src/styles", to: "styles" },
 					{ from: "src/types", to: "types" },
 					{ from: "src/izui-react.d.ts" },
-					{ from: "LICENSE", to: ".." },
-					{ from: "README.md", to: ".." }
+					{ from: "LICENSE" },
+					{ from: "README.md" }
 				],
 			}),
 		],
