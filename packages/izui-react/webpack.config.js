@@ -101,6 +101,7 @@ module.exports = () =>
 								}
 							}
 						},
+						"resolve-url-loader",
 						"postcss-loader",
 						"sass-loader"
 					]
