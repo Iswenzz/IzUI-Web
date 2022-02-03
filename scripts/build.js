@@ -16,6 +16,7 @@ const buildLibraryPackage = async (config, options) =>
 	packageJson.main = filename;
 	packageJson.types = `${packageJson.name}.d.ts`;
 	delete packageJson.files;
+	delete packageJson.private;
 	fs.writeFileSync(path.join(outputPath, "package.json"), JSON.stringify(packageJson, null, 4));
 };
 
