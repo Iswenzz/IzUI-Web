@@ -29,7 +29,7 @@ const LightTheme = responsiveFontSizes(createTheme({
 				body: {
 					scrollbarWidth: "thin",
 					scrollbarColor: "#c0c0c0 #d9d9d9",
-					backgroundColor: "silver"
+					backgroundColor: "whitesmoke"
 				},
 				"::-webkit-scrollbar": {
 					width: "12px"
@@ -78,7 +78,6 @@ const LightTheme = responsiveFontSizes(createTheme({
 				root: {
 					fontFamily: "Ubuntu",
 					fontSize: 18,
-					color: "rgba(60, 60, 60, 0.87)"
 				}
 			}
 		}
@@ -86,36 +85,28 @@ const LightTheme = responsiveFontSizes(createTheme({
 	typography: {
 		subtitle1: {
 			fontFamily: "Ubuntu",
-			color: "rgba(220, 220, 220, 1)"
 		},
 		subtitle2: {
 			fontFamily: "Poiret One",
-			color: "rgba(220, 220, 220, 1)",
 			fontWeight: "bold"
 		},
 		h1: {
-			fontFamily: "Calligraffitti",
-			color: "rgba(220, 220, 220, 1)"
+			fontFamily: "Roboto Mono",
 		},
 		h2: {
-			fontFamily: "Calligraffitti",
-			color: "rgba(220, 220, 220, 1)"
+			fontFamily: "Roboto Mono",
 		},
 		h3: {
-			fontFamily: "Calligraffitti",
-			color: "rgba(220, 220, 220, 1)"
+			fontFamily: "Roboto Mono",
 		},
 		h4: {
-			fontFamily: "Calligraffitti",
-			color: "rgba(220, 220, 220, 1)"
+			fontFamily: "Roboto Mono",
 		},
 		h5: {
-			fontFamily: "Calligraffitti",
-			color: "rgba(220, 220, 220, 1)"
+			fontFamily: "Roboto Mono",
 		},
 		caption: {
 			fontFamily: "Ubuntu",
-			color: "rgba(240, 240, 240, 1)"
 		}
 	}
 }));
