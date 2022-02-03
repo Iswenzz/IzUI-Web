@@ -10,12 +10,12 @@
 			"pages": ["src/pages"],
 			"components": ["src/components"],
 
-			"@assets/*": ["../packages/izui-react/src/assets/*"],
-			"@styles/*": ["../packages/izui-react/src/styles/*"],
-			"@utils/*": ["../packages/izui-react/src/utils/*"],
-			"@router/*": ["../packages/izui-react/src/router/*"],
-			"@test/*": ["../packages/izui-react/src/__test__/*"],
-			"@components": ["../packages/izui-react/src/components"]
+			"@/assets/*": ["../packages/izui-react/src/assets/*"],
+			"@/styles/*": ["../packages/izui-react/src/styles/*"],
+			"@/utils/*": ["../packages/izui-react/src/utils/*"],
+			"@/router/*": ["../packages/izui-react/src/router/*"],
+			"@/test/*": ["../packages/izui-react/src/__test__/*"],
+			"@/components": ["../packages/izui-react/src/components"]
 		}
 	}
 }
