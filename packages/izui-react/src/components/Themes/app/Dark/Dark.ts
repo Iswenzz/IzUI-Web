@@ -1,6 +1,6 @@
-import { createTheme, responsiveFontSizes } from "@mui/material";
+import { createTheme, responsiveFontSizes, ThemeOptions } from "@mui/material";
 
-const DarkTheme = responsiveFontSizes(createTheme({
+export const DarkThemeOptions: ThemeOptions = {
 	theme: "dark",
 	isDarkTheme: true,
 	palette: {
@@ -109,6 +109,6 @@ const DarkTheme = responsiveFontSizes(createTheme({
 			fontFamily: "Ubuntu",
 		}
 	}
-}));
+};
 
-export default DarkTheme;
+export default responsiveFontSizes(createTheme(DarkThemeOptions));
