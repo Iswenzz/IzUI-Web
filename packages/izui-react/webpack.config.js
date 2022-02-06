@@ -57,6 +57,7 @@ module.exports = () =>
 			}),
 			new CopyPlugin({
 				patterns: [
+					{ from: "src/assets", to: "assets" },
 					{ from: "src/styles", to: "styles" },
 					{ from: "src/types", to: "types" },
 					{ from: "src/izui-react.d.ts" },
