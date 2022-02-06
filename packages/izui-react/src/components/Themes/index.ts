@@ -26,6 +26,10 @@ export const registerTheme = (name: string, theme: Theme) => registredThemes = {
 };
 
 export { default as Themes } from "./Themes";
+export * from "./Themes";
+
+export * from "./app/Dark/Dark";
+export * from "./app/Light/Light";
 
 export {
 	DarkTheme,
