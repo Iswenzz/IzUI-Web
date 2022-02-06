@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import { Grid } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
 
 import { TrailText, Parallax } from "@/components";
 
