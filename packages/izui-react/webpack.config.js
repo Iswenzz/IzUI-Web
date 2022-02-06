@@ -8,6 +8,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const { createWebpackAliasesFromTSConfig } = require("../../scripts/createAliases");
 const packageJson = require("./package.json");
@@ -59,6 +60,7 @@ module.exports = () =>
 					{ from: "src/styles", to: "styles" },
 					{ from: "src/types", to: "types" },
 					{ from: "src/izui-react.d.ts" },
+					{ from: "../../scripts", to: "scripts" },
 					{ from: "LICENSE" },
 					{ from: "README.md" }
 				],
@@ -112,7 +114,14 @@ module.exports = () =>
 		},
 		performance: {
 			hints: false
-		}
+		},
+		optimization: {
+			minimizer: [
+				new TerserPlugin({
+					exclude: /(scripts)/,
+				}),
+			],
+		},
 	};
 
 	if (argv.analyze)
