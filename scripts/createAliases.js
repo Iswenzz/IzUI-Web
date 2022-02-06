@@ -16,6 +16,9 @@ const createWebpackAliasesFromTSConfig = config =>
 	}, {});
 };
 
+const createWebpackBabelIncludeFromTSConfig = config =>
+	config.include.map(current => path.resolve(current));
+
 const createJestAliasesFromTSConfig = config =>
 {
 	const aliasPaths = config.compilerOptions.paths;
@@ -39,6 +42,7 @@ const removeWildCard = string => string.replace(/\/\*$/, "");
 
 module.exports = {
 	createWebpackAliasesFromTSConfig,
+	createWebpackBabelIncludeFromTSConfig,
 	createJestAliasesFromTSConfig,
-	removeEndSlash: removeWildCard
+	removeWildCard
 };

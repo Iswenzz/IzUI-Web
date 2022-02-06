@@ -1,14 +1,18 @@
-const path = require("path");
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 
 const StylelintPlugin = require("stylelint-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-
 const BundleHighlightPlugin = require("../scripts/bundleHighlight");
-const { createWebpackAliasesFromTSConfig } = require("../scripts/createAliases");
+
 const highlightConfig = require("./src/config/highlight.json");
+const tsConfig= require("./tsconfig.json");
 const tsConfigPaths = require("./tsconfig.paths.json");
+
+const {
+	createWebpackAliasesFromTSConfig,
+	createWebpackBabelIncludeFromTSConfig
+} = require("../scripts/createAliases");
 
 const {
 	override,
@@ -33,10 +37,7 @@ module.exports.webpack = override(
 	addWebpackPlugin(new BundleHighlightPlugin(highlightConfig)),
 	addWebpackPlugin(new StylelintPlugin({ configPaths: ".stylelintrc" })),
 	argv.analyze ? addWebpackPlugin(new BundleAnalyzerPlugin()) : null,
-	babelInclude([
-		path.resolve("src"),
-		path.resolve("../packages/izui-react/src")
-	])
+	babelInclude(createWebpackBabelIncludeFromTSConfig(tsConfig))
 );
 
 module.exports.devServer = overrideDevServer(
