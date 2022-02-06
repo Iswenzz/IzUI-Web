@@ -11,8 +11,8 @@ module.exports = {
 	],
 	transform: {
 		"^.+\\.(js|jsx|ts|tsx)$": "ts-jest",
-		"^.+\\.scss$": "<rootDir>/../../scripts/mockTransform.js",
-		"^.+\\.(ico|png|jpg|webp|gif|svg)$": "<rootDir>/../../scripts/fileTransform.js"
+		"^.+\\.scss$": require.resolve("../../scripts/mockTransform.js"),
+		"^.+\\.(ico|png|jpg|webp|gif|svg)$": require.resolve("../../scripts/fileTransform.js")
 	},
 	moduleNameMapper: {
 		...createJestAliasesFromTSConfig(tsConfigPaths),
