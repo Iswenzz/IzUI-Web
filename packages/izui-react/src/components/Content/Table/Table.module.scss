@@ -1,4 +1,4 @@
-@use "~@/styles/Themes";
+@use "@/styles/Themes";
 
 .table {
 	@include Themes.darkMode {
