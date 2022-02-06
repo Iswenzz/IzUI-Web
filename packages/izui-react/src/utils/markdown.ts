@@ -1,5 +1,5 @@
 import MarkdownIt, { Options } from "markdown-it";
-import hljs from "highlight.js";
+import hljs from "highlight.js/lib/core";
 
 /**
  * Highlight code with in a specific language.

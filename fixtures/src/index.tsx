@@ -3,7 +3,9 @@ import "react-app-polyfill/stable";
 import ReactDOM from "react-dom";
 import { DarkTheme, Themes } from "izui-react";
 
-import Router from "./router/routes";
+import Router from "router/routes";
+import "config/highlight";
+
 import { unregister } from "./serviceWorker";
 import "./styles/Main.scss";
 

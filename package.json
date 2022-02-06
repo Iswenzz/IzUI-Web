@@ -7,6 +7,7 @@
 	],
 	"scripts": {
 		"build": "yarn workspace izui-react build",
+		"build:analyze": "yarn workspace izui-react build:analyze",
 		"build:fixtures": "yarn workspace izui-react-fixtures build",
 		"doc": "yarn workspace izui-react doc",
 		"lint": "yarn lint:scss && yarn lint:ts",
@@ -90,6 +91,7 @@
 		"typescript": "^4.5.4",
 		"uuid": "^8.3.2",
 		"webpack": "^5.67.0",
+		"webpack-bundle-analyzer": "^4.5.0",
 		"yargs": "^17.3.1"
 	}
 }

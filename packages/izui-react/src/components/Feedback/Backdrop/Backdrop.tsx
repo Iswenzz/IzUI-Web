@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { noop } from "lodash";
+import noop from "lodash/noop";
 import { Backdrop as MUIBackdrop, BackdropProps } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import classNames from "classnames";

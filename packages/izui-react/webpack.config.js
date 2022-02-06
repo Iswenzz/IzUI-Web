@@ -7,6 +7,7 @@ const StylelintPlugin = require("stylelint-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const { createWebpackAliasesFromTSConfig } = require("../../scripts/createAliases");
 const packageJson = require("./package.json");
@@ -16,10 +17,11 @@ module.exports = () =>
 {
 	const argv = yargs(hideBin(process.argv)).options({
 		mode: { type: "string", default: "production" },
+		analyze: { type: "boolean", default: false }
 	}).argv;
 	console.log(`Building in ${argv.mode} mode.\n`);
 
-	return {
+	const config = {
 		mode: argv.mode,
 		devtool: "source-map",
 		externals: Object.keys(packageJson.peerDependencies),
@@ -112,4 +114,8 @@ module.exports = () =>
 			hints: false
 		}
 	};
+
+	if (argv.analyze)
+		config.plugins.push(new BundleAnalyzerPlugin());
+	return config;
 };

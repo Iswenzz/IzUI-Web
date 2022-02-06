@@ -15,7 +15,6 @@ const Parallax: FC<Props> = ({
 	speed = -30, spacingTop, spacingBottom, image, blur = 0, children, style, ...rest
 }) =>
 {
-	console.log(stars);
 	const { parallaxImage } = useThemeMode({
 		parallaxImage: [stars, clouds]
 	});
