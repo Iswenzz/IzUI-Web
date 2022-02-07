@@ -1,25 +1,22 @@
 {
-	"name": "izui-react-root",
-	"version": "1.0.0",
 	"private": true,
 	"workspaces": [
-		"fixtures",
 		"packages/*"
 	],
 	"scripts": {
-		"build": "yarn workspace izui-react build",
-		"build:analyze": "yarn workspace izui-react build:analyze",
-		"build:fixtures": "yarn workspace izui-react-fixtures build",
-		"doc": "yarn workspace izui-react doc",
+		"build": "yarn workspace @izui/react build",
+		"build:analyze": "yarn workspace @izui/react build:analyze",
+		"build:fixtures": "yarn workspace @izui/fixtures-react build",
+		"doc": "yarn workspace @izui/react doc",
 		"lint": "yarn lint:scss && yarn lint:ts",
-		"lint:scss": "yarn workspace izui-react lint:scss",
-		"lint:scss:fix": "yarn workspace izui-react lint:scss:fix",
-		"lint:ts": "yarn workspace izui-react lint:ts",
-		"lint:ts:fix": "yarn workspace izui-react lint:ts:fix",
+		"lint:scss": "yarn workspace @izui/react lint:scss",
+		"lint:scss:fix": "yarn workspace @izui/react lint:scss:fix",
+		"lint:ts": "yarn workspace @izui/react lint:ts",
+		"lint:ts:fix": "yarn workspace @izui/react lint:ts:fix",
 		"prepublishOnly": "yarn build",
-		"start": "yarn workspace izui-react-fixtures start",
-		"test": "yarn workspace izui-react test",
-		"test:watch": "yarn workspace izui-react test:watch"
+		"start": "yarn workspace @izui/fixtures-react start",
+		"test": "yarn workspace @izui/react test",
+		"test:watch": "yarn workspace @izui/react test:watch"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.16.12",

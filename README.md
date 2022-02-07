@@ -1,21 +1,21 @@
-# IzUI-React
+# IzUI-Web
 
-[![Checks](https://img.shields.io/github/checks-status/Iswenzz/IzUI-React/master?logo=github)](https://github.com/Iswenzz/IzUI-React/actions)
-[![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/IzUI-React?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/IzUI-React)
-[![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzUI-React?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzUI-React)
-[![License](https://img.shields.io/github/license/Iswenzz/IzUI-React?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzUI-React/blob/master/LICENSE)
+[![Checks](https://img.shields.io/github/checks-status/Iswenzz/IzUI-Web/master?logo=github)](https://github.com/Iswenzz/IzUI-Web/actions)
+[![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/IzUI-Web?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/IzUI-Web)
+[![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzUI-Web?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzUI-Web)
+[![License](https://img.shields.io/github/license/Iswenzz/IzUI-Web?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzUI-Web/blob/master/LICENSE)
 
-UI component library allowing you to make modern designs using Material UI and the various components it offers.
+UI component library allowing you to make modern designs using the various components it offers.
 
 ![](https://i.imgur.com/cZOJbXK.jpg)
 ![](https://i.imgur.com/aDGGNxx.jpg)
 
-## Instructions
+## React
 
-This library can be found on [NPM](https://www.npmjs.com/package/izui-react)
+This library can be found on [NPM](https://www.npmjs.com/package/@izui/react)
 
 ```sh
-npm install izui-react
+npm install @izui/react
 ```
 
 ## Building (Any Platform)
@@ -24,7 +24,7 @@ _Pre-Requisites:_
 1. [NodeJS (version 14+)](https://nodejs.org/en/)
 2. [Yarn / NPM](https://yarnpkg.com/)
 
-### [Download](https://github.com/Iswenzz/IzUI-React/releases)
+### [Download](https://github.com/Iswenzz/IzUI-Web/releases)
 
 ## Contributors
 
