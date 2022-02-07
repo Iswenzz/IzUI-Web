@@ -1,0 +1,10 @@
+{
+	"name": "@izui/types",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"lint": "yarn lint:ts",
+		"lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
+		"lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix"
+	}
+}
