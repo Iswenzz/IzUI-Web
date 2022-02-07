@@ -15,7 +15,6 @@ import scss from "./Demo.module.scss";
  */
 const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 {
-	if (!children) return null;
 	const { previews = [], title = "", description = "", sandboxUrl, additionalComponent } = demo;
 
 	const [codeCollapse, setCodeCollapse] = useState<boolean>(false);
@@ -36,7 +35,9 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 
 	const View: FC = useMemo(() => ({ children }) => iframe
 		? <IFrame key={iframeKey} size={{ width: 820, height: 450 }} title={iframeKey}>{children}</IFrame>
-		: <Fragment>{children}</Fragment>, [iframe, iframeKey, children]);
+		: <Fragment>{children}</Fragment>, [iframe, iframeKey]);
+
+	if (!children) return null;
 
 	return (
 		<Grid container component={"article"} justifyContent={"flex-start"} alignItems={"center"} direction={"column"}>

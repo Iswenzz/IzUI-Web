@@ -1,12 +1,11 @@
 import { memo, FC } from "react";
 import { ParallaxBanner } from "react-scroll-parallax";
 import type { BannerLayer, ParallaxBannerProps } from "react-scroll-parallax/dist/components/ParallaxBanner/types";
+import stars from "@izui/assets/images/background/stars.svg";
+import clouds from "@izui/assets/images/background/clouds.svg";
 
 import { Spacing } from "@/components";
 import useThemeMode from "@/utils/hooks/useThemeMode";
-
-import stars from "@/assets/images/background/stars.svg";
-import clouds from "@/assets/images/background/clouds.svg";
 
 /**
  * Parallax background.

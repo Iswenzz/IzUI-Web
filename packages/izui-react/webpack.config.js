@@ -10,7 +10,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const TerserPlugin = require("terser-webpack-plugin");
 
-const { createWebpackAliasesFromTSConfig } = require("../../scripts/createAliases");
+const { createWebpackAliasesFromTSConfig } = require("@izui/scripts/webpack/createAliases");
 const packageJson = require("./package.json");
 const tsConfigPaths = require("./tsconfig.paths.json");
 
@@ -57,11 +57,10 @@ module.exports = () =>
 			}),
 			new CopyPlugin({
 				patterns: [
-					{ from: "src/assets", to: "assets" },
-					{ from: "src/styles", to: "styles" },
 					{ from: "src/types", to: "types" },
 					{ from: "src/izui-react.d.ts" },
-					{ from: "../../scripts", to: "scripts" },
+					// { from: "../izui-assets", to: "assets" },
+					// { from: "../izui-types", to: "types" },
 					{ from: "LICENSE" },
 					{ from: "README.md" }
 				],

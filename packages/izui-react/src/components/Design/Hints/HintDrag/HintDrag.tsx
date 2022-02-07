@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Tooltip, TooltipProps } from "@mui/material";
+import dragIcon from "@izui/assets/images/icons/hand-drag.png";
 
 import { Forward, Image } from "@/components";
 import { preventDefault } from "@/utils/events";
-import dragIcon from "@/assets/images/icons/hand-drag.png";
 
 /**
  * Drag me hint.

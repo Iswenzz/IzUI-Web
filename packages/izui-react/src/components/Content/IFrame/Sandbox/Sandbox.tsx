@@ -19,7 +19,7 @@ const Sandbox: FC<Props> = ({ children, frameDocument }) =>
 	 * Fetch the component class names.
 	 */
 	const fetchComponentStyles = useCallback(async () =>
-		setComponentClasses(await getComponentStyles(children)), [setComponentClasses]);
+		setComponentClasses(await getComponentStyles(children)), [children]);
 
 	/**
 	 * Get the frame document window.

@@ -1,8 +1,8 @@
 {
-    "name": "izui-react",
-    "version": "0.10.1",
+    "name": "@izui/react",
+    "version": "0.10.2",
     "private": true,
-    "description": "UI component library allowing you to make modern designs using Material UI and the various components it offers. ",
+    "description": "UI component library allowing you to make modern designs using the various components it offers. ",
     "keywords": [
         "react",
         "react-component",
@@ -12,12 +12,12 @@
     ],
     "homepage": "https://iswenzz.com",
     "bugs": {
-        "url": "https://github.com/Iswenzz/IzUI-React/issues"
+        "url": "https://github.com/Iswenzz/IzUI-Web/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Iswenzz/IzUI-React.git",
-        "directory": "packages/izui-react"
+        "url": "https://github.com/Iswenzz/IzUI-Web.git",
+        "directory": "packages/izui-web"
     },
     "funding": {
         "type": "github",
@@ -40,6 +40,10 @@
     },
     "dependencies": {
         "@fortawesome/react-fontawesome": "^0.1.16",
+        "@izui/assets": "*",
+        "@izui/scripts": "*",
+        "@izui/styles": "*",
+        "@izui/types": "*",
         "@types/markdown-it": "12.2.3",
         "@types/react-data-grid": "^4.0.7",
         "@types/uuid": "^8.3.4",

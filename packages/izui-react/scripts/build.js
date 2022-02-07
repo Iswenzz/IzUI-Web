@@ -1,4 +1,4 @@
-const builder = require("../../../scripts/build");
+const builder = require("@izui/scripts/webpack/build");
 const config = require("../webpack.config")();
 
 builder(config, {
