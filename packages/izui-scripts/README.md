@@ -7,7 +7,7 @@
 
 Utility scripts for jest mocking and webpack builds.
 
-## Instructions
+## Installation
 
 This library can be found on [NPM](https://www.npmjs.com/package/@izui/scripts)
 
@@ -18,7 +18,7 @@ npm install @izui/scripts
 ## Building (Any Platform)
 
 _Pre-Requisites:_
-1. [NodeJS (version 14+)](https://nodejs.org/en/)
+1. [NodeJS (version 16+)](https://nodejs.org/en/)
 2. [Yarn / NPM](https://yarnpkg.com/)
 
 ### [Download](https://github.com/Iswenzz/IzUI-Web/releases)
