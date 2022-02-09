@@ -35,6 +35,7 @@ const Backdrop: FC<Props> = ({ disableClose = false, onClick = noop, open, class
  * @param disableState - The disable state for closing the backdrop.
  * @returns
  */
+// eslint-disable-next-line react/display-name
 export const createBackdrop = (disableState: boolean) => (props: BackdropProps) =>
 	<Backdrop {...props} transitionDuration={0} disableClose={disableState} />;
 

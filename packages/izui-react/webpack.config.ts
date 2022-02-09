@@ -1,28 +1,29 @@
-const path = require("path");
-const yargs = require("yargs");
-const { hideBin } = require("yargs/helpers");
+import path from "path";
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
+import { Configuration } from "webpack";
 
-const ESLintPlugin = require("eslint-webpack-plugin");
-const StylelintPlugin = require("stylelint-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const TerserPlugin = require("terser-webpack-plugin");
+import ESLintPlugin from "eslint-webpack-plugin";
+import StylelintPlugin from "stylelint-webpack-plugin";
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import TerserPlugin from "terser-webpack-plugin";
+import NodePolyfillPlugin from "node-polyfill-webpack-plugin";
 
-const { createWebpackAliasesFromTSConfig } = require("@izui/scripts/webpack/createAliases");
-const packageJson = require("./package.json");
-const tsConfigPaths = require("./tsconfig.paths.json");
+import { createWebpackAliasesFromTSConfig } from "@izui/scripts/utils/createAliases";
+import packageJson from "./package.json";
+import tsConfigPaths from "./tsconfig.paths.json";
 
-module.exports = () =>
+const config = () =>
 {
 	const argv = yargs(hideBin(process.argv)).options({
 		mode: { type: "string", default: "production" },
 		analyze: { type: "boolean", default: false }
-	}).argv;
+	}).argv as CLI;
 	console.log(`Building in ${argv.mode} mode.\n`);
 
-	const config = {
+	const configuration: Configuration = {
 		mode: argv.mode,
 		devtool: "source-map",
 		externals: Object.keys(packageJson.peerDependencies),
@@ -45,6 +46,7 @@ module.exports = () =>
 		},
 		plugins: [
 			new CleanWebpackPlugin(),
+			new NodePolyfillPlugin(),
 			new MiniCssExtractPlugin({
 				filename: "[name].css",
 				chunkFilename: "[id].css",
@@ -54,17 +56,7 @@ module.exports = () =>
 			}),
 			new ESLintPlugin({
 				extensions: ["js", "jsx", "ts", "tsx"]
-			}),
-			new CopyPlugin({
-				patterns: [
-					{ from: "src/types", to: "types" },
-					{ from: "src/izui-react.d.ts" },
-					// { from: "../izui-assets", to: "assets" },
-					// { from: "../izui-types", to: "types" },
-					{ from: "LICENSE" },
-					{ from: "README.md" }
-				],
-			}),
+			})
 		],
 		module: {
 			rules: [
@@ -124,7 +116,17 @@ module.exports = () =>
 		},
 	};
 
-	if (argv.analyze)
-		config.plugins.push(new BundleAnalyzerPlugin());
-	return config;
+	if (configuration.plugins)
+	{
+		if (argv.analyze)
+			configuration.plugins.push(new BundleAnalyzerPlugin());
+	}
+	return configuration;
 };
+
+export type CLI = {
+	mode: "none" | "development" | "production",
+	analyze: boolean
+};
+
+export default config;

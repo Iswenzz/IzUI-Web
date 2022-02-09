@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, ForwardRefRenderFunction } from "react";
 import { useNavigate } from "react-router-dom";
 
 import useDoubleClick from "@/utils/hooks/useDoubleClick";
@@ -8,7 +8,7 @@ import useDoubleClick from "@/utils/hooks/useDoubleClick";
  * @param props
  * @constructor
  */
-const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) =>
+const Link: ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (props, ref) =>
 {
 	const { className, children, to, tag: Tag = "a",
 		onDoubleClick, onClick, redirectOnDoubleClick, ...rest } = props;
@@ -35,7 +35,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) =>
 			{children}
 		</Tag>
 	);
-});
+};
 
 export type LinkProps = React.HTMLAttributes<HTMLAnchorElement> & {
 	to: string,
@@ -45,4 +45,4 @@ export type LinkProps = React.HTMLAttributes<HTMLAnchorElement> & {
 	redirectOnDoubleClick?: boolean
 };
 
-export default Link;
+export default forwardRef(Link);

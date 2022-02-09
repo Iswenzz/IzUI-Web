@@ -26,7 +26,7 @@ export const recurseChildClassNames = (element: Element): string[] =>
 	const classNames: string[] = Array.from(element.classList);
 
 	Array.from(element.children).forEach(e =>
-	 classNames.push(...recurseChildClassNames(e)));
+		classNames.push(...recurseChildClassNames(e)));
 
 	return classNames;
 };
@@ -41,8 +41,8 @@ export const getComponentStyles = async (component: React.ReactNode): Promise<st
 	if (!component) return [];
 
 	const mockElement = document.createElement("div");
-	await new Promise((res: any) => ReactDOM.render(
-	 component as React.ReactElement, mockElement, res));
+	await new Promise((res: any) => void ReactDOM.render(
+		component as React.ReactElement, mockElement, res));
 	return recurseChildClassNames(mockElement);
 };
 

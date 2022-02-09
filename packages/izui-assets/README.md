@@ -5,9 +5,9 @@
 [![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzUI-Web?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzUI-Web)
 [![License](https://img.shields.io/github/license/Iswenzz/IzUI-Web?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzUI-Web/blob/master/LICENSE)
 
-Assets used within izui-web libraries
+Assets used within izui-web libraries.
 
-## Instructions
+## Installation
 
 This library can be found on [NPM](https://www.npmjs.com/package/@izui/assets)
 

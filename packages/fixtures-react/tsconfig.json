@@ -1,5 +1,20 @@
 {
 	"extends": "./tsconfig.paths.json",
+	"ts-node": {
+		"compilerOptions": {
+			"target": "esnext",
+			"lib": ["esnext"],
+			"allowJs": true,
+			"skipLibCheck": true,
+			"esModuleInterop": true,
+			"allowSyntheticDefaultImports": true,
+			"strict": true,
+			"module": "commonjs",
+			"moduleResolution": "node",
+			"resolveJsonModule": true,
+			"isolatedModules": true
+		}
+	},
 	"compilerOptions": {
 		"target": "es5",
 		"lib": [

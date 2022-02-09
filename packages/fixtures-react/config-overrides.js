@@ -3,7 +3,7 @@ const { hideBin } = require("yargs/helpers");
 
 const StylelintPlugin = require("stylelint-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const BundleHighlightPlugin = require("@izui/scripts/webpack/bundleHighlight");
+const { default: BundleHighlightPlugin } = require("@izui/scripts/build/webpack/bundleHighlight");
 
 const highlightConfig = require("./src/config/highlight.json");
 const tsConfig= require("./tsconfig.json");
@@ -12,7 +12,7 @@ const tsConfigPaths = require("./tsconfig.paths.json");
 const {
 	createWebpackAliasesFromTSConfig,
 	createWebpackBabelIncludeFromTSConfig
-} = require("@izui/scripts/webpack/createAliases");
+} = require("@izui/scripts/build/utils/createAliases");
 
 const {
 	override,

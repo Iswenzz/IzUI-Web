@@ -1,4 +1,4 @@
-# IzUI-Web
+# @izui-react
 
 [![Checks](https://img.shields.io/github/checks-status/Iswenzz/IzUI-Web/master?logo=github)](https://github.com/Iswenzz/IzUI-Web/actions)
 [![CodeFactor](https://img.shields.io/codefactor/grade/github/Iswenzz/IzUI-Web?label=codefactor&logo=codefactor)](https://www.codefactor.io/repository/github/iswenzz/IzUI-Web)
@@ -10,7 +10,7 @@ UI component library allowing you to make modern designs using the various compo
 ![](https://i.imgur.com/cZOJbXK.jpg)
 ![](https://i.imgur.com/aDGGNxx.jpg)
 
-## React
+## Installation
 
 This library can be found on [NPM](https://www.npmjs.com/package/@izui/react)
 
@@ -21,7 +21,7 @@ npm install @izui/react
 ## Building (Any Platform)
 
 _Pre-Requisites:_
-1. [NodeJS (version 14+)](https://nodejs.org/en/)
+1. [NodeJS (version 16+)](https://nodejs.org/en/)
 2. [Yarn / NPM](https://yarnpkg.com/)
 
 ### [Download](https://github.com/Iswenzz/IzUI-Web/releases)

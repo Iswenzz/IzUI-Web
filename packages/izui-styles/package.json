@@ -1,11 +1,34 @@
 {
 	"name": "@izui/styles",
-	"version": "0.0.1",
-	"private": true,
+	"version": "0.0.3",
+	"description": "Styles used within izui-web libraries.",
+	"keywords": [
+		"styles",
+		"scss",
+		"iswenzz",
+		"izui-web",
+		"izui"
+	],
+	"homepage": "https://iswenzz.com",
+	"bugs": {
+		"url": "https://github.com/Iswenzz/IzUI-Web/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Iswenzz/IzUI-Web.git",
+		"directory": "packages/izui-styles"
+	},
+	"funding": {
+		"type": "github",
+		"url": "https://github.com/Iswenzz"
+	},
+	"license": "GPL-3.0+",
 	"scripts": {
-		"build": "scss",
 		"lint": "yarn lint:scss",
 		"lint:scss": "stylelint **/*.{scss,css}",
 		"lint:scss:fix": "stylelint **/*.scss --fix"
+	},
+	"devDependencies": {
+		"stylelint": "^14.4.0"
 	}
 }

@@ -24,7 +24,7 @@ const useBreakpoint = <T>(values: BreakpointValues<T>, defaultValue: T): T =>
 	const largestBreakpoint = validBreakpoints.pop();
 
 	if (!largestBreakpoint)
-	  	return values["xs"] || defaultValue;
+		return values["xs"] || defaultValue;
 	return values[largestBreakpoint] || defaultValue;
 };
 

@@ -1,10 +1,10 @@
-import { forwardRef } from "react";
+import { forwardRef, ForwardRefRenderFunction } from "react";
 
 /**
  * Forward ref component.
  */
-const Forward = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ children, ...rest }, ref) => (
+const Forward: ForwardRefRenderFunction<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }, ref) => (
 	<div {...rest} ref={ref}>{children}</div>
-));
+);
 
-export default Forward;
+export default forwardRef(Forward);

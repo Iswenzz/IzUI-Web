@@ -11,7 +11,7 @@ import MenuMobile from "./MenuMobile/MenuMobile";
 const Menu: FC<Props> = ({ children, handleDrawerToggle, drawerOpen, desktopOpen = false }) => useResponsive({
 	desktop: (
 		<MenuDesktop handleDrawerToggle={handleDrawerToggle}
-		 	drawerOpen={drawerOpen || desktopOpen} desktopOpen={desktopOpen}>
+			drawerOpen={drawerOpen || desktopOpen} desktopOpen={desktopOpen}>
 			{children}
 		</MenuDesktop>
 	),

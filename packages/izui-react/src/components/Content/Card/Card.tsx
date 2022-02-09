@@ -19,7 +19,7 @@ const Card: FC<CardProps> = ({ className, mediaClass, image, icon, title, descri
 			</figure>
 		)}
 		<Grid component={"section"} className={scss.cardContainer} container direction={"column"}
-			  alignItems={"center"} justifyContent={"space-between"}>
+			alignItems={"center"} justifyContent={"space-between"}>
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="h2">
 					{title}

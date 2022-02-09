@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { Grid } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 import { TrailText, Parallax } from "@/components";
 
@@ -17,7 +18,7 @@ const Header: FC<HeaderProps> = ({
 }) => (
 	<header>
 		<Parallax className={classNames(scss.parallax, className)} image={background}
-		 	blur={parallaxBlur} speed={parallaxStrength}>
+			blur={parallaxBlur} speed={parallaxStrength}>
 			<Grid component="section" container className={scss.grid}
 				direction="column" justifyContent="center" alignItems="center">
 				<TrailText className="calli-h1 bold noselect" align="center" variant="h1" component="h1">
@@ -27,7 +28,7 @@ const Header: FC<HeaderProps> = ({
 					{description}
 				</TrailText>
 				{/* <Link to="intro-section" offset={5} smooth> */}
-				<FontAwesomeIcon icon={faChevronDown} size="3x" className={scss.arrow} />
+				<FontAwesomeIcon icon={faChevronDown as IconProp} size="3x" className={scss.arrow} />
 				{/* </Link> */}
 			</Grid>
 		</Parallax>

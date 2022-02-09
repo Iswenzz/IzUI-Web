@@ -38,7 +38,9 @@ const TreeItem: FC<TreeProps> = ({ children, name, style, defaultOpen = false })
 			<Icon className={scss.icon} style={{ opacity: iconOpacity }} onClick={() => setOpen(!isOpen)} />
 			<span className={scss.title} style={style}>{name}</span>
 			<animated.div className={scss.content} style={{ opacity: opacity, height: contentHeight }}>
-				<animated.div ref={ref} style={{ transform }} children={children} />
+				<animated.div ref={ref} style={{ transform }}>
+					{children}
+				</animated.div>
 			</animated.div>
 		</Frame>
 	);

@@ -1,7 +1,9 @@
-const { createJestAliasesFromTSConfig } = require("@izui/scripts/webpack/createAliases");
-const tsConfigPaths = require("./tsconfig.paths.json");
+import type { Config } from "@jest/types";
 
-module.exports = {
+import { createJestAliasesFromTSConfig } from "@izui/scripts/utils/createAliases";
+import tsConfigPaths from "./tsconfig.paths.json";
+
+const config: Config.InitialOptions = {
 	setupFilesAfterEnv: ["<rootDir>/src/__test__/setupTests.ts"],
 	testMatch: ["<rootDir>/src/**/*.(test).{js,jsx,ts,tsx}"],
 	collectCoverageFrom: [
@@ -10,9 +12,9 @@ module.exports = {
 		"!**/__test__/**/*.js"
 	],
 	transform: {
-		"^.+\\.(js|jsx|ts|tsx)$": "ts-jest",
-		"^.+\\.scss$": require.resolve("@izui/scripts/mock/mockTransform.js"),
-		"^.+\\.(ico|png|jpg|webp|gif|svg)$": require.resolve("@izui/scripts/mock/scripts/fileTransform.js")
+		"^.+\\.(js|jsx|ts|tsx)$": require.resolve("ts-jest"),
+		"^.+\\.scss$": require.resolve("@izui/scripts/mock/mockTransform"),
+		"^.+\\.(ico|png|jpg|webp|gif|svg)$": require.resolve("@izui/scripts/mock/fileTransform")
 	},
 	moduleNameMapper: {
 		...createJestAliasesFromTSConfig(tsConfigPaths),
@@ -23,3 +25,5 @@ module.exports = {
 	moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "scss"],
 	coverageReporters: ["text", "cobertura", "lcov"]
 };
+
+export default config;

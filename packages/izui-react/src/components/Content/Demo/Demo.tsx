@@ -33,6 +33,7 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 	 */
 	const handleTabChange = (_: React.SyntheticEvent<Element, Event>, value: number) => setTabIndex(value);
 
+	// eslint-disable-next-line react/display-name
 	const View: FC = useMemo(() => ({ children }) => iframe
 		? <IFrame key={iframeKey} size={{ width: 820, height: 450 }} title={iframeKey}>{children}</IFrame>
 		: <Fragment>{children}</Fragment>, [iframe, iframeKey]);

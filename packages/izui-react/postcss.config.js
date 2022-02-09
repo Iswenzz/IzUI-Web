@@ -1,9 +1,10 @@
 module.exports = {
-	parser: "postcss-safe-parser",
-	plugins: {
-		"postcss-preset-env": {},
-		"postcss-font-magician": {},
-		"postcss-flexbugs-fixes": {},
-		"cssnano": {}
-	}
+	parser: require("postcss-safe-parser"),
+	plugins: [
+		require("autoprefixer"),
+		require("postcss-preset-env"),
+		require("postcss-font-magician"),
+		require("postcss-flexbugs-fixes"),
+		require("cssnano")
+	]
 };

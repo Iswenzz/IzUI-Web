@@ -10,7 +10,7 @@ const PaperDesktop: FC<PaperProps> = ({ className, style, title, description, im
 	<Grid container justifyContent={"center"} alignItems={"center"}
 		className={classNames(scss.paper, className)}>
 		<Grid container direction={"column"} justifyContent={"space-evenly"}
-			  alignItems={"center"} className={scss.container} style={style}>
+			alignItems={"center"} className={scss.container} style={style}>
 			<header>
 				<Typography align={"center"} component={"h2"} variant={"h2"}>
 					{title}
