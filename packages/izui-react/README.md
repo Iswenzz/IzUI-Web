@@ -17,6 +17,9 @@ This library can be found on [NPM](https://www.npmjs.com/package/@izui/react)
 ```sh
 npm install @izui/react
 ```
+```sh
+npm install @emotion/cache @emotion/react @emotion/styled @mui/material framer-motion react react-dom react-i18next react-router-dom
+```
 
 ## Building (Any Platform)
 
