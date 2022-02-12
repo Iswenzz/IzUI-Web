@@ -1,7 +1,7 @@
 import { FC, useMemo, useState } from "react";
 import ReactDataGrid, { Column } from "react-data-grid";
 import { useTheme } from "@mui/material";
-import { Pagination } from "@mui/lab";
+import Pagination from "@mui/lab/Pagination";
 
 import { Loader } from "@/components";
 
