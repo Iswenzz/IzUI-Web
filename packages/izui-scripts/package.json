@@ -1,6 +1,6 @@
 {
 	"name": "@izui/scripts",
-	"version": "0.0.18",
+	"version": "0.0.19",
 	"private": true,
 	"description": "Utility scripts for jest mocking and webpack builds.",
 	"keywords": [
@@ -28,9 +28,7 @@
 		"build": "ts-node scripts/build.node",
 		"lint": "yarn lint:ts",
 		"lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
-		"lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
-		"test": "jest --watchAll=false --coverage --coverageDirectory=coverage",
-		"test:watch": "jest --watchAll=true --coverage --coverageDirectory=coverage"
+		"lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix"
 	},
 	"devDependencies": {
 		"@jest/types": "^27.5.1",
