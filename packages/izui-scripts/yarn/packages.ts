@@ -13,14 +13,7 @@ export const runOnPackage = async (packagePath: string, command: string) =>
 	process.chdir(packagePath);
 
 	console.log(chalk.blue(`Running "${command}" on ${packageName}`));
-	try
-	{
-		execSync(command);
-	}
-	catch (error)
-	{
-		console.error(error);
-	}
+	execSync(command);
 };
 
 /**

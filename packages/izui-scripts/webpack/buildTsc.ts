@@ -6,7 +6,7 @@ import { BuilderOptions } from "./buildWebpack";
 const buildTsc = async (options: BuilderOptions) =>
 {
 	// Build typescript
-	execSync("yarn tsc --build");
+	execSync("yarn tsc --build", { encoding: "utf8" });
 
 	await buildExtra(options);
 };

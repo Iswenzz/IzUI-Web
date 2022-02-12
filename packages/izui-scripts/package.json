@@ -1,6 +1,6 @@
 {
 	"name": "@izui/scripts",
-	"version": "0.0.11",
+	"version": "0.0.18",
 	"private": true,
 	"description": "Utility scripts for jest mocking and webpack builds.",
 	"keywords": [
@@ -25,7 +25,7 @@
 	},
 	"license": "GPL-3.0+",
 	"scripts": {
-		"build": "ts-node scripts/build",
+		"build": "ts-node scripts/build.node",
 		"lint": "yarn lint:ts",
 		"lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
 		"lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",

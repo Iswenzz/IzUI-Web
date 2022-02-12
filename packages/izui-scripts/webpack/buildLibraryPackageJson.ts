@@ -1,8 +1,17 @@
+import { execSync } from "child_process";
 import path from "path";
 import fs from "fs";
 
 import { copyToBuild } from "@izui/scripts/utils/copy";
 import { BuilderOptions } from "./buildWebpack";
+
+/**
+ * Increment the package version.
+ */
+export const incrementVersion = () =>
+{
+	execSync("yarn version patch");
+};
 
 /**
  * Build library package.json.
@@ -18,6 +27,9 @@ const buildLibraryPackageJson = async ({
 	if (!fs.existsSync(packageJsonPath))
 		throw new Error("'packageJsonPath' option should have the library's package.json resolved path.");
 	const packageJson = require(packageJsonPath);
+
+	// Version
+	incrementVersion();
 
 	// Modify package.json
 	if (entry) packageJson.main = entry;

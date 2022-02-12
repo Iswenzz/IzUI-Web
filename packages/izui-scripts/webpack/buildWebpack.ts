@@ -16,7 +16,11 @@ const buildWebpack = async (config: Configuration, options: BuilderOptions = {})
 		compiler.run(async (_, stats?: Stats) =>
 		{
 			if (stats)
+			{
 				console.log(stats.toString({ minimal: true, colors: true, errorDetails: true }));
+				if (stats.hasErrors())
+					throw new Error("Webpack compilation failed.");
+			}
 			resolve();
 		});
 	});

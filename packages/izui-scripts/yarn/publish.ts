@@ -3,35 +3,33 @@ import chalk from "chalk";
 import { execSync } from "child_process";
 
 /**
- * Increment the package version.
- */
-export const incrementVersion = () =>
-{
-	execSync("yarn version patch");
-};
-
-/**
  * Publish a package.
  * @param packagePath - The package path.
  */
-export const publishPackage = async (packagePath: string) =>
+export const publishPackage = async (packagePath: string, buildScriptPath = "scripts/build") =>
 {
 	const packageName = path.basename(packagePath);
 	process.chdir(packagePath);
 
-	incrementVersion();
-
 	try
 	{
 		// Build script
-		const buildScript = require.resolve(path.join(packagePath, "scripts/build"));
+		const buildScript = require.resolve(path.join(packagePath, buildScriptPath));
 		console.log(chalk.green(`Building ${packageName}`));
 
 		if (buildScript)
 		{
 			const { default: buildCallback } = require(buildScript);
-			await buildCallback();
-			process.chdir("build");
+			try
+			{
+				await buildCallback();
+				process.chdir("build");
+			}
+			catch (err)
+			{
+				console.error(err);
+				process.exit(-1);
+			}
 		}
 	}
 	catch { }
