@@ -9,6 +9,9 @@ export * from "./Hints";
 export { default as Image } from "./Image/Image";
 export * from "./Image/Image";
 
+export { default as Portal } from "./Portal/Portal";
+export * from "./Portal/Portal";
+
 export { default as Parallax } from "./Parallax/Parallax";
 export * from "./Parallax/Parallax";
 

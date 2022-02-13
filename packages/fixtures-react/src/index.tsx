@@ -7,7 +7,7 @@ import Router from "router/routes";
 import "config/highlight";
 
 import { unregister } from "./serviceWorker";
-import "./styles/Main.scss";
+import "styles/Main.scss";
 
 ReactDOM.render((
 	<Themes theme={DarkTheme}>
