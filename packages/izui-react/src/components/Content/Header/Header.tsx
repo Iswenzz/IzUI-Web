@@ -1,10 +1,6 @@
-import { FC, memo } from "react";
-import classNames from "classnames";
-
+import { FC, memo, ReactElement } from "react";
 import { Grid } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import classNames from "classnames";
 
 import { TrailText, Parallax } from "@/components";
 
@@ -14,7 +10,7 @@ import scss from "./Header.module.scss";
  * Header with a parallax background & title.
  */
 const Header: FC<HeaderProps> = ({
-	className, title, description = "", background, parallaxStrength = -30, parallaxBlur = 0
+	children, className, title, description = "", background, parallaxStrength = -30, parallaxBlur = 0
 }) => (
 	<header>
 		<Parallax className={classNames(scss.parallax, className)} image={background}
@@ -27,15 +23,14 @@ const Header: FC<HeaderProps> = ({
 				<TrailText className="poiret bold noselect" align="center" variant="h3" component="h3">
 					{description}
 				</TrailText>
-				{/* <Link to="intro-section" offset={5} smooth> */}
-				<FontAwesomeIcon icon={faChevronDown as IconProp} size="3x" className={scss.arrow} />
-				{/* </Link> */}
+				{children}
 			</Grid>
 		</Parallax>
 	</header>
 );
 
 type HeaderProps = {
+	children?: ReactElement,
 	className?: string,
 	title: string,
 	description?: string,
