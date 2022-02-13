@@ -39,10 +39,7 @@ const config = () =>
 		},
 		resolve: {
 			extensions: ["*", ".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".json"],
-			alias: {
-				"react/jsx-runtime": require.resolve("react/jsx-runtime"),
-				...createWebpackAliasesFromTSConfig(tsConfigPaths)
-			}
+			alias: createWebpackAliasesFromTSConfig(tsConfigPaths)
 		},
 		plugins: [
 			new CleanWebpackPlugin(),

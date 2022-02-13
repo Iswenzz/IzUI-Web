@@ -1,6 +1,6 @@
 {
 	"name": "@izui/scripts",
-	"version": "0.0.19",
+	"version": "0.0.48",
 	"private": true,
 	"description": "Utility scripts for jest mocking and webpack builds.",
 	"keywords": [

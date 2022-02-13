@@ -1,6 +1,6 @@
 {
     "name": "@izui/react",
-    "version": "0.10.28",
+    "version": "0.10.30",
     "private": true,
     "description": "UI component library allowing you to make modern designs using the various components it offers.",
     "keywords": [
@@ -64,7 +64,7 @@
         "lodash": "^4.17.21",
         "markdown-it": "^12.3.2",
         "react-card-flip": "^1.1.5",
-        "react-data-grid": "^7.0.0-beta.9",
+        "react-data-grid": "7.0.0-canary.30",
         "react-intersection-observer": "^8.33.1",
         "react-scroll-parallax": "^3.0.3",
         "react-spring": "^9.4.2",

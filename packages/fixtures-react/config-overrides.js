@@ -30,10 +30,7 @@ const argv = yargs(hideBin(process.argv)).options({
 console.log(`Building in ${argv.mode} mode.\n`);
 
 module.exports.webpack = override(
-	addWebpackAlias({
-		...createWebpackAliasesFromTSConfig(tsConfigPaths),
-		"react/jsx-runtime": require.resolve("react/jsx-runtime")
-	}),
+	addWebpackAlias(createWebpackAliasesFromTSConfig(tsConfigPaths)),
 	addWebpackPlugin(new BundleHighlightPlugin(highlightConfig)),
 	addWebpackPlugin(new StylelintPlugin({ configPaths: ".stylelintrc" })),
 	argv.analyze ? addWebpackPlugin(new BundleAnalyzerPlugin()) : null,
