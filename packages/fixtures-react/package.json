@@ -57,6 +57,7 @@
 		"react-use": "^17.3.2"
 	},
 	"devDependencies": {
+		"@faker-js/faker": "^6.0.0-alpha.6",
 		"@jest/types": "^27.5.1",
 		"@testing-library/jest-dom": "^5.16.2",
 		"@testing-library/react": "^12.1.2",
@@ -75,7 +76,6 @@
 		"customize-cra": "^1.0.0",
 		"eslint": "^8.8.0",
 		"eslint-config-react-app": "^7.0.0",
-		"faker": "^6.6.6",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^27.5.1",
 		"jsdoc": "^3.6.10",
