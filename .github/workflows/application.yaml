@@ -11,24 +11,25 @@ env:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
 
     - name: Build
       run: |
+        yarn set version latest
         yarn
         yarn build
 
     - name: Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: build-artifact
-        path: build
+        name: artifact
+        path: .
 
   tests:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: [build]
     steps:
     - name: Checkout
@@ -37,8 +38,8 @@ jobs:
     - name: Artifact
       uses: actions/download-artifact@v2
       with:
-        name: build-artifact
-        path: build
+        name: artifact
+        path: .
 
     - name: Tests
       run: |
@@ -55,7 +56,7 @@ jobs:
         verbose: true
 
   lint:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: [build]
     steps:
     - name: Checkout
@@ -64,8 +65,8 @@ jobs:
     - name: Artifact
       uses: actions/download-artifact@v2
       with:
-        name: build-artifact
-        path: build
+        name: artifact
+        path: .
 
     - name: Lint
       run: |
