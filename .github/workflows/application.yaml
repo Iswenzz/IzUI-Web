@@ -16,7 +16,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-      
+
     - uses: actions/setup-node@v2
       with:
         node-version: "16"
@@ -26,9 +26,6 @@ jobs:
       run: |
         corepack enable
         yarn set version stable
-        yarn config set nodeLinker node-modules
-        yarn plugin import workspace-tools
-        yarn plugin import version
 
     - name: Build
       run: |
