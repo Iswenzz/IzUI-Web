@@ -22,7 +22,13 @@ const publish = async () =>
 		const resolvedPackagePath = path.resolve(packagePath);
 
 		if (fs.existsSync(packagePath))
-			await publishPackage(resolvedPackagePath);
+		{
+			await publishPackage({
+				packagePath: resolvedPackagePath,
+				publishOnNpmJS: true,
+				publishOnGPR: false
+			});
+		}
 		else
 			throw new Error(`Could not find package ${resolvedPackagePath}`);
 	}

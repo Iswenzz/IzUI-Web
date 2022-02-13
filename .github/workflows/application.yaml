@@ -29,7 +29,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-        
+
     - name: Yarn Berry
       run: |
         corepack enable
@@ -55,7 +55,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-        
+
     - name: Yarn Berry
       run: |
         corepack enable

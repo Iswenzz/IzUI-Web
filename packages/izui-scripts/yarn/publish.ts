@@ -6,7 +6,13 @@ import { execSync } from "child_process";
  * Publish a package.
  * @param packagePath - The package path.
  */
-export const publishPackage = async (packagePath: string, buildScriptPath = "scripts/build") =>
+export const publishPackage = async ({
+	packagePath,
+	buildScriptPath = "scripts/build",
+	publishDryRun,
+	publishOnNpmJS,
+	publishOnGPR
+}: PublishOptions) =>
 {
 	const packageName = path.basename(packagePath);
 	process.chdir(packagePath);
@@ -35,7 +41,20 @@ export const publishPackage = async (packagePath: string, buildScriptPath = "scr
 	catch { }
 
 	console.log(chalk.blue(`Publishing ${packageName}`));
-	execSync("npm publish --access public");
+	if (publishDryRun)
+		execSync("npm publish --dry-run");
+	if (publishOnNpmJS)
+		execSync("npm publish --access public --registry=https://registry.npmjs.org");
+	if (publishOnGPR)
+		execSync("npm publish --access public --registry=https://npm.pkg.github.com");
+};
+
+export type PublishOptions = {
+	packagePath: string,
+	buildScriptPath?: string,
+	publishDryRun?: boolean,
+	publishOnNpmJS?: boolean,
+	publishOnGPR?: boolean
 };
 
 export default publishPackage;
