@@ -5,7 +5,7 @@ import path from "path";
  * @param config - The TS config.
  * @returns
  */
-export const createWebpackAliasesFromTSConfig = (config: any) =>
+export const createWebpackAliasesFromTSConfig = (config: any, rootDir = process.cwd()) =>
 {
 	const aliasPaths: TSPaths = config.compilerOptions.paths;
 	return Object.keys(aliasPaths).reduce<TSPaths>((alias, current) =>
@@ -15,7 +15,7 @@ export const createWebpackAliasesFromTSConfig = (config: any) =>
 
 		const computedAliases: string[] = [];
 		paths.forEach(targetPath => computedAliases.push(path.resolve(
-			process.cwd(), removeWildCard(targetPath))));
+			rootDir, removeWildCard(targetPath))));
 		alias[removeWildCard(current)] = computedAliases;
 		return alias;
 	}, {});
@@ -34,7 +34,7 @@ export const createWebpackBabelIncludeFromTSConfig = (config: any) =>
  * @param config - The TS config.
  * @returns
  */
-export const createJestAliasesFromTSConfig = (config: any) =>
+export const createJestAliasesFromTSConfig = (config: any, rootDir = process.cwd()) =>
 {
 	const aliasPaths: TSPaths = config.compilerOptions.paths;
 	return Object.keys(aliasPaths).reduce<JestPaths>((alias, current) =>
@@ -44,7 +44,7 @@ export const createJestAliasesFromTSConfig = (config: any) =>
 
 		const computedAliases: string[] = [];
 		paths.forEach(targetPath => computedAliases.push(path.resolve(
-			process.cwd(), removeWildCard(targetPath))));
+			rootDir, removeWildCard(targetPath))));
 
 		const entry = `^${removeWildCard(current)}${hasWildCard(current) ? "(.*)" : ""}$`;
 		alias[entry] = `${computedAliases}${hasWildCard(current) ? "$1" : ""}`;

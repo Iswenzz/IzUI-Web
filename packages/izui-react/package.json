@@ -1,6 +1,6 @@
 {
     "name": "@izui/react",
-    "version": "0.10.32",
+    "version": "0.10.34",
     "private": true,
     "description": "UI component library allowing you to make modern designs using the various components it offers.",
     "keywords": [
@@ -36,8 +36,8 @@
         "lint:scss:fix": "stylelint **/*.scss --fix",
         "lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
         "lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
-        "test": "jest --watchAll=false --coverage --coverageDirectory=coverage",
-        "test:watch": "jest --watchAll=true --coverage --coverageDirectory=coverage"
+        "test": "jest",
+        "test:watch": "jest --watchAll=true"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.0.0",

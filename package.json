@@ -23,7 +23,12 @@
 		"lint": "yarn workspaces foreach --parallel -v run lint",
 		"release": "ts-node scripts/publish",
 		"start:react": "yarn workspace @izui/fixtures-react start",
-		"test": "yarn workspaces foreach --parallel -v run test"
+		"test": "jest"
+	},
+	"devDependencies": {
+		"@jest/types": "^27.5.1",
+		"@types/jest": "^27.4.0",
+		"jest": "^27.5.1"
 	},
 	"engines": {
 		"node": ">=16.7.0"

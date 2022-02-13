@@ -9314,6 +9314,10 @@ __metadata:
 "izui-web@workspace:.":
   version: 0.0.0-use.local
   resolution: "izui-web@workspace:."
+  dependencies:
+    "@jest/types": ^27.5.1
+    "@types/jest": ^27.4.0
+    jest: ^27.5.1
   languageName: unknown
   linkType: soft
 
