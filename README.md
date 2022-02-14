@@ -38,9 +38,10 @@ _Pre-Requisites:_
 
 _Yarn Berry:_
 ```sh
-yarn dlx @yarnpkg/sdks vscode
+yarn config set nodeLinker node-modules
 yarn plugin import workspace-tools
 yarn plugin import version
+yarn dlx @yarnpkg/sdks vscode
 ```
 
 ### [Download](https://github.com/Iswenzz/IzUI-Web/releases)
