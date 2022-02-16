@@ -1,18 +1,22 @@
 @use "./Fonts/Faces";
 
-@use "sass:list";
+$font-sizes: (
+	big: 60px,
+	h1: 32px,
+	h2: 24px,
+	h3: 19px,
+	h4: 16px,
+	h5: 13px,
+	h6: 10px
+);
 
-$font-sizes: (32px, 24px, 19px, 16px, 13px, 10px);
-
-@mixin buildFont($name, $family...) {
-	.#{$name} {
+@mixin buildFont($fontName, $family...) {
+	.#{$fontName} {
 		font-family: $family !important;
 	}
 
-	@each $size in $font-sizes {
-		$i: list.index($font-sizes, $size);
-
-		.#{$name}-h#{$i} {
+	@each $sizeName, $size in $font-sizes {
+		.#{$fontName}-#{$sizeName} {
 			font-family: $family !important;
 			font-size: $size !important;
 		}
