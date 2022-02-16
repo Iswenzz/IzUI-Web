@@ -1,7 +1,7 @@
 .card {
 	position: relative;
 	margin: 2em;
-	background-color: rgba(20, 20, 20, 0.7) !important;
+	background-color: rgba(20, 20, 20, 0.7);
 
 	#{&}-container {
 		height: 100%;
@@ -18,11 +18,11 @@
 	}
 
 	h2, p {
-		color: gainsboro !important;
+		color: gainsboro;
 	}
 
 	span {
-		color: orange !important;
+		color: orange;
 	}
 
 	img {

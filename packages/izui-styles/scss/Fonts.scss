@@ -12,13 +12,13 @@ $font-sizes: (
 
 @mixin buildFont($fontName, $family...) {
 	.#{$fontName} {
-		font-family: $family !important;
+		font-family: $family;
 	}
 
 	@each $sizeName, $size in $font-sizes {
 		.#{$fontName}-#{$sizeName} {
-			font-family: $family !important;
-			font-size: $size !important;
+			font-family: $family;
+			font-size: $size;
 		}
 	}
 }

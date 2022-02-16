@@ -83,6 +83,7 @@ export const LightThemeOptions: ThemeOptions = {
 		}
 	},
 	typography: {
+		fontFamily: "Ubuntu",
 		subtitle1: {
 			fontFamily: "Ubuntu",
 		},

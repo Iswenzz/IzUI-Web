@@ -83,6 +83,7 @@ export const DarkThemeOptions: ThemeOptions = {
 		}
 	},
 	typography: {
+		fontFamily: "Ubuntu",
 		subtitle1: {
 			fontFamily: "Ubuntu",
 		},
