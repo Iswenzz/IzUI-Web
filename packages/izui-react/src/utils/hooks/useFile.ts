@@ -5,13 +5,25 @@ import { useState } from "react";
  * @param url - The file URL.
  * @returns
  */
-const useFile = (url: string): Nullable<string> =>
+const useFile = (url?: string): File =>
 {
-	const [file, setFile] = useState<Nullable<string>>(null);
+	if (!url) return { file: undefined, isLoading: false };
 
-	fetch(url).then(response => response.text()).then(setFile);
+	const [file, setFile] = useState<Optional<string>>(undefined);
+	const [isLoading, setIsLoading] = useState<boolean>(true);
 
-	return file;
+	fetch(url).then(response => response.text()).then(file =>
+	{
+		setFile(file);
+		setIsLoading(false);
+	});
+
+	return { file, isLoading };
+};
+
+type File = {
+	file?: string,
+	isLoading: boolean
 };
 
 export default useFile;
