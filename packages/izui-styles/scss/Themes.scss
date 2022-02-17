@@ -1,4 +1,4 @@
-@use "./Transitions";
+@use "./Transitions" as Transitions;
 
 // name: mode
 $themes: (
@@ -11,6 +11,8 @@ $themes: (
 		@if ($mode == "light") {
 			&.#{$theme} {
 				@content;
+
+				@include Transitions.apply(0.5s);
 			}
 		}
 	}
@@ -21,6 +23,8 @@ $themes: (
 		@if ($mode == "dark") {
 			&.#{$theme} {
 				@content;
+
+				@include Transitions.apply(0.5s);
 			}
 		}
 	}
@@ -29,5 +33,7 @@ $themes: (
 @mixin theme($theme) {
 	&.#{$theme} {
 		@content;
+
+		@include Transitions.apply(0.5s);
 	}
 }
