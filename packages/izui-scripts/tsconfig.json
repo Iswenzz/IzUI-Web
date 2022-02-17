@@ -21,6 +21,5 @@
 		"utils",
 		"webpack",
 		"yarn"
-	],
-	"exclude": ["**/__test__/**/*"]
+	]
 }
