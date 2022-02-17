@@ -1,6 +1,6 @@
 {
 	"name": "@izui/styles",
-	"version": "0.0.3",
+	"version": "1.0.0",
 	"description": "Styles used within izui-web libraries.",
 	"keywords": [
 		"styles",

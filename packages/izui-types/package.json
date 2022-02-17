@@ -1,6 +1,6 @@
 {
 	"name": "@izui/types",
-	"version": "0.0.4",
+	"version": "1.0.0",
 	"description": "Types used within izui-web libraries.",
 	"keywords": [
 		"types",

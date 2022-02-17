@@ -1,6 +1,6 @@
 {
     "name": "@izui/assets",
-    "version": "0.0.14",
+    "version": "1.0.0",
     "description": "Assets used within izui-web libraries.",
     "keywords": [
         "assets",
