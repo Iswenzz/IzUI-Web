@@ -7,10 +7,10 @@ import { useState } from "react";
  */
 const useFile = (url?: string): File =>
 {
-	if (!url) return { file: undefined, isLoading: false };
-
 	const [file, setFile] = useState<Optional<string>>(undefined);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
+
+	if (!url) return { file: undefined, isLoading: false };
 
 	fetch(url).then(response => response.text()).then(file =>
 	{

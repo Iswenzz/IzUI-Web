@@ -62,7 +62,7 @@ const Carousel: FC<CarouselProps> = ({
 
 		setScrollSnaps(emblaApi.scrollSnapList());
 		emblaApi.on("select", onSelect);
-	}, [emblaApi, setScrollSnaps, onSelect]);
+	}, [emblaApi, onSelect, setScrollSnaps]);
 
 
 	/**
