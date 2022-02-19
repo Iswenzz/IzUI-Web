@@ -48,7 +48,7 @@ export const SpringGrid: FC<SpringGridProps> = ({
 	});
 
 	return (
-		<Grid container component={"ul"} style={{ ...style, width, height, position: "relative" }}>
+		<Grid container component="ul" style={{ ...style, width, height, position: "relative" }}>
 			{children.length && transitions(({ top, left, ...rest }: any, item) => (
 				<animated.li
 					key={item.key}

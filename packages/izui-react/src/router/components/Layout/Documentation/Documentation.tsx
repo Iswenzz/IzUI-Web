@@ -22,7 +22,7 @@ const Documentation: FC<Props> = ({ navigationClassName, navigationChildren, Men
 	const handleDrawerToggle = (state: boolean) => setDrawerOpen(state);
 
 	return (
-		<Box display={"flex"}>
+		<Box display="flex">
 			<Menu handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen} desktopOpen>
 				{MenuNavigation}
 			</Menu>

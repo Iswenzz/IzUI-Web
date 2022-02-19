@@ -41,7 +41,7 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 	if (!children) return null;
 
 	return (
-		<Grid container component={"article"} justifyContent={"flex-start"} alignItems={"center"} direction={"column"}>
+		<Grid container component="article" justifyContent="flex-start" alignItems="center" direction="column">
 			<Text id={title || uuidv4()} className="poiret-h1" variant="h2">{title}</Text>
 			<Divider className={scss.divider} />
 			<Text className={scss.description} variant="subtitle1">{description}</Text>
@@ -52,21 +52,21 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 				</View>
 			</section>
 
-			<Grid container className={scss.buttons} justifyContent={"flex-end"} alignItems={"center"}>
-				<Tooltip title={"Code"}>
+			<Grid container className={scss.buttons} justifyContent="flex-end" alignItems="center">
+				<Tooltip title="Code">
 					<Fab className={scss.fab} color="secondary" onClick={() => setCodeCollapse(!codeCollapse)}>
 						<CodeIcon />
 					</Fab>
 				</Tooltip>
 				{sandboxUrl && (
-					<Tooltip title={"Sandbox"}>
+					<Tooltip title="Sandbox">
 						<Fab href={sandboxUrl} className={scss.fab} color="secondary">
 							<OpenInNewIcon />
 						</Fab>
 					</Tooltip>
 				)}
 				{iframe && (
-					<Tooltip title={"Replay"}>
+					<Tooltip title="Replay">
 						<Fab className={scss.fab} color="secondary" onClick={reloadIframe}>
 							<ReplayIcon />
 						</Fab>

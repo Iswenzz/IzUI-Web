@@ -24,7 +24,6 @@ jobs:
     - name: Build
       run: |
         yarn --no-immutable
-        yarn workspace @izui/scripts build
         yarn build
 
   tests:

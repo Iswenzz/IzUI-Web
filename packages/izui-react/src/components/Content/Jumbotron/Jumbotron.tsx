@@ -15,16 +15,16 @@ const Jumbotron: FC<JumbotronProps> = ({ className, children, backgroundImage, t
 }) => (
 	<article className={classNames(scss.jumbotron, className)}
 		style={{ ...style, backgroundImage: `url(${backgroundImage})` }}>
-		<Container maxWidth={"lg"}>
-			<Grid container component={"ul"} direction={direction} justifyContent={justifyContent} alignItems={alignItems}>
+		<Container maxWidth="lg">
+			<Grid container component="ul" direction={direction} justifyContent={justifyContent} alignItems={alignItems}>
 				<motion.li custom={0} variants={variants} initial={initial} animate={animate} exit={exit}>
-					<Typography className={titleClassName} variant={"h3"} component={"h3"}>
+					<Typography className={titleClassName} variant="h3" component="h3">
 						{title}
 					</Typography>
 				</motion.li>
 				<motion.li custom={0.5} variants={variants} initial={initial} animate={animate} exit={exit}>
 					<section className={scss.description}>
-						<Typography className={descriptionClassName} variant={"subtitle1"} paragraph>
+						<Typography className={descriptionClassName} variant="subtitle1" paragraph>
 							{description}
 						</Typography>
 					</section>

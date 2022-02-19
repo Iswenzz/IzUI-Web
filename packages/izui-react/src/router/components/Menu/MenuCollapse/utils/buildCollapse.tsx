@@ -15,7 +15,7 @@ export const buildCollapse = (
 ) => routes.map(({ name, route }) => (
 	<Link key={name} className="nolink" to={route} onClick={onClick}>
 		<ListItem button sx={{ pl: 5 }}>
-			<Text color={"textPrimary"}>{name}</Text>
+			<Text color="textPrimary">{name}</Text>
 		</ListItem>
 	</Link>
 ));

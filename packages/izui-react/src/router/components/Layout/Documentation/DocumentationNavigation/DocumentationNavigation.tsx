@@ -11,7 +11,7 @@ import { Text } from "@/components";
 const DocumentationNavigation: FC = () => (
 	<>
 		<li>
-			<Link className="nolink" to={"/start/installation"}>
+			<Link className="nolink" to="/start/installation">
 				<Button size="large" color="secondary" startIcon={<ArticleIcon />}>
 					<Text color="textPrimary">Documentation</Text>
 				</Button>

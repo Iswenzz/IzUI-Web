@@ -19,7 +19,7 @@ const DocumentationToolbar: FC<Props> = ({ children, className, handleDrawerTogg
 				onClick={() => handleDrawerToggle(!drawerOpen)} sx={iconButtonSx}>
 				<MenuIcon />
 			</IconButton>
-			<Grid container component={"ul"} justifyContent={"flex-end"} alignItems={"center"}>
+			<Grid container component="ul" justifyContent="flex-end" alignItems="center">
 				<DocumentationNavigation />
 				{children}
 			</Grid>

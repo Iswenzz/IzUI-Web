@@ -9,8 +9,8 @@ import scss from "./Card.module.scss";
 const Card: FC<CardProps> = ({ className, mediaClass, image, icon, title, description, children }) => (
 	<MUICard className={`${scss.card} ${className}`}>
 		{image && (
-			<CardActionArea component={"header"}>
-				<CardMedia component={"img"} className={mediaClass} image={image} title={title} />
+			<CardActionArea component="header">
+				<CardMedia component="img" className={mediaClass} image={image} title={title} />
 			</CardActionArea>
 		)}
 		{icon && (
@@ -18,8 +18,8 @@ const Card: FC<CardProps> = ({ className, mediaClass, image, icon, title, descri
 				{icon}
 			</figure>
 		)}
-		<Grid component={"section"} className={scss.cardContainer} container direction={"column"}
-			alignItems={"center"} justifyContent={"space-between"}>
+		<Grid component="section" className={scss.cardContainer} container direction="column"
+			alignItems="center" justifyContent="space-between">
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="h2">
 					{title}
@@ -28,7 +28,7 @@ const Card: FC<CardProps> = ({ className, mediaClass, image, icon, title, descri
 					{description}
 				</Typography>
 			</CardContent>
-			<CardActions className={"card-actions"}>
+			<CardActions className="card-actions">
 				{children}
 			</CardActions>
 		</Grid>
