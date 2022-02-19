@@ -1,5 +1,5 @@
 import { useMemo, ReactElement, FC, CSSProperties, memo } from "react";
-import { animated, useTransition } from "react-spring";
+import { animated, TransitionRenderFn, useTransition } from "react-spring";
 import { Grid } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
@@ -29,7 +29,7 @@ export const SpringGrid: FC<SpringGridProps> = ({
 			? computeSimpleLayout(children, responsiveColumns, gutter, itemSize)
 			: computeMasonryLayout(children, responsiveColumns, gutter, itemSize);
 
-		const items = children.map((item: ReactElement, index: number) => ({
+		const items = children.map<Item>((item: ReactElement, index: number) => ({
 			key: item.key || uuidv4(),
 			top: positions[index].y,
 			left: positions[index].x,
@@ -78,6 +78,13 @@ export type Layout = {
 	positions: Point[],
 	gridWidth: number,
 	gridHeight: number
+};
+
+type Item = {
+	key: React.Key,
+	top: number,
+	left: number,
+	index: number
 };
 
 export default memo(SpringGrid);
