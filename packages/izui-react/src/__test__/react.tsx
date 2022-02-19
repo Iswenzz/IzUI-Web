@@ -25,17 +25,17 @@ const buildRender = <Props, Queries>({
 {
 	return (props: Object<Props> = { }): Render<Queries> =>
 	{
-		const rendered = customRender(<Component {...defaultProps} {...props} />);
+		const view = customRender(<Component {...defaultProps} {...props} />);
 		const rerender = (newProps = props) =>
-			rendered.rerender(<Component {...defaultProps} {...newProps} />);
+			view.rerender(<Component {...defaultProps} {...newProps} />);
 
 		// There is another way to handle custom queries
 		// https://testing-library.com/docs/dom-testing-library/api-helpers#custom-queries
 		// but it seems to return only functions
 		return {
-			...rendered,
+			...view,
 			rerender,
-			...queries(rendered)
+			...queries(view)
 		};
 	};
 };

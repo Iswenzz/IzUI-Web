@@ -1,16 +1,16 @@
 import { buildRender, fireEvent } from "@/test/react";
 import { Flip, FlipProps } from "@/components";
 
-const setup = buildRender<FlipProps, Query>({
+const view = buildRender<FlipProps, Query>({
 	component: Flip,
 	defaultProps: {
 		front: <div>FRONT</div>,
 		back: <div>BACK</div>
 	},
-	queries: ({ container, getByText }) => ({
-		component: container.firstChild as HTMLElement,
-		front: getByText("FRONT"),
-		back: getByText("BACK")
+	queries: screen => ({
+		component: screen.container.firstChild as HTMLElement,
+		front: screen.getByText("FRONT"),
+		back: screen.getByText("BACK")
 	})
 });
 
@@ -18,7 +18,7 @@ describe("Flip", () =>
 {
 	it("should flip the component", () =>
 	{
-		const { front, component } = setup();
+		const { front, component } = view();
 
 		expect(component).toHaveClass("front");
 		fireEvent.click(front);
@@ -27,7 +27,7 @@ describe("Flip", () =>
 
 	it("should render both front and back", () =>
 	{
-		const { front, back } = setup();
+		const { front, back } = view();
 
 		expect(front).toBeInTheDocument();
 		expect(back).toBeInTheDocument();
@@ -35,14 +35,14 @@ describe("Flip", () =>
 
 	it("should render front", () =>
 	{
-		const { component } = setup();
+		const { component } = view();
 
 		expect(component).toHaveClass("front");
 	});
 
 	it("should render back", () =>
 	{
-		const { component } = setup({ flipped: true });
+		const { component } = view({ flipped: true });
 
 		expect(component).toHaveClass("back");
 	});
@@ -50,7 +50,7 @@ describe("Flip", () =>
 	it("should call the flip callback", () =>
 	{
 		const flipCallback = jest.fn();
-		const { front } = setup({ flipCallback });
+		const { front } = view({ flipCallback });
 
 		expect(flipCallback).not.toHaveBeenCalled();
 		fireEvent.click(front);
