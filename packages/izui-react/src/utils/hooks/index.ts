@@ -4,6 +4,9 @@ export * from "./useBreakpoint";
 export { default as useCancellablePromises } from "./useCancellablePromises";
 export * from "./useCancellablePromises";
 
+export { default as useCaptcha } from "./useCaptcha";
+export * from "./useCaptcha";
+
 export { default as useDoubleClick } from "./useDoubleClick";
 export * from "./useDoubleClick";
 
