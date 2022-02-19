@@ -1,5 +1,5 @@
 import { useMemo, ReactElement, FC, CSSProperties, memo } from "react";
-import { animated, TransitionRenderFn, useTransition } from "react-spring";
+import { animated, useTransition } from "react-spring";
 import { Grid } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
