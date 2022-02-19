@@ -21,12 +21,12 @@ const MenuNavigation: FC<MenuNavigationProps> = ({ handleDrawerToggle }) =>
 		<section>
 			<MenuToolbar />
 			<Divider />
-			<MenuCollapse title={"Getting Started"} icon={<ArticleIcon />}
+			<MenuCollapse title="Getting Started" icon={<ArticleIcon />}
 				open={locationStartWith(location, "/start")}>
 				{buildCollapse(startConfig, handleClose)}
 			</MenuCollapse>
 			<Divider />
-			<MenuCollapse title={"Components"} icon={<ToggleOffIcon />}
+			<MenuCollapse title="Components" icon={<ToggleOffIcon />}
 				open={locationStartWith(location, "/components")}>
 				{buildCollapse(componentsConfig, handleClose)}
 			</MenuCollapse>

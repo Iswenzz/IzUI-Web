@@ -5,14 +5,14 @@
 	"description": "Documentation of @izui/react.",
 	"license": "GPL-3.0+",
 	"scripts": {
-		"build": "react-app-rewired build",
+		"build": "craco build",
 		"build:analyze": "yarn build --analyze",
 		"lint": "yarn lint:scss && yarn lint:ts",
 		"lint:scss": "stylelint **/*.{scss,css}",
 		"lint:scss:fix": "stylelint **/*.scss --fix",
 		"lint:ts": "eslint \"**/*.{js,jsx,ts,tsx}\"",
 		"lint:ts:fix": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix",
-		"start": "react-app-rewired start"
+		"start": "craco start"
 	},
 	"browserslist": {
 		"production": [
@@ -57,12 +57,13 @@
 		"react-use": "^17.3.2"
 	},
 	"devDependencies": {
+		"@craco/craco": "^6.4.3",
 		"@faker-js/faker": "^6.0.0-alpha.6",
 		"@jest/types": "^27.5.1",
 		"@testing-library/jest-dom": "^5.16.2",
 		"@testing-library/react": "^12.1.2",
 		"@testing-library/react-hooks": "^7.0.2",
-		"@types/customize-cra": "^1.0.2",
+		"@types/craco__craco": "^6.4.0",
 		"@types/jest": "^27.4.0",
 		"@types/jest-matchers": "^20.0.2",
 		"@types/lodash": "^4.14.178",
@@ -73,14 +74,12 @@
 		"@types/webpack-bundle-analyzer": "^4.4.1",
 		"@types/yargs": "^17.0.8",
 		"@typescript-eslint/parser": "^5.11.0",
-		"customize-cra": "^1.0.0",
+		"craco-babel-loader": "^1.0.3",
 		"eslint": "^8.8.0",
-		"eslint-config-react-app": "^7.0.0",
 		"identity-obj-proxy": "^3.0.0",
 		"jest": "^27.5.1",
 		"jsdoc": "^3.6.10",
 		"react-app-polyfill": "^3.0.0",
-		"react-app-rewired": "^2.1.11",
 		"react-scripts": "^5.0.0",
 		"sass": "^1.49.7",
 		"stylelint": "^14.4.0",
