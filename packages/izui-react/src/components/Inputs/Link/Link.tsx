@@ -14,7 +14,7 @@ const Link: ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (props, ref
 		onDoubleClick, onClick, redirectOnDoubleClick, ...rest } = props;
 	const navigate = useNavigate();
 
-	const onLinkClick = (event: React.MouseEvent): void =>
+	const onLinkClick = (event: React.MouseEvent) =>
 	{
 		event.stopPropagation();
 		if (redirectOnDoubleClick && onDoubleClick)

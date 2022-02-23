@@ -40,7 +40,7 @@ const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows
 	/**
 	 * Callback on column sorting.
 	 */
-	const onSort = (columnKey: string, direction: SortDirection): void =>
+	const onSort = (columnKey: string, direction: SortDirection) =>
 		setSort([columnKey, direction]);
 
 	/**

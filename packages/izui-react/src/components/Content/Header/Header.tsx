@@ -39,7 +39,7 @@ type HeaderProps = {
 	descriptionClassName?: string,
 	title: string,
 	description?: string,
-	background: string,
+	background?: string,
 	parallaxStrength?: number,
 	parallaxBlur?: number
 };

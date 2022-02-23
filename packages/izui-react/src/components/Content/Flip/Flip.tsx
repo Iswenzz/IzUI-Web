@@ -16,7 +16,7 @@ const Flip: FC<FlipProps> = ({ flipped = false, flipCallback, back, front, direc
 	 * FlipCard click callback.
 	 * @param e - Click event args.
 	 */
-	const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void =>
+	const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
 	{
 		const flip = !isFlipped;
 		e.preventDefault();
