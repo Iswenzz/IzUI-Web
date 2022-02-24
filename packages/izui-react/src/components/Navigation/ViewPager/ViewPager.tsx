@@ -102,7 +102,7 @@ const ViewPager: FC<ViewPagerProps> = ({
 };
 
 export type ViewPagerProps = {
-	items[],
+	items: JSX.Element[],
 	style?: React.CSSProperties,
 	background?: string,
 	startIndex?: number,
@@ -121,7 +121,7 @@ export type ViewPagerConfig = {
 };
 
 export type ViewPagerState = {
-	items?[],
+	items?: JSX.Element[],
 	mainRef?: RefObject<HTMLDivElement>
 };
 
