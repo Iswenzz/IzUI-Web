@@ -1,4 +1,6 @@
 @use "sass:math";
+@use "sass:meta";
+@use "sass:map";
 
 $queries: (
 	desktop: "min-width: 1224px",
@@ -11,8 +13,8 @@ $queries: (
 $sizes: (0, 25, 50, 75, 100) !default;
 
 @mixin media($keys...) {
-	@each $key in $keys {
-		@media (map-get($queries, $key)) {
+	@each $key in meta.keywords($keys) {
+		@media (map.get($queries, $key)) {
 			@content;
 		}
 	}
@@ -20,10 +22,10 @@ $sizes: (0, 25, 50, 75, 100) !default;
 
 @each $size in $sizes {
 	.w-#{$size} {
-		width: math.percentage($size);
+		width: math.percentage(math.div($size, 100));
 	}
 
 	.h-#{$size} {
-		height: math.percentage($size);
+		height: math.percentage(math.div($size, 100));
 	}
 }
