@@ -2,49 +2,51 @@ import { Variants } from "framer-motion";
 
 /**
  * Fade animation.
- * @param duration - Fade duration.
- * @returns
  */
-export const animationFade = (duration = 500): Variants => ({
+export const animationFade: Animation = ({ all, enter, exit } = {}) => ({
 	enter: {
 		opacity: 1,
 		transition: {
-			duration: duration
-		}
+			duration: 1
+		},
+		...all,
+		...enter
 	},
 	exit: {
 		opacity: 0,
 		transition: {
-			duration: duration
-		}
+			duration: 1
+		},
+		...all,
+		...exit
 	}
 });
 
 /**
  * Trail animation.
- * @param delay - Trail delay.
- * @returns
  */
-export const animationTrail = (delay = 0.05): Variants => ({
+export const animationTrail: Animation = ({ all, enter, exit } = {}) => ({
 	enter: (index: number) => ({
 		y: 0,
 		opacity: 1,
 		transition: {
-			delay: index * delay
-		}
+			delay: index * 0.05
+		},
+		...all,
+		...enter
 	}),
 	exit: {
 		y: "100%",
-		opacity: 0
+		opacity: 0,
+		...all,
+		...exit
 	}
 });
 
 /**
  * Scale and fade animation to original position up.
- * @param scaleStart - The start scale.
- * @returns
  */
-export const animationScaleFadeUp = (scaleStart = 0.4): Variants => ({
+export const animationScaleFadeUp: Animation = ({ all, enter, exit } = {}) => ({
 	enter: {
 		y: "0%",
 		opacity: 1,
@@ -52,25 +54,27 @@ export const animationScaleFadeUp = (scaleStart = 0.4): Variants => ({
 		transition: {
 			duration: 1,
 			ease: "easeOut"
-		}
+		},
+		...all,
+		...enter
 	},
 	exit: {
 		y: "100%",
 		opacity: 0,
-		scale: scaleStart,
+		scale: 0.4,
 		transition: {
 			duration: 1,
 			ease: "easeIn"
-		}
+		},
+		...all,
+		...exit
 	}
 });
 
 /**
  * Scale and fade animation to original position down.
- * @param scaleStart - The start scale.
- * @returns
  */
-export const animationScaleFadeDown = (scaleStart = 0.4): Variants => ({
+export const animationScaleFadeDown: Animation = ({ all, enter, exit } = {}) => ({
 	enter: {
 		y: "0%",
 		opacity: 1,
@@ -78,23 +82,27 @@ export const animationScaleFadeDown = (scaleStart = 0.4): Variants => ({
 		transition: {
 			duration: 1,
 			ease: "easeOut"
-		}
+		},
+		...all,
+		...enter
 	},
 	exit: {
 		y: "-100%",
 		opacity: 0,
-		scale: scaleStart,
+		scale: 0.4,
 		transition: {
 			duration: 1,
 			ease: "easeIn"
-		}
+		},
+		...all,
+		...exit
 	}
 });
 
 /**
  * Move from offscreen to original position up.
  */
-export const animationUp: Variants = {
+export const animationUp: Animation = ({ all, enter, exit } = {}) => ({
 	enter: {
 		y: "0%",
 		opacity: 1,
@@ -102,7 +110,9 @@ export const animationUp: Variants = {
 		transition: {
 			duration: 1,
 			ease: "easeOut"
-		}
+		},
+		...all,
+		...enter
 	},
 	exit: {
 		y: "100%",
@@ -111,14 +121,16 @@ export const animationUp: Variants = {
 		transition: {
 			duration: 1,
 			ease: "easeIn"
-		}
+		},
+		...all,
+		...exit
 	}
-};
+});
 
 /**
  * Move from offscreen to original position down.
  */
-export const animationDown: Variants = {
+export const animationDown: Animation = ({ all, enter, exit } = {}) => ({
 	enter: {
 		y: "0%",
 		opacity: 1,
@@ -126,7 +138,9 @@ export const animationDown: Variants = {
 		transition: {
 			duration: 1,
 			ease: "easeOut"
-		}
+		},
+		...all,
+		...enter
 	},
 	exit: {
 		y: "-100%",
@@ -135,14 +149,16 @@ export const animationDown: Variants = {
 		transition: {
 			duration: 1,
 			ease: "easeIn"
-		}
+		},
+		...all,
+		...exit
 	}
-};
+});
 
 /**
  * Move from offscreen to original position on the right.
  */
-export const animationRight: Variants = {
+export const animationRight: Animation = ({ all, enter, exit } = {}) => ({
 	enter: {
 		x: "0%",
 		opacity: 1,
@@ -150,7 +166,9 @@ export const animationRight: Variants = {
 		transition: {
 			duration: 1,
 			ease: "easeOut"
-		}
+		},
+		...all,
+		...enter
 	},
 	exit: {
 		x: "100%",
@@ -159,14 +177,16 @@ export const animationRight: Variants = {
 		transition: {
 			duration: 1,
 			ease: "easeIn"
-		}
+		},
+		...all,
+		...exit
 	}
-};
+});
 
 /**
  * Move from offscreen to original position on the left.
  */
-export const animationLeft: Variants = {
+export const animationLeft: Animation = ({ all, enter, exit } = {}) => ({
 	enter: {
 		x: "0%",
 		opacity: 1,
@@ -174,7 +194,9 @@ export const animationLeft: Variants = {
 		transition: {
 			duration: 1,
 			ease: "easeOut"
-		}
+		},
+		...all,
+		...enter
 	},
 	exit: {
 		x: "-100%",
@@ -183,6 +205,10 @@ export const animationLeft: Variants = {
 		transition: {
 			duration: 1,
 			ease: "easeIn"
-		}
+		},
+		...all,
+		...exit
 	}
-};
+});
+
+export type Animation = (options?: Record<string, Variants>) => Variants;

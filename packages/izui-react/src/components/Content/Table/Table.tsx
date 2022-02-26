@@ -10,7 +10,8 @@ import classNames from "classnames";
 
 /**
  * React data grid table.
- * @returns
+ * @todo - className.
+ * @todo - pagination props.
  */
 const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows, columns = [], ...rest }) =>
 {

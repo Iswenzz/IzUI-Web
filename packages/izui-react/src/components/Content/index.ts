@@ -29,8 +29,4 @@ export * from "./Paper/Paper";
 export { default as Table } from "./Table/Table";
 export * from "./Table/Table";
 
-export { default as Text } from "./Text/Text";
-export * from "./Text/Text";
-
-export { default as TrailText } from "./TrailText/TrailText";
-export * from "./TrailText/TrailText";
+export * from "./Text";

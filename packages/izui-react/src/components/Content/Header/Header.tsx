@@ -2,7 +2,7 @@ import { FC, memo, ReactElement } from "react";
 import { Grid } from "@mui/material";
 import classNames from "classnames";
 
-import { TrailText, Parallax } from "@/components";
+import { TrailText, FadeText, Parallax } from "@/components";
 
 import scss from "./Header.module.scss";
 
@@ -11,21 +11,21 @@ import scss from "./Header.module.scss";
  */
 const Header: FC<HeaderProps> = ({
 	children, className, titleClassName, descriptionClassName, title, description = "",
-	background, parallaxStrength = -30, parallaxBlur = 0
+	background, parallaxStrength = -30, parallaxBlur = 0, TextComponent = FadeText
 }) => (
 	<header>
-		<Parallax className={classNames(scss.parallax, className)} image={background}
+		<Parallax className={classNames(scss.parallax, className)} image={background || false}
 			blur={parallaxBlur} speed={parallaxStrength}>
 			<Grid component="section" container className={scss.grid}
 				direction="column" justifyContent="center" alignItems="center">
-				<TrailText className={classNames("calli-big bold noselect", titleClassName)}
+				<TextComponent className={classNames("calli-big bold noselect", titleClassName)}
 					align="center" variant="h1" component="h1">
 					{title}
-				</TrailText>
-				<TrailText className={classNames("poiret bold noselect", descriptionClassName)}
+				</TextComponent>
+				<TextComponent className={classNames("poiret bold noselect", descriptionClassName)}
 					align="center" variant="h3" component="h3">
 					{description}
-				</TrailText>
+				</TextComponent>
 				{children}
 			</Grid>
 		</Parallax>
@@ -41,7 +41,8 @@ type HeaderProps = {
 	description?: string,
 	background?: string,
 	parallaxStrength?: number,
-	parallaxBlur?: number
+	parallaxBlur?: number,
+	TextComponent?: FC
 };
 
 export default memo(Header);

@@ -19,7 +19,7 @@ const Parallax: FC<Props> = ({
 	});
 
 	const layers: BannerLayer[] = [{
-		image: image || parallaxImage,
+		image: image !== false ? image || parallaxImage : "",
 		speed
 	}];
 
@@ -35,7 +35,7 @@ const Parallax: FC<Props> = ({
 type Props = ParallaxBannerProps & {
 	spacingTop?: string,
 	spacingBottom?: string,
-	image?: string,
+	image?: string | false,
 	speed?: number,
 	blur?: number
 };
