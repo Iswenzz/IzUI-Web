@@ -42,7 +42,7 @@ type HeaderProps = {
 	background?: string,
 	parallaxStrength?: number,
 	parallaxBlur?: number,
-	TextComponent?: FC
+	TextComponent?: FC<any>
 };
 
 export default memo(Header);
