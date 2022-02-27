@@ -1,6 +1,16 @@
 @use "@izui/styles/scss/Themes";
 
 .table {
+	width: inherit;
+	height: inherit;
+
+	div[role=grid] {
+		scrollbar-width: 16px;
+		padding-right: 16px;
+		width: inherit;
+		height: inherit;
+	}
+
 	@include Themes.darkMode {
 		--color: #ddd;
 		--border-color: #444;
@@ -30,4 +40,9 @@
 		--checkbox-disabled-border-color: #ccc;
 		--checkbox-disabled-background-color: #ddd;
 	}
+}
+
+.loader {
+	position: absolute;
+	top: 50%;
 }
