@@ -10,7 +10,7 @@ $font-sizes: (
 	h6: 10px
 );
 
-@mixin buildFont($fontName, $family...) {
+@mixin build($fontName, $family...) {
 	.#{$fontName} {
 		font-family: $family;
 	}
@@ -23,6 +23,6 @@ $font-sizes: (
 	}
 }
 
-@include buildFont(calli, "Calligraffitti", cursive);
-@include buildFont(poiret, "Poiret One", sans-serif);
-@include buildFont(ubuntu, "Ubuntu", sans-serif);
+@include build(calli, "Calligraffitti", cursive);
+@include build(poiret, "Poiret One", sans-serif);
+@include build(ubuntu, "Ubuntu", sans-serif);

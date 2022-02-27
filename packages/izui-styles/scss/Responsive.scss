@@ -1,6 +1,7 @@
 @use "sass:math";
 @use "sass:meta";
 @use "sass:map";
+@use "sass:list";
 
 $queries: (
 	desktop: "min-width: 1224px",
@@ -13,7 +14,8 @@ $queries: (
 $sizes: (0, 25, 50, 75, 100) !default;
 
 @mixin media($keys...) {
-	@each $key in meta.keywords($keys) {
+	@for $i from 0 to length($keys) {
+		$key: list.nth($keys, $i + 1);
 		@media (map.get($queries, $key)) {
 			@content;
 		}
