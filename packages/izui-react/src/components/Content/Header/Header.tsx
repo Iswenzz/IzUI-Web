@@ -2,7 +2,7 @@ import { FC, memo, ReactElement } from "react";
 import { Grid } from "@mui/material";
 import classNames from "classnames";
 
-import { TrailText, FadeText, Parallax } from "@/components";
+import { FadeText, Parallax } from "@/components";
 
 import scss from "./Header.module.scss";
 
