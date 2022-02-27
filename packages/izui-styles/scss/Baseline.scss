@@ -28,6 +28,7 @@ $link-color-hover: slateblue;
 
 .link {
 	color: $link-color;
+	cursor: pointer;
 
 	&:visited {
 		color: $link-color-visited;

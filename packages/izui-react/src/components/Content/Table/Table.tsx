@@ -1,7 +1,6 @@
 import { FC, useMemo, useState } from "react";
-import ReactDataGrid, { Column } from "react-data-grid";
-import { useTheme } from "@mui/material";
-import Pagination from "@mui/lab/Pagination";
+import DataGrid, { Column, DataGridProps } from "react-data-grid";
+import { useTheme, Pagination } from "@mui/material";
 
 import { Loader } from "@/components";
 
@@ -9,34 +8,33 @@ import scss from "./Table.module.scss";
 import classNames from "classnames";
 
 /**
- * React data grid table.
- * @todo - className.
- * @todo - pagination props.
+ * Data grid table.
  */
-const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows, columns = [], ...rest }) =>
+const Table: FC<TableProps> = ({
+	rows, rowsPage = 10, columns = [], loading, sortCompare = defaultSortCompare, className, ...rest
+}) =>
 {
 	const { theme } = useTheme();
 
-	const [page, setPage] = useState<number>(0);
+	const [page, setPage] = useState<number>(1);
 	const [[sortColumn, sortDirection], setSort] = useState<[string, SortDirection]>(["id", "NONE"]);
-
 
 	/**
 	 * Sorted rows data.
 	 */
 	const sortedRows = useMemo((): Row[] =>
 	{
-		const startIndex = Math.round(page * 10);
+		const startIndex = (page - 1) * rowsPage;
 		if (sortDirection === "NONE")
-			return rows.slice(startIndex, startIndex + 10);
+			return rows.slice(startIndex, startIndex + rowsPage);
 		let sortedRows: Row[] = [...rows];
 
 		sortedRows = sortedRows.sort((a: Row, b: Row) => sortCompare(sortColumn, a, b));
 		if (sortDirection === "DESC")
 			sortedRows.reverse();
 
-		return sortedRows.slice(startIndex, startIndex + 10);
-	}, [page, sortDirection, rows, sortCompare, sortColumn]);
+		return sortedRows.slice(startIndex, startIndex + rowsPage);
+	}, [page, rowsPage, sortDirection, rows, sortCompare, sortColumn]);
 
 	/**
 	 * Callback on column sorting.
@@ -47,33 +45,35 @@ const Table: FC<TableProps> = ({ loading, sortCompare = defaultSortCompare, rows
 	/**
 	 * Callback on page change.
 	 */
-	const onPageChange = () => setPage(page);
+	const onPageChange = (_: React.ChangeEvent<unknown>, value: number) =>
+		setPage(value);
 
 	return (
-		<section className={classNames(scss.table, scss[theme])}>
-			<ReactDataGrid
+		<section className={classNames(scss.table, scss[theme], className)}>
+			<DataGrid
 				columns={columns}
-				rowGetter={sortedRows}
+				rows={sortedRows}
 				rowHeight={70}
-				rowsCount={50}
 				sortDirection={sortDirection}
 				sortColumn={sortColumn}
-				onGridSort={onSort}
+				onSort={onSort}
 				{...rest}
 			/>
 			{loading && <Loader className={scss.loader} />}
-			<Pagination count={Math.floor(rows.length / 10)} page={page} onChange={onPageChange} />
+			<Pagination count={Math.ceil(rows.length / rowsPage)} page={page} onChange={onPageChange} />
 		</section>
 	);
 };
 
 export type Row<R = any> = R;
 export type SortDirection = "ASC" | "DESC" | "NONE";
+export type { Column };
 
-export type TableProps = {
+export type TableProps = DataGridProps<Row> & {
 	name?: string,
 	columns?: Column<Row>[],
 	rows: Row[],
+	rowsPage?: number,
 	sortCompare?: (sortColumn: string, a: Row, b: Row) => number,
 	loading?: boolean
 };
