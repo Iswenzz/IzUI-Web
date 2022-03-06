@@ -1,9 +1,6 @@
 export { default as Forward } from "./Forward/Forward";
 export * from "./Forward/Forward";
 
-export { default as Gradient } from "./Gradient/Gradient";
-export * from "./Gradient/Gradient";
-
 export * from "./Hints";
 
 export { default as Image } from "./Image/Image";
