@@ -14,13 +14,13 @@ export const DarkThemeOptions: ThemeOptions = {
 			light: "#f4f4f4",
 			main: "#2c2f33",
 			dark: "#23272a",
-			contrastText: "#dcdcdc",
+			contrastText: "#0c0c0c",
 		},
 		secondary: {
-			light: "#ff4081",
+			light: "#f50057",
 			main: "#f50057",
-			dark: "#c51162",
-			contrastText: "#dcdcdc",
+			dark: "#f50057",
+			contrastText: "#0c0c0c",
 		},
 	},
 	components: {
