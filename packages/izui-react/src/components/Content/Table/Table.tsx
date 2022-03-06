@@ -16,7 +16,7 @@ const Table: FC<TableProps> = ({
 {
 	const { theme } = useTheme();
 
-	const [page, setPage] = useState<number>(1);
+	const [page, setPage] = useState(1);
 	const [[sortColumn, sortDirection], setSort] = useState<[string, SortDirection]>(["id", "NONE"]);
 
 	/**

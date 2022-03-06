@@ -9,7 +9,7 @@ import scss from "./Flip.module.scss";
  */
 const Flip: FC<FlipProps> = ({ flipped = false, flipCallback, back, front, direction = "vertical" }) =>
 {
-	const [isFlipped, setIsFlipped] = useState<boolean>(flipped);
+	const [isFlipped, setIsFlipped] = useState(flipped);
 	const containerStyles = classNames(scss.container, { back: isFlipped, front: !isFlipped });
 
 	/**

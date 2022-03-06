@@ -9,7 +9,7 @@ import { DocumentationToolbar, Menu } from "@izui/react";
  */
 const Layout: FC = () =>
 {
-	const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
+	const [drawerOpen, setDrawerOpen] = useState(false);
 
 	/**
 	 * Toggle the drawer.

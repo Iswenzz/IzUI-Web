@@ -13,7 +13,7 @@ import { appBarSx, boxSx } from "./config";
  */
 const Documentation: FC<Props> = ({ navigationClassName, navigationChildren, MenuNavigation }) =>
 {
-	const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
+	const [drawerOpen, setDrawerOpen] = useState(false);
 
 	/**
 	 * Toggle the drawer.

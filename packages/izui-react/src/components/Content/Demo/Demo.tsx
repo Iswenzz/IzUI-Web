@@ -17,7 +17,7 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 {
 	const { previews = [], title = "", description = "", sandboxUrl, additionalComponent } = demo;
 
-	const [codeCollapse, setCodeCollapse] = useState<boolean>(false);
+	const [codeCollapse, setCodeCollapse] = useState(false);
 	const [iframeKey, setIframeKey] = useState(title || uuidv4());
 	const [tabIndex, setTabIndex] = useState(0);
 

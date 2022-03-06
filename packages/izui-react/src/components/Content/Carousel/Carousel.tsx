@@ -19,12 +19,12 @@ const Carousel: FC<CarouselProps> = ({
 {
 	const [emblaRef, emblaApi] = useEmblaCarousel({ ...options, loop: false });
 
-	const [prevBtnEnabled, setPrevBtnEnabled] = useState<boolean>(false);
-	const [nextBtnEnabled, setNextBtnEnabled] = useState<boolean>(false);
-	const [selectedIndex, setSelectedIndex] = useState<number>(0);
+	const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
+	const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
-	const loopDelay: Nullable<number> = loop ? (delay || 2000) : null;
+	const loopDelay = loop ? (delay || 2000) : null;
 
 	/**
 	 * Scroll to a specific index.

@@ -5,7 +5,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const MenuCollapse: FC<Props> = ({ children = [], icon, title, open = false }) =>
 {
-	const [isOpen, setOpen] = useState<boolean>(open);
+	const [isOpen, setOpen] = useState(open);
 
 	/**
 	 * Handle collapse toggle.

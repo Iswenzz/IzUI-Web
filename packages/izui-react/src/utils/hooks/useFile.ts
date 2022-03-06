@@ -8,7 +8,7 @@ import { useState } from "react";
 const useFile = (url?: string): File =>
 {
 	const [file, setFile] = useState<Optional<string>>(undefined);
-	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const [isLoading, setIsLoading] = useState(true);
 
 	if (!url) return { file: undefined, isLoading: false };
 
