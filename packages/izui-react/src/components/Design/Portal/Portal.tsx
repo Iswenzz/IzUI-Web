@@ -7,7 +7,7 @@ import { createPortal } from "react-dom";
  * that exists outside the DOM hierarchy of the parent component.
  */
 const Portal: FC<Props> = ({ children, container = document.body, disablePortal = false }) =>
-	disablePortal ? createPortal(children, container) : children;
+	disablePortal ? children : createPortal(children, container);
 
 type Props = {
 	children: ReactElement,

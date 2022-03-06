@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { CSSProperties, FC, memo, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import { useMeasure, usePrevious } from "react-use";
@@ -9,7 +10,7 @@ import scss from "./TreeItem.module.scss";
 /**
  * Represent an item or a list in a Tree component.
  */
-const TreeItem: FC<TreeProps> = ({ children, name, style, defaultOpen = false }) =>
+const TreeItem: FC<TreeProps> = ({ className, children, name, style, defaultOpen = false }) =>
 {
 	const [isOpen, setOpen] = useState(defaultOpen);
 	const previous = usePrevious(isOpen);
@@ -34,7 +35,7 @@ const TreeItem: FC<TreeProps> = ({ children, name, style, defaultOpen = false })
 	const contentHeight = isOpen && previous === isOpen ? "auto" : height;
 
 	return (
-		<Frame className={scss.item}>
+		<Frame className={classNames(scss.item, className)}>
 			<Icon className={scss.icon} style={{ opacity: iconOpacity }} onClick={() => setOpen(!isOpen)} />
 			<span className={scss.title} style={style}>{name}</span>
 			<animated.div className={scss.content} style={{ opacity: opacity, height: contentHeight }}>
@@ -48,6 +49,7 @@ const TreeItem: FC<TreeProps> = ({ children, name, style, defaultOpen = false })
 
 export type TreeProps = {
 	name: string | React.ReactNode,
+	className?: string,
 	style?: CSSProperties,
 	defaultOpen?: boolean,
 	children?: React.ReactNode[] | React.ReactNode
