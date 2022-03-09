@@ -5,18 +5,17 @@ import useDoubleClick from "@/utils/hooks/useDoubleClick";
 
 /**
  * React Router DOM Link wrapper.
- * @param props
- * @constructor
  */
 const Link: ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (props, ref) =>
 {
-	const { className, children, to, tag: Tag = "a",
-		onDoubleClick, onClick, redirectOnDoubleClick, ...rest } = props;
+	const { className, children, to, onDoubleClick, onClick, redirectOnDoubleClick, ...rest } = props;
 	const navigate = useNavigate();
 
 	const onLinkClick = (event: React.MouseEvent) =>
 	{
+		event.preventDefault();
 		event.stopPropagation();
+
 		if (redirectOnDoubleClick && onDoubleClick)
 			onDoubleClick(event);
 		else if (onClick)
@@ -25,21 +24,20 @@ const Link: ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (props, ref
 	};
 
 	const [onClickHook, onDoubleClickHook] = useDoubleClick(
-		redirectOnDoubleClick ? onClick : onLinkClick,
+		!redirectOnDoubleClick ? onLinkClick : onClick,
 		redirectOnDoubleClick ? onLinkClick : onDoubleClick
 	);
 
 	return (
-		<Tag ref={ref} className={`link ${className}`} {...rest}
+		<a ref={ref} className={`nolink ${className}`} {...rest} href={to}
 			onClick={onClickHook} onDoubleClick={onDoubleClickHook}>
 			{children}
-		</Tag>
+		</a>
 	);
 };
 
 export type LinkProps = React.HTMLAttributes<HTMLAnchorElement> & {
 	to: string,
-	tag?: React.ElementType,
 	onClick?: (event?: React.MouseEvent) => void,
 	onDoubleClick?: (event?: React.MouseEvent) => void,
 	redirectOnDoubleClick?: boolean

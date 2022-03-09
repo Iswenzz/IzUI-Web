@@ -17,6 +17,8 @@ const useDoubleClick = (onClick?: Callback, onDoubleClick?: Callback) =>
 	 */
 	const handleClick = async (event: MouseEvent) =>
 	{
+		event.preventDefault();
+
 		cancellable.clearPendingPromises();
 		const waitForClick = cancellablePromise(delay(300));
 		cancellable.appendPendingPromise(waitForClick);
@@ -41,7 +43,9 @@ const useDoubleClick = (onClick?: Callback, onDoubleClick?: Callback) =>
 	 */
 	const handleDoubleClick = (event: MouseEvent) =>
 	{
+		event.preventDefault();
 		cancellable.clearPendingPromises();
+
 		if (onDoubleClick)
 			onDoubleClick(event);
 	};
