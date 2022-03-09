@@ -1,4 +1,6 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
+import { scroller } from "react-scroll";
+import { ReactScrollLinkProps } from "react-scroll/modules/components/Link";
 import { useNavigate } from "react-router-dom";
 
 import useDoubleClick from "@/utils/hooks/useDoubleClick";
@@ -6,9 +8,11 @@ import useDoubleClick from "@/utils/hooks/useDoubleClick";
 /**
  * React Router DOM Link wrapper.
  */
-const Link: ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (props, ref) =>
+const Link: ForwardRefRenderFunction<HTMLAnchorElement, Props> = (props, ref) =>
 {
-	const { className, children, to, onDoubleClick, onClick, redirectOnDoubleClick, ...rest } = props;
+	const { className, children, to, onDoubleClick, onClick, redirectOnDoubleClick, smooth,
+		duration = 1000, delay = 0, offset = 0, ...rest } = props;
+
 	const navigate = useNavigate();
 
 	const onLinkClick = (event: React.MouseEvent) =>
@@ -16,11 +20,22 @@ const Link: ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (props, ref
 		event.preventDefault();
 		event.stopPropagation();
 
+		// Handle double click or simple click
 		if (redirectOnDoubleClick && onDoubleClick)
 			onDoubleClick(event);
 		else if (onClick)
 			onClick(event);
-		navigate(to);
+
+		// Handle smooth navigation or router navigation
+		if (smooth)
+		{
+			scroller.scrollTo(to, {
+				duration, delay, offset, smooth
+			});
+			navigate(`#${to}`);
+		}
+		else
+			navigate(to);
 	};
 
 	const [onClickHook, onDoubleClickHook] = useDoubleClick(
@@ -29,14 +44,14 @@ const Link: ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (props, ref
 	);
 
 	return (
-		<a ref={ref} className={`nolink ${className}`} {...rest} href={to}
+		<a ref={ref} className={`nolink ${className}`} {...rest} href={`${smooth ? "#" : ""}${to}`}
 			onClick={onClickHook} onDoubleClick={onDoubleClickHook}>
 			{children}
 		</a>
 	);
 };
 
-export type LinkProps = React.HTMLAttributes<HTMLAnchorElement> & {
+type Props = ReactScrollLinkProps & React.HTMLAttributes<HTMLAnchorElement> & {
 	to: string,
 	onClick?: (event?: React.MouseEvent) => void,
 	onDoubleClick?: (event?: React.MouseEvent) => void,
