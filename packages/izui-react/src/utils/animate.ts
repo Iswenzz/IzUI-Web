@@ -1,4 +1,4 @@
-import { Variants } from "framer-motion";
+import { Variant, Variants } from "framer-motion";
 
 /**
  * Fade animation.
@@ -211,4 +211,10 @@ export const animationLeft: Animation = ({ all, enter, exit } = {}) => ({
 	}
 });
 
-export type Animation = (options?: Record<string, Variants>) => Variants;
+export type Animation = (options?: AnimationVariants) => Variants;
+
+type AnimationVariants = {
+	all?: Variant,
+	enter?: Variant,
+	exit?: Variant
+};
