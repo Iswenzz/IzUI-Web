@@ -27,7 +27,15 @@ $sizes: (0, 25, 50, 75, 100) !default;
 		width: math.percentage(math.div($size, 100));
 	}
 
+	.vw-#{$size} {
+		min-width: #{$size}vw;
+	}
+
 	.h-#{$size} {
 		height: math.percentage(math.div($size, 100));
+	}
+
+	.vh-#{$size} {
+		min-height: #{$size}vh;
 	}
 }
