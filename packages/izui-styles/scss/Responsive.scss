@@ -3,13 +3,23 @@
 @use "sass:map";
 @use "sass:list";
 
-$queries: (
+$medias: (
 	desktop: "min-width: 1224px",
 	tabletOrMobile: "max-device-width: 1224px",
 	portrait: "orientation: portrait",
 	retina: "min-resolution: 2dppx",
-	big: "min-device-width: 1824px"
+	big: "min-device-width: 1824px",
 );
+
+$breakpoints: (
+	xs: "max-width: 600px",
+	sm: "max-width: 900px",
+	md: "max-width: 1200px",
+	lg: "max-width: 1536px",
+	xl: "max-width: 1920px",
+);
+
+$queries: map.merge($medias, $breakpoints);
 
 $sizes: (0, 25, 50, 75, 100) !default;
 
