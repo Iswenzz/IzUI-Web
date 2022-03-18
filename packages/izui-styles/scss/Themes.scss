@@ -1,4 +1,4 @@
-@use "./Transitions" as Transitions;
+@use "./Transitions";
 
 // name: mode
 $themes: (
@@ -12,7 +12,7 @@ $themes: (
 			&.#{$theme} {
 				@content;
 
-				@include Transitions.apply(0.5s);
+				@include Transitions.colors(0.5s);
 			}
 		}
 	}
@@ -24,7 +24,7 @@ $themes: (
 			&.#{$theme} {
 				@content;
 
-				@include Transitions.apply(0.5s);
+				@include Transitions.colors(0.5s);
 			}
 		}
 	}
@@ -34,6 +34,6 @@ $themes: (
 	&.#{$theme} {
 		@content;
 
-		@include Transitions.apply(0.5s);
+		@include Transitions.colors(0.5s);
 	}
 }
