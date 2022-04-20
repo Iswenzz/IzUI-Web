@@ -24,6 +24,7 @@ const publish = async () =>
 		if (fs.existsSync(packagePath))
 		{
 			await publishPackage({
+				packageName: command,
 				packagePath: resolvedPackagePath,
 				publishOnNpmJS: true,
 				publishOnGPR: false

@@ -16,13 +16,13 @@ export const incrementVersion = () =>
  */
 export const publishPackage = async ({
 	packagePath,
+	packageName,
 	buildScriptPath = "scripts/build",
 	publishDryRun,
 	publishOnNpmJS,
 	publishOnGPR
 }: PublishOptions) =>
 {
-	const packageName = path.basename(packagePath);
 	process.chdir(packagePath);
 
 	// Version
@@ -62,6 +62,7 @@ export const publishPackage = async ({
 };
 
 export type PublishOptions = {
+	packageName: string,
 	packagePath: string,
 	buildScriptPath?: string,
 	publishDryRun?: boolean,
