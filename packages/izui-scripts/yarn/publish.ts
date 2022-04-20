@@ -15,8 +15,8 @@ export const incrementVersion = () =>
  * @param packagePath - The package path.
  */
 export const publishPackage = async ({
-	packagePath,
 	packageName,
+	packagePath = process.cwd(),
 	buildScriptPath = "scripts/build",
 	publishDryRun,
 	publishOnNpmJS,
@@ -63,7 +63,7 @@ export const publishPackage = async ({
 
 export type PublishOptions = {
 	packageName: string,
-	packagePath: string,
+	packagePath?: string,
 	buildScriptPath?: string,
 	publishDryRun?: boolean,
 	publishOnNpmJS?: boolean,
