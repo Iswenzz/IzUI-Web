@@ -11,7 +11,7 @@ const Loader: FC<Props> = ({ className, gridClassName, ...props }) => (
 );
 
 type Props = CircularProgressProps & {
-	gridClassName?: string
+	gridClassName?: string;
 };
 
 export default Loader;

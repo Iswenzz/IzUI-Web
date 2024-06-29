@@ -3,8 +3,7 @@ import { useRef } from "react";
 /**
  * Hook to handle pending promises.
  */
-const useCancellablePromises = <Result>() =>
-{
+const useCancellablePromises = <Result>() => {
 	const pendingPromises = useRef<CancellablePromise<Result>[]>([]);
 
 	/**
@@ -12,14 +11,14 @@ const useCancellablePromises = <Result>() =>
 	 * @param promise - The promise.
 	 */
 	const appendPendingPromise = (promise: CancellablePromise<Result>) =>
-		pendingPromises.current = [...pendingPromises.current, promise];
+		(pendingPromises.current = [...pendingPromises.current, promise]);
 
 	/**
 	 * Remove a pending promise.
 	 * @param promise - The promise.
 	 */
 	const removePendingPromise = (promise: CancellablePromise<Result>) =>
-		pendingPromises.current = pendingPromises.current.filter(p => p !== promise);
+		(pendingPromises.current = pendingPromises.current.filter(p => p !== promise));
 
 	/**
 	 * Clear all pending promises.
@@ -29,7 +28,7 @@ const useCancellablePromises = <Result>() =>
 	return {
 		appendPendingPromise,
 		removePendingPromise,
-		clearPendingPromises,
+		clearPendingPromises
 	};
 };
 
@@ -37,24 +36,27 @@ const useCancellablePromises = <Result>() =>
  * Cancel a promise.
  * @param promise - The promise.
  */
-export const cancellablePromise = <Result>(promise: Promise<Result>): CancellablePromise<Result> =>
-{
+export const cancellablePromise = <Result>(
+	promise: Promise<Result>
+): CancellablePromise<Result> => {
 	let isCanceled = false;
 
-	const wrappedPromise = new Promise<Result>((resolve, reject) => promise.then(
-		value => (isCanceled ? reject({ isCanceled, value }) : resolve(value)),
-		error => reject({ isCanceled, error }),
-	));
+	const wrappedPromise = new Promise<Result>((resolve, reject) =>
+		promise.then(
+			value => (isCanceled ? reject({ isCanceled, value }) : resolve(value)),
+			error => reject({ isCanceled, error })
+		)
+	);
 
 	return {
 		promise: wrappedPromise,
-		cancel: () => (isCanceled = true),
+		cancel: () => (isCanceled = true)
 	};
 };
 
 export type CancellablePromise<Result> = {
-	promise: Promise<Result>,
-	cancel: () => boolean
+	promise: Promise<Result>;
+	cancel: () => boolean;
 };
 
 export default useCancellablePromises;

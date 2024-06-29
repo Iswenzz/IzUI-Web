@@ -1,26 +1,26 @@
 {
-    "name": "@izui/assets",
-    "version": "1.0.0",
-    "description": "Assets used within izui-web libraries.",
-    "keywords": [
-        "assets",
-        "svgs",
-        "iswenzz",
-        "izui-web",
-        "izui"
-    ],
-    "homepage": "https://iswenzz.com",
-    "bugs": {
-        "url": "https://github.com/Iswenzz/IzUI-Web/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Iswenzz/IzUI-Web.git",
-        "directory": "packages/fixtures-react"
-    },
-    "funding": {
-        "type": "github",
-        "url": "https://github.com/Iswenzz"
-    },
-    "license": "GPL-3.0+"
+	"name": "@izui/assets",
+	"version": "1.0.0",
+	"description": "Assets used within izui-web libraries.",
+	"keywords": [
+		"assets",
+		"svgs",
+		"iswenzz",
+		"izui-web",
+		"izui"
+	],
+	"homepage": "https://iswenzz.com",
+	"bugs": {
+		"url": "https://github.com/Iswenzz/IzUI-Web/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Iswenzz/IzUI-Web.git",
+		"directory": "packages/izui-assets"
+	},
+	"funding": {
+		"type": "github",
+		"url": "https://github.com/Iswenzz"
+	},
+	"license": "GPL-3.0+"
 }

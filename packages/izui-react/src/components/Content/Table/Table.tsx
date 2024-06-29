@@ -11,27 +11,32 @@ import classNames from "classnames";
  * Data grid table.
  */
 const Table: FC<TableProps> = ({
-	rows, rowsPage = 10, columns = [], loading, sortCompare = defaultSortCompare, className, ...rest
-}) =>
-{
+	rows,
+	rowsPage = 10,
+	columns = [],
+	loading,
+	sortCompare = defaultSortCompare,
+	className,
+	...rest
+}) => {
 	const { theme } = useTheme();
 
 	const [page, setPage] = useState(1);
-	const [[sortColumn, sortDirection], setSort] = useState<[string, SortDirection]>(["id", "NONE"]);
+	const [[sortColumn, sortDirection], setSort] = useState<[string, SortDirection]>([
+		"id",
+		"NONE"
+	]);
 
 	/**
 	 * Sorted rows data.
 	 */
-	const sortedRows = useMemo((): Row[] =>
-	{
+	const sortedRows = useMemo((): Row[] => {
 		const startIndex = (page - 1) * rowsPage;
-		if (sortDirection === "NONE")
-			return rows.slice(startIndex, startIndex + rowsPage);
+		if (sortDirection === "NONE") return rows.slice(startIndex, startIndex + rowsPage);
 		let sortedRows: Row[] = [...rows];
 
 		sortedRows = sortedRows.sort((a: Row, b: Row) => sortCompare(sortColumn, a, b));
-		if (sortDirection === "DESC")
-			sortedRows.reverse();
+		if (sortDirection === "DESC") sortedRows.reverse();
 
 		return sortedRows.slice(startIndex, startIndex + rowsPage);
 	}, [page, rowsPage, sortDirection, rows, sortCompare, sortColumn]);
@@ -39,14 +44,12 @@ const Table: FC<TableProps> = ({
 	/**
 	 * Callback on column sorting.
 	 */
-	const onSort = (columnKey: string, direction: SortDirection) =>
-		setSort([columnKey, direction]);
+	const onSort = (columnKey: string, direction: SortDirection) => setSort([columnKey, direction]);
 
 	/**
 	 * Callback on page change.
 	 */
-	const onPageChange = (_: React.ChangeEvent<unknown>, value: number) =>
-		setPage(value);
+	const onPageChange = (_: React.ChangeEvent<unknown>, value: number) => setPage(value);
 
 	return (
 		<section className={classNames(scss.table, scss[theme], className)}>
@@ -60,7 +63,11 @@ const Table: FC<TableProps> = ({
 				{...rest}
 			/>
 			{loading && <Loader className={scss.loader} />}
-			<Pagination count={Math.ceil(rows.length / rowsPage)} page={page} onChange={onPageChange} />
+			<Pagination
+				count={Math.ceil(rows.length / rowsPage)}
+				page={page}
+				onChange={onPageChange}
+			/>
 		</section>
 	);
 };
@@ -70,12 +77,12 @@ export type SortDirection = "ASC" | "DESC" | "NONE";
 export type { Column };
 
 export type TableProps = DataGridProps<Row> & {
-	name?: string,
-	columns?: Column<Row>[],
-	rows: Row[],
-	rowsPage?: number,
-	sortCompare?: (sortColumn: string, a: Row, b: Row) => number,
-	loading?: boolean
+	name?: string;
+	columns?: Column<Row>[];
+	rows: Row[];
+	rowsPage?: number;
+	sortCompare?: (sortColumn: string, a: Row, b: Row) => number;
+	loading?: boolean;
 };
 
 /**

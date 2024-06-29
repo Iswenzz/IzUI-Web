@@ -21,16 +21,12 @@
 	"scripts": {
 		"build": "yarn workspaces foreach --parallel -v run build",
 		"lint": "yarn workspaces foreach --parallel -v run lint",
-		"release": "ts-node scripts/publish",
-		"start:react": "yarn workspace @izui/fixtures-react start",
-		"test": "jest"
+		"prettier": "yarn workspaces foreach --parallel -v run prettier",
+		"react": "yarn workspace @izui/react start",
+		"release": "ts-node scripts/publish"
 	},
 	"devDependencies": {
-		"@jest/types": "^27.5.1",
-		"@types/jest": "^27.4.0",
-		"jest": "^27.5.1"
-	},
-	"engines": {
-		"node": ">=16.7.0"
+		"ts-node": "^10.9.2",
+		"typescript": "^5.5.2"
 	}
 }

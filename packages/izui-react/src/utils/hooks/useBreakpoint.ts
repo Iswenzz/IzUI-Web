@@ -5,8 +5,7 @@ import { Breakpoint, useMediaQuery, useTheme } from "@mui/material";
  * @param values - The values to return when a breakpoint is triggered.
  * @returns
  */
-const useBreakpoint = <T>(values: BreakpointValues<T>, defaultValue: T): T =>
-{
+const useBreakpoint = <T>(values: BreakpointValues<T>, defaultValue: T): T => {
 	const theme = useTheme();
 
 	const matches: Record<Breakpoint, boolean> = {
@@ -14,7 +13,7 @@ const useBreakpoint = <T>(values: BreakpointValues<T>, defaultValue: T): T =>
 		sm: useMediaQuery(theme.breakpoints.up("sm")),
 		md: useMediaQuery(theme.breakpoints.up("md")),
 		lg: useMediaQuery(theme.breakpoints.up("lg")),
-		xl: useMediaQuery(theme.breakpoints.up("xl")),
+		xl: useMediaQuery(theme.breakpoints.up("xl"))
 	};
 
 	const validBreakpoints: Breakpoint[] = Object.entries(matches)
@@ -23,13 +22,12 @@ const useBreakpoint = <T>(values: BreakpointValues<T>, defaultValue: T): T =>
 
 	const largestBreakpoint = validBreakpoints.pop();
 
-	if (!largestBreakpoint)
-		return values["xs"] || defaultValue;
+	if (!largestBreakpoint) return values["xs"] || defaultValue;
 	return values[largestBreakpoint] || defaultValue;
 };
 
 export type BreakpointValues<T> = {
-	[key in Breakpoint]?: T
+	[key in Breakpoint]?: T;
 };
 
 export default useBreakpoint;

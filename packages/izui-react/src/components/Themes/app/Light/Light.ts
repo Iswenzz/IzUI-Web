@@ -8,20 +8,20 @@ export const LightThemeOptions: ThemeOptions = {
 		text: {
 			primary: "rgba(60, 60, 60, 0.87)",
 			secondary: "rgba(60, 60, 60, 0.54)",
-			disabled: "rgba(60, 60, 60, 0.38)",
+			disabled: "rgba(60, 60, 60, 0.38)"
 		},
 		primary: {
 			light: "#f4f4f4",
 			main: "#2c2f33",
 			dark: "#23272a",
-			contrastText: "#dcdcdc",
+			contrastText: "#dcdcdc"
 		},
 		secondary: {
 			light: "#f50057",
 			main: "#f50057",
 			dark: "#f50057",
-			contrastText: "#dcdcdc",
-		},
+			contrastText: "#dcdcdc"
+		}
 	},
 	components: {
 		MuiCssBaseline: {
@@ -41,14 +41,14 @@ export const LightThemeOptions: ThemeOptions = {
 				"::-webkit-scrollbar-thumb": {
 					backgroundColor: "#c0c0c0",
 					border: "3px solid #d9d9d9",
-					borderRadius: "10px",
-				},
+					borderRadius: "10px"
+				}
 			}
 		},
 		MuiTooltip: {
 			styleOverrides: {
 				tooltip: {
-					fontSize: "1em",
+					fontSize: "1em"
 				}
 			}
 		},
@@ -63,7 +63,7 @@ export const LightThemeOptions: ThemeOptions = {
 			styleOverrides: {
 				primary: {
 					backgroundColor: "#e5e5e5"
-				},
+				}
 			}
 		},
 		MuiDialogTitle: {
@@ -77,7 +77,7 @@ export const LightThemeOptions: ThemeOptions = {
 			styleOverrides: {
 				root: {
 					fontFamily: "Ubuntu",
-					fontSize: 18,
+					fontSize: 18
 				}
 			}
 		}
@@ -85,29 +85,29 @@ export const LightThemeOptions: ThemeOptions = {
 	typography: {
 		fontFamily: "Ubuntu",
 		subtitle1: {
-			fontFamily: "Ubuntu",
+			fontFamily: "Ubuntu"
 		},
 		subtitle2: {
 			fontFamily: "Poiret One",
 			fontWeight: "bold"
 		},
 		h1: {
-			fontFamily: "Roboto Mono",
+			fontFamily: "Roboto Mono"
 		},
 		h2: {
-			fontFamily: "Roboto Mono",
+			fontFamily: "Roboto Mono"
 		},
 		h3: {
-			fontFamily: "Roboto Mono",
+			fontFamily: "Roboto Mono"
 		},
 		h4: {
-			fontFamily: "Roboto Mono",
+			fontFamily: "Roboto Mono"
 		},
 		h5: {
-			fontFamily: "Roboto Mono",
+			fontFamily: "Roboto Mono"
 		},
 		caption: {
-			fontFamily: "Ubuntu",
+			fontFamily: "Ubuntu"
 		}
 	}
 };

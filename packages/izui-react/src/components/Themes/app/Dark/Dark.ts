@@ -14,14 +14,14 @@ export const DarkThemeOptions: ThemeOptions = {
 			light: "#f4f4f4",
 			main: "#2c2f33",
 			dark: "#23272a",
-			contrastText: "#dcdcdc",
+			contrastText: "#dcdcdc"
 		},
 		secondary: {
 			light: "#f50057",
 			main: "#f50057",
 			dark: "#f50057",
-			contrastText: "#dcdcdc",
-		},
+			contrastText: "#dcdcdc"
+		}
 	},
 	components: {
 		MuiCssBaseline: {
@@ -29,7 +29,7 @@ export const DarkThemeOptions: ThemeOptions = {
 				body: {
 					scrollbarWidth: "thin",
 					scrollbarColor: "#3a3d41 #23272a",
-					backgroundColor: "#111",
+					backgroundColor: "#111"
 				},
 				"::-webkit-scrollbar": {
 					width: "12px"
@@ -41,14 +41,14 @@ export const DarkThemeOptions: ThemeOptions = {
 				"::-webkit-scrollbar-thumb": {
 					backgroundColor: "#3a3d41",
 					border: "3px solid #23272a",
-					borderRadius: "10px",
-				},
+					borderRadius: "10px"
+				}
 			}
 		},
 		MuiTooltip: {
 			styleOverrides: {
 				tooltip: {
-					fontSize: "1em",
+					fontSize: "1em"
 				}
 			}
 		},
@@ -63,7 +63,7 @@ export const DarkThemeOptions: ThemeOptions = {
 			styleOverrides: {
 				primary: {
 					backgroundColor: "#2c2f33"
-				},
+				}
 			}
 		},
 		MuiDialogTitle: {
@@ -77,7 +77,7 @@ export const DarkThemeOptions: ThemeOptions = {
 			styleOverrides: {
 				root: {
 					fontFamily: "Ubuntu",
-					fontSize: 18,
+					fontSize: 18
 				}
 			}
 		}
@@ -85,29 +85,29 @@ export const DarkThemeOptions: ThemeOptions = {
 	typography: {
 		fontFamily: "Ubuntu",
 		subtitle1: {
-			fontFamily: "Ubuntu",
+			fontFamily: "Ubuntu"
 		},
 		subtitle2: {
 			fontFamily: "Poiret One",
 			fontWeight: "bold"
 		},
 		h1: {
-			fontFamily: "Roboto Mono",
+			fontFamily: "Roboto Mono"
 		},
 		h2: {
-			fontFamily: "Roboto Mono",
+			fontFamily: "Roboto Mono"
 		},
 		h3: {
-			fontFamily: "Roboto Mono",
+			fontFamily: "Roboto Mono"
 		},
 		h4: {
-			fontFamily: "Roboto Mono",
+			fontFamily: "Roboto Mono"
 		},
 		h5: {
-			fontFamily: "Roboto Mono",
+			fontFamily: "Roboto Mono"
 		},
 		caption: {
-			fontFamily: "Ubuntu",
+			fontFamily: "Ubuntu"
 		}
 	}
 };

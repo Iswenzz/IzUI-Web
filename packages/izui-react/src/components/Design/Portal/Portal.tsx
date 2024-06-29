@@ -1,4 +1,3 @@
-
 import { FC, ReactElement } from "react";
 import { createPortal } from "react-dom";
 
@@ -10,9 +9,9 @@ const Portal: FC<Props> = ({ children, container = document.body, disablePortal 
 	disablePortal ? children : createPortal(children, container);
 
 type Props = {
-	children: ReactElement,
-	container?: HTMLElement,
-	disablePortal?: boolean
+	children: ReactElement;
+	container?: HTMLElement;
+	disablePortal?: boolean;
 };
 
 export default Portal;

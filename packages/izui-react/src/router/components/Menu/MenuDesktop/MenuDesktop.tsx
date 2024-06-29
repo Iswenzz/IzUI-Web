@@ -7,8 +7,12 @@ import { boxSx, drawerSx } from "./config";
 /**
  * Desktop documentation menu.
  */
-const MenuDesktop: FC<Props> = ({ handleDrawerToggle, drawerOpen, desktopOpen, children: MenuNavigation }) =>
-{
+const MenuDesktop: FC<Props> = ({
+	handleDrawerToggle,
+	drawerOpen,
+	desktopOpen,
+	children: MenuNavigation
+}) => {
 	const isOpen = drawerOpen && desktopOpen;
 
 	return (
@@ -21,10 +25,10 @@ const MenuDesktop: FC<Props> = ({ handleDrawerToggle, drawerOpen, desktopOpen, c
 };
 
 type Props = {
-	handleDrawerToggle: (state: boolean) => void,
-	children?: FC<MenuNavigationProps>,
-	drawerOpen: boolean,
-	desktopOpen: boolean
+	handleDrawerToggle: (state: boolean) => void;
+	children?: FC<MenuNavigationProps>;
+	drawerOpen: boolean;
+	desktopOpen: boolean;
 };
 
 export default MenuDesktop;

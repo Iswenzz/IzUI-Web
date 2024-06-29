@@ -3,7 +3,14 @@ import { FC, memo } from "react";
 /**
  * Tab panel component.
  */
-const TabPanel: FC<TabPanelProps> = ({ children, value, index, style, width = "100%", ...rest }) => (
+const TabPanel: FC<TabPanelProps> = ({
+	children,
+	value,
+	index,
+	style,
+	width = "100%",
+	...rest
+}) => (
 	<article role="tabpanel" hidden={value !== index} {...rest} style={{ ...style, width }}>
 		{value === index && children}
 	</article>

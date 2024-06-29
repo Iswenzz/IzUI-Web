@@ -3,16 +3,14 @@ import { ContextReplacementPlugin, Compiler, WebpackPluginInstance } from "webpa
 /**
  * Bundle only the configured languages.
  */
-class BundleHighlightPlugin implements WebpackPluginInstance
-{
+class BundleHighlightPlugin implements WebpackPluginInstance {
 	public config: BundleHighlightPluginConfig;
 
 	/**
 	 * Initialize a new @see BundleHighlightPlugin.
 	 * @param config - The plugin config.
 	 */
-	public constructor(config: BundleHighlightPluginConfig)
-	{
+	public constructor(config: BundleHighlightPluginConfig) {
 		this.config = config;
 	}
 
@@ -20,16 +18,15 @@ class BundleHighlightPlugin implements WebpackPluginInstance
 	 * Apply the plugin to webpack.
 	 * @param compiler - The webpack compiler.
 	 */
-	public apply(compiler: Compiler)
-	{
-		new ContextReplacementPlugin(
-			new RegExp(`^./(${this.config.languages.join("|")})$`))
-			.apply(compiler);
+	public apply(compiler: Compiler) {
+		new ContextReplacementPlugin(new RegExp(`^./(${this.config.languages.join("|")})$`)).apply(
+			compiler
+		);
 	}
 }
 
 export type BundleHighlightPluginConfig = {
-	languages: string[]
+	languages: string[];
 };
 
 export default BundleHighlightPlugin;

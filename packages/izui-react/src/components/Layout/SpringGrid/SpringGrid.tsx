@@ -19,15 +19,14 @@ export const SpringGrid: FC<SpringGridProps> = ({
 	itemSize = config.itemSize,
 	layout = "simple",
 	style
-}) =>
-{
+}) => {
 	const responsiveColumns = useBreakpoint(columns, 3);
 
-	const { items, height, width } = useMemo(() =>
-	{
-		const { positions, gridHeight, gridWidth } = layout === "simple"
-			? computeSimpleLayout(children, responsiveColumns, gutter, itemSize)
-			: computeMasonryLayout(children, responsiveColumns, gutter, itemSize);
+	const { items, height, width } = useMemo(() => {
+		const { positions, gridHeight, gridWidth } =
+			layout === "simple"
+				? computeSimpleLayout(children, responsiveColumns, gutter, itemSize)
+				: computeMasonryLayout(children, responsiveColumns, gutter, itemSize);
 
 		const items = children.map<Item>((item: ReactElement, index: number) => ({
 			key: item.key || uuidv4(),
@@ -49,42 +48,44 @@ export const SpringGrid: FC<SpringGridProps> = ({
 
 	return (
 		<Grid container component="ul" style={{ ...style, width, height, position: "relative" }}>
-			{children.length && transitions(({ top, left, ...rest }: any, item) => (
-				<animated.li
-					key={item.key}
-					style={{
-						position: "absolute",
-						top: top.to((top: string) => `${top}px`),
-						left: left.to((left: string) => `${left}px`),
-						...rest
-					}}
-				>
-					{children[item.index]}
-				</animated.li>))}
+			{children.length &&
+				transitions(({ top, left, ...rest }: any, item) => (
+					<animated.li
+						key={item.key}
+						style={{
+							position: "absolute",
+							top: top.to((top: string) => `${top}px`),
+							left: left.to((left: string) => `${left}px`),
+							...rest
+						}}
+					>
+						{children[item.index]}
+					</animated.li>
+				))}
 		</Grid>
 	);
 };
 
 export type SpringGridProps = {
-	children?: ReactElement[],
-	columns?: BreakpointValues<number>,
-	gutter?: Partial<Size>,
-	itemSize?: Partial<Size>,
-	style?: CSSProperties,
-	layout?: "simple" | "masonry"
+	children?: ReactElement[];
+	columns?: BreakpointValues<number>;
+	gutter?: Partial<Size>;
+	itemSize?: Partial<Size>;
+	style?: CSSProperties;
+	layout?: "simple" | "masonry";
 };
 
 export type Layout = {
-	positions: Point[],
-	gridWidth: number,
-	gridHeight: number
+	positions: Point[];
+	gridWidth: number;
+	gridHeight: number;
 };
 
 type Item = {
-	key: React.Key,
-	top: number,
-	left: number,
-	index: number
+	key: React.Key;
+	top: number;
+	left: number;
+	index: number;
 };
 
 export default memo(SpringGrid);

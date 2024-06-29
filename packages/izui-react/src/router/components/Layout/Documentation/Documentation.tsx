@@ -11,8 +11,7 @@ import { appBarSx, boxSx } from "./config";
  * The documentation layout.
  * @returns
  */
-const Documentation: FC<Props> = ({ navigationClassName, navigationChildren, MenuNavigation }) =>
-{
+const Documentation: FC<Props> = ({ navigationClassName, navigationChildren, MenuNavigation }) => {
 	const [drawerOpen, setDrawerOpen] = useState(false);
 
 	/**
@@ -27,8 +26,12 @@ const Documentation: FC<Props> = ({ navigationClassName, navigationChildren, Men
 				{MenuNavigation}
 			</Menu>
 			<Grid container component="main" sx={boxSx}>
-				<DocumentationToolbar className={navigationClassName} handleDrawerToggle={handleDrawerToggle}
-					drawerOpen={drawerOpen} sx={appBarSx}>
+				<DocumentationToolbar
+					className={navigationClassName}
+					handleDrawerToggle={handleDrawerToggle}
+					drawerOpen={drawerOpen}
+					sx={appBarSx}
+				>
 					{navigationChildren}
 				</DocumentationToolbar>
 				<Toolbar />
@@ -39,9 +42,9 @@ const Documentation: FC<Props> = ({ navigationClassName, navigationChildren, Men
 };
 
 type Props = {
-	MenuNavigation?: FC<MenuNavigationProps>,
-	navigationClassName?: string,
-	navigationChildren?: React.ReactElement
+	MenuNavigation?: FC<MenuNavigationProps>;
+	navigationClassName?: string;
+	navigationChildren?: React.ReactElement;
 };
 
 export default Documentation;

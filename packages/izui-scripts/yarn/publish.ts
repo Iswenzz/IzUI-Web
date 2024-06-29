@@ -5,8 +5,7 @@ import { execSync } from "child_process";
 /**
  * Increment the package version.
  */
-export const incrementVersion = () =>
-{
+export const incrementVersion = () => {
 	execSync("yarn version patch");
 };
 
@@ -21,53 +20,44 @@ export const publishPackage = async ({
 	publishDryRun,
 	publishOnNpmJS,
 	publishOnGPR
-}: PublishOptions) =>
-{
+}: PublishOptions) => {
 	process.chdir(packagePath);
 
 	// Version
 	incrementVersion();
 
 	// Build
-	try
-	{
+	try {
 		const buildScript = require.resolve(path.join(packagePath, buildScriptPath));
 		console.log(chalk.green(`Building ${packageName}`));
 
-		if (buildScript)
-		{
+		if (buildScript) {
 			const { default: buildCallback } = require(buildScript);
-			try
-			{
+			try {
 				await buildCallback();
 				process.chdir("build");
-			}
-			catch (err)
-			{
+			} catch (err) {
 				console.error(err);
 				process.exit(-1);
 			}
 		}
-	}
-	catch { }
+	} catch {}
 
 	// Publish
 	console.log(chalk.blue(`Publishing ${packageName}`));
-	if (publishDryRun)
-		execSync("npm publish --dry-run");
+	if (publishDryRun) execSync("npm publish --dry-run");
 	if (publishOnNpmJS)
 		execSync("npm publish --access public --registry=https://registry.npmjs.org");
-	if (publishOnGPR)
-		execSync("npm publish --access public --registry=https://npm.pkg.github.com");
+	if (publishOnGPR) execSync("npm publish --access public --registry=https://npm.pkg.github.com");
 };
 
 export type PublishOptions = {
-	packageName: string,
-	packagePath?: string,
-	buildScriptPath?: string,
-	publishDryRun?: boolean,
-	publishOnNpmJS?: boolean,
-	publishOnGPR?: boolean
+	packageName: string;
+	packagePath?: string;
+	buildScriptPath?: string;
+	publishDryRun?: boolean;
+	publishOnNpmJS?: boolean;
+	publishOnGPR?: boolean;
 };
 
 export default publishPackage;

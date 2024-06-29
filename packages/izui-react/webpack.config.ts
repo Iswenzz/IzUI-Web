@@ -9,14 +9,11 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import TerserPlugin from "terser-webpack-plugin";
-import NodePolyfillPlugin from "node-polyfill-webpack-plugin";
 
 import { createWebpackAliasesFromTSConfig } from "@izui/scripts/utils/createAliases";
-import packageJson from "./package.json";
 import tsConfigPaths from "./tsconfig.paths.json";
 
-const config = () =>
-{
+const config = () => {
 	const argv = yargs(hideBin(process.argv)).options({
 		mode: { type: "string", default: "production" },
 		analyze: { type: "boolean", default: false }
@@ -26,9 +23,8 @@ const config = () =>
 	const configuration: Configuration = {
 		mode: argv.mode,
 		devtool: "source-map",
-		externals: Object.keys(packageJson.peerDependencies),
 		entry: {
-			index: "./src/index.ts",
+			index: "./src/index.ts"
 		},
 		output: {
 			filename: "index.js",
@@ -43,10 +39,9 @@ const config = () =>
 		},
 		plugins: [
 			new CleanWebpackPlugin(),
-			new NodePolyfillPlugin(),
 			new MiniCssExtractPlugin({
 				filename: "[name].css",
-				chunkFilename: "[id].css",
+				chunkFilename: "[id].css"
 			}),
 			new StylelintPlugin({
 				configFile: ".stylelintrc"
@@ -57,31 +52,37 @@ const config = () =>
 		],
 		module: {
 			rules: [
-				{	// typescript babel
+				{
+					// typescript babel
 					test: /\.(tsx?)$/,
 					include: /(src)/,
 					exclude: /(__test__)/,
 					use: "babel-loader"
 				},
-				{	// typescript definitions
+				{
+					// typescript definitions
 					test: /\.(tsx?)$/,
 					include: /(src)/,
 					exclude: /(__test__)/,
 					use: "ts-loader"
 				},
-				{	// file loader
+				{
+					// file loader
 					test: /\.(png|jpg|gif|webp)$/,
 					type: "asset"
 				},
-				{	// font loader
+				{
+					// font loader
 					test: /\.(woff|woff2|eot|ttf|otf)$/,
 					type: "asset/inline"
 				},
-				{	// svg inline loader
+				{
+					// svg inline loader
 					test: /\.(svg)$/,
 					type: "asset/inline"
 				},
-				{	// css & sass & postcss loader
+				{
+					// css & sass & postcss loader
 					test: /\.(s[ac]ss|css)$/i,
 					use: [
 						MiniCssExtractPlugin.loader,
@@ -107,23 +108,21 @@ const config = () =>
 		optimization: {
 			minimizer: [
 				new TerserPlugin({
-					exclude: /(scripts)/,
-				}),
-			],
-		},
+					exclude: /(scripts)/
+				})
+			]
+		}
 	};
 
-	if (configuration.plugins)
-	{
-		if (argv.analyze)
-			configuration.plugins.push(new BundleAnalyzerPlugin());
+	if (configuration.plugins) {
+		if (argv.analyze) configuration.plugins.push(new BundleAnalyzerPlugin());
 	}
 	return configuration;
 };
 
 export type CLI = {
-	mode: "none" | "development" | "production",
-	analyze: boolean
+	mode: "none" | "development" | "production";
+	analyze: boolean;
 };
 
 export default config;

@@ -9,15 +9,26 @@ import { preventDefault } from "@/utils/events";
 /**
  * Click me hint.
  */
-const HintClick: FC<Partial<TooltipProps>> = (props) =>
-{
+const HintClick: FC<Partial<TooltipProps>> = props => {
 	const { t } = useTranslation();
 
 	return (
-		<Tooltip placement="right" title={t("TOOLTIP_CLICK_ME") as string}
-			arrow disableFocusListener disableTouchListener {...props}>
+		<Tooltip
+			placement="right"
+			title={t("TOOLTIP_CLICK_ME") as string}
+			arrow
+			disableFocusListener
+			disableTouchListener
+			{...props}
+		>
 			<Forward>
-				<Image onDragStart={preventDefault} alt="click-me" width={55} height={64} src={clickMeIcon} />
+				<Image
+					onDragStart={preventDefault}
+					alt="click-me"
+					width={55}
+					height={64}
+					src={clickMeIcon}
+				/>
 			</Forward>
 		</Tooltip>
 	);

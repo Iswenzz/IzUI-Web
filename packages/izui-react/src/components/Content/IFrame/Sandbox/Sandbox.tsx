@@ -10,57 +10,67 @@ import { getComponentStyles, isStyleNode, isClassesInStyle } from "@/utils/eleme
 /**
  * Sandbox styles and react component within an IFrame.
  */
-const Sandbox: FC<Props> = ({ children, frameDocument }) =>
-{
+const Sandbox: FC<Props> = ({ children, frameDocument }) => {
 	const theme = useTheme();
 	const [componentClasses, setComponentClasses] = useState<string[]>([]);
 
 	/**
 	 * Fetch the component class names.
 	 */
-	const fetchComponentStyles = useCallback(async () =>
-		setComponentClasses(await getComponentStyles(children)), [children]);
+	const fetchComponentStyles = useCallback(
+		async () => setComponentClasses(await getComponentStyles(children)),
+		[children]
+	);
 
 	/**
 	 * Get the frame document window.
 	 */
 	const getWindow = useCallback(() => frameDocument.defaultView, [frameDocument]);
 
-	useEffect(() =>
-	{
+	useEffect(() => {
 		fetchComponentStyles();
 	}, [fetchComponentStyles]);
 
-	useEffect(() => void (frameDocument.body.dir = theme.direction),
-		[frameDocument, theme.direction]);
+	useEffect(
+		() => void (frameDocument.body.dir = theme.direction),
+		[frameDocument, theme.direction]
+	);
 
-	const cache = useMemo(() => createCache({
-		key: `iframe-demo-${theme.direction}`,
-		prepend: true,
-		container: frameDocument.head
-	}), [frameDocument, theme.direction]);
+	const cache = useMemo(
+		() =>
+			createCache({
+				key: `iframe-demo-${theme.direction}`,
+				prepend: true,
+				container: frameDocument.head
+			}),
+		[frameDocument, theme.direction]
+	);
 
-	const computedStyles = useMemo(() =>
-		Array.from(document.head.childNodes)
-			.filter(isStyleNode)
-			.map(style => style.innerHTML)
-			.filter(isClassesInStyle(componentClasses))
-			.join(" "), [componentClasses]);
+	const computedStyles = useMemo(
+		() =>
+			Array.from(document.head.childNodes)
+				.filter(isStyleNode)
+				.map(style => style.innerHTML)
+				.filter(isClassesInStyle(componentClasses))
+				.join(" "),
+		[componentClasses]
+	);
 
 	return (
 		<CacheProvider value={cache}>
-			{cloneElement((
+			{cloneElement(
 				<Themes theme={theme}>
 					<Global styles={computedStyles} />
 					{children}
-				</Themes>
-			), { window: getWindow })}
+				</Themes>,
+				{ window: getWindow }
+			)}
 		</CacheProvider>
 	);
 };
 
 type Props = {
-	frameDocument: Document
+	frameDocument: Document;
 };
 
 export default Sandbox;

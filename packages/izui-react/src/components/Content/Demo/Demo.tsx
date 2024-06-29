@@ -13,8 +13,7 @@ import scss from "./Demo.module.scss";
 /**
  * Showcase a demo component.
  */
-const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
-{
+const Demo: FC<Props> = ({ demo, children, iframe = false }) => {
 	const { previews = [], title = "", description = "", sandboxUrl, additionalComponent } = demo;
 
 	const [codeCollapse, setCodeCollapse] = useState(false);
@@ -31,30 +30,52 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 	 * @param value - The tab index.
 	 * @returns
 	 */
-	const handleTabChange = (_: React.SyntheticEvent<Element, Event>, value: number) => setTabIndex(value);
+	const handleTabChange = (_: React.SyntheticEvent<Element, Event>, value: number) =>
+		setTabIndex(value);
 
 	// eslint-disable-next-line react/display-name
-	const View: FC = useMemo(() => ({ children }) => iframe
-		? <IFrame key={iframeKey} size={{ width: 820, height: 450 }} title={iframeKey}>{children}</IFrame>
-		: <Fragment>{children}</Fragment>, [iframe, iframeKey]);
+	const View: FC = useMemo(
+		() =>
+			({ children }) =>
+				iframe ? (
+					<IFrame key={iframeKey} size={{ width: 820, height: 450 }} title={iframeKey}>
+						{children}
+					</IFrame>
+				) : (
+					<Fragment>{children}</Fragment>
+				),
+		[iframe, iframeKey]
+	);
 
 	if (!children) return null;
 
 	return (
-		<Grid container component="article" justifyContent="flex-start" alignItems="center" direction="column">
-			<Text id={title || uuidv4()} className="poiret-h1" variant="h2">{title}</Text>
+		<Grid
+			container
+			component="article"
+			justifyContent="flex-start"
+			alignItems="center"
+			direction="column"
+		>
+			<Text id={title || uuidv4()} className="poiret-h1" variant="h2">
+				{title}
+			</Text>
 			<Divider className={scss.divider} />
-			<Text className={scss.description} variant="subtitle1">{description}</Text>
+			<Text className={scss.description} variant="subtitle1">
+				{description}
+			</Text>
 
 			<section className={scss.view}>
-				<View>
-					{children}
-				</View>
+				<View>{children}</View>
 			</section>
 
 			<Grid container className={scss.buttons} justifyContent="flex-end" alignItems="center">
 				<Tooltip title="Code">
-					<Fab className={scss.fab} color="secondary" onClick={() => setCodeCollapse(!codeCollapse)}>
+					<Fab
+						className={scss.fab}
+						color="secondary"
+						onClick={() => setCodeCollapse(!codeCollapse)}
+					>
 						<CodeIcon />
 					</Fab>
 				</Tooltip>
@@ -77,8 +98,15 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 			<Collapse className={scss.collapse} component="section" in={codeCollapse}>
 				<Tabs value={tabIndex} onChange={handleTabChange}>
 					{previews?.map((preview, index) => (
-						<Tooltip key={`${preview.label}${index}`} title={preview.label} placement="top">
-							<Tab className={scss.tab} icon={<Image width={32} height={32} src={preview.icon} />} />
+						<Tooltip
+							key={`${preview.label}${index}`}
+							title={preview.label}
+							placement="top"
+						>
+							<Tab
+								className={scss.tab}
+								icon={<Image width={32} height={32} src={preview.icon} />}
+							/>
 						</Tooltip>
 					))}
 				</Tabs>
@@ -91,31 +119,31 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) =>
 };
 
 type Props = {
-	children?: React.ReactElement,
-	demo: DemoSource,
-	iframe?: boolean
+	children?: React.ReactElement;
+	demo: DemoSource;
+	iframe?: boolean;
 };
 
 export type DemoPreview = {
-	icon: string,
-	label: string,
-	language: string,
-	source: string
+	icon: string;
+	label: string;
+	language: string;
+	source: string;
 };
 
 export type DemoSource = {
-	title?: string,
-	description?: string,
-	sandboxUrl?: string,
-	previews?: DemoPreview[],
-	iframe?: boolean,
-	render?: React.ReactElement,
-	additionalComponent?: React.ReactElement
+	title?: string;
+	description?: string;
+	sandboxUrl?: string;
+	previews?: DemoPreview[];
+	iframe?: boolean;
+	render?: React.ReactElement;
+	additionalComponent?: React.ReactElement;
 };
 
 export type DemoSources = {
-	sections?: string[],
-	sources: DemoSource[]
+	sections?: string[];
+	sources: DemoSource[];
 };
 
 export default memo(Demo);

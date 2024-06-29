@@ -9,13 +9,18 @@ import { preventDefault } from "@/utils/events";
 /**
  * Drag me hint.
  */
-const HintDrag: FC<Partial<TooltipProps>> = (props) =>
-{
+const HintDrag: FC<Partial<TooltipProps>> = props => {
 	const { t } = useTranslation();
 
 	return (
-		<Tooltip placement="right" title={t("PROJECT_TOOLTIP_DRAG") as string}
-			arrow disableFocusListener disableTouchListener {...props}>
+		<Tooltip
+			placement="right"
+			title={t("PROJECT_TOOLTIP_DRAG") as string}
+			arrow
+			disableFocusListener
+			disableTouchListener
+			{...props}
+		>
 			<Forward>
 				<Image onDragStart={preventDefault} alt="drag" src={dragIcon} />
 			</Forward>

@@ -20,8 +20,7 @@ export const getThemeByName = (name: string): Theme => registredThemes[name];
  * @param name - The theme name.
  * @param theme - The MUI theme.
  */
-export const registerTheme = (name: string, theme: Theme) =>
-	registredThemes[name] = theme;
+export const registerTheme = (name: string, theme: Theme) => (registredThemes[name] = theme);
 
 export { default as Themes } from "./Themes";
 export * from "./Themes";
@@ -29,7 +28,4 @@ export * from "./Themes";
 export * from "./app/Dark/Dark";
 export * from "./app/Light/Light";
 
-export {
-	DarkTheme,
-	LightTheme
-};
+export { DarkTheme, LightTheme };

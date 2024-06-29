@@ -7,16 +7,19 @@ import { markdown } from "@/utils/markdown";
 /**
  * Render markdown string.
  */
-const Markdown: FC<Props> = ({ children }) =>
-{
+const Markdown: FC<Props> = ({ children }) => {
 	const { theme } = useTheme();
 
-	return <section className={classNames("markdown", theme)}
-		dangerouslySetInnerHTML={{ __html: markdown(children) }} />;
+	return (
+		<section
+			className={classNames("markdown", theme)}
+			dangerouslySetInnerHTML={{ __html: markdown(children) }}
+		/>
+	);
 };
 
 type Props = {
-	children: string
+	children: string;
 };
 
 export default Markdown;

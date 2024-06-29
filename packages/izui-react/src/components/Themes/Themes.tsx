@@ -8,15 +8,13 @@ import "@izui/styles/scss/Main.scss";
 /**
  * App themes.
  */
-export const Themes: FC<ThemesProps> = ({ theme, scrollLock, children }) =>
-{
+export const Themes: FC<ThemesProps> = ({ theme, scrollLock, children }) => {
 	const html = useRef<HTMLElement>(getElementByXPath("html") as HTMLElement);
 
 	/**
 	 * Dynamic changes.
 	 */
-	useEffect(() =>
-	{
+	useEffect(() => {
 		html.current.style.overflowY = scrollLock ? "hidden" : "visible";
 	}, [scrollLock]);
 
@@ -33,8 +31,8 @@ export const Themes: FC<ThemesProps> = ({ theme, scrollLock, children }) =>
 };
 
 export type ThemesProps = {
-	theme: Theme,
-	scrollLock?: boolean
+	theme: Theme;
+	scrollLock?: boolean;
 };
 
 export default Themes;

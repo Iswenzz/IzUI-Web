@@ -3,15 +3,14 @@ import { CSSProperties, FC, memo, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import { useMeasure, usePrevious } from "react-use";
 
-import { CloseSquare , MinusSquare , PlusSquare } from "../TreeIcons/TreeIcons";
+import { CloseSquare, MinusSquare, PlusSquare } from "../TreeIcons/TreeIcons";
 
 import scss from "./TreeItem.module.scss";
 
 /**
  * Represent an item or a list in a Tree component.
  */
-const TreeItem: FC<TreeProps> = ({ className, children, name, style, defaultOpen = false }) =>
-{
+const TreeItem: FC<TreeProps> = ({ className, children, name, style, defaultOpen = false }) => {
 	const [isOpen, setOpen] = useState(defaultOpen);
 	const previous = usePrevious(isOpen);
 
@@ -20,7 +19,8 @@ const TreeItem: FC<TreeProps> = ({ className, children, name, style, defaultOpen
 		from: {
 			height: 0,
 			opacity: 0,
-			transform: "translate3d(20px,0,0)" },
+			transform: "translate3d(20px,0,0)"
+		},
 		to: {
 			height: isOpen ? viewHeight : 0,
 			opacity: isOpen ? 1 : 0,
@@ -36,9 +36,18 @@ const TreeItem: FC<TreeProps> = ({ className, children, name, style, defaultOpen
 
 	return (
 		<Frame className={classNames(scss.item, className)}>
-			<Icon className={scss.icon} style={{ opacity: iconOpacity }} onClick={() => setOpen(!isOpen)} />
-			<span className={scss.title} style={style}>{name}</span>
-			<animated.div className={scss.content} style={{ opacity: opacity, height: contentHeight }}>
+			<Icon
+				className={scss.icon}
+				style={{ opacity: iconOpacity }}
+				onClick={() => setOpen(!isOpen)}
+			/>
+			<span className={scss.title} style={style}>
+				{name}
+			</span>
+			<animated.div
+				className={scss.content}
+				style={{ opacity: opacity, height: contentHeight }}
+			>
 				<animated.div ref={ref} style={{ transform }}>
 					{children}
 				</animated.div>
@@ -48,11 +57,11 @@ const TreeItem: FC<TreeProps> = ({ className, children, name, style, defaultOpen
 };
 
 export type TreeProps = {
-	name: string | React.ReactNode,
-	className?: string,
-	style?: CSSProperties,
-	defaultOpen?: boolean,
-	children?: React.ReactNode[] | React.ReactNode
+	name: string | React.ReactNode;
+	className?: string;
+	style?: CSSProperties;
+	defaultOpen?: boolean;
+	children?: React.ReactNode[] | React.ReactNode;
 };
 
 export default memo(TreeItem);

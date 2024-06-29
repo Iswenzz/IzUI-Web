@@ -2,7 +2,7 @@
 import { render, fireEvent, RenderResult } from "@testing-library/react";
 import { FC, ReactElement } from "react";
 
-const mockQueries = <Queries,>() => ({ }) as Queries;
+const mockQueries = <Queries,>() => ({}) as Queries;
 
 export const customRender = (ui: ReactElement) => ({
 	...render(ui)
@@ -11,8 +11,8 @@ export const customRender = (ui: ReactElement) => ({
 type Object<O> = O | {};
 
 type BuildRenderOptions<Props, Queries> = {
-	component: FC,
-	defaultProps?: Object<Props>,
+	component: FC;
+	defaultProps?: Object<Props>;
 	queries?: (queries: Render) => Queries;
 };
 
@@ -20,11 +20,10 @@ type Render<Queries = {}> = RenderResult & Queries;
 
 const buildRender = <Props, Queries>({
 	component: Component,
-	defaultProps = { },
-	queries = mockQueries }: BuildRenderOptions<Props, Queries>) =>
-{
-	return (props: Object<Props> = { }): Render<Queries> =>
-	{
+	defaultProps = {},
+	queries = mockQueries
+}: BuildRenderOptions<Props, Queries>) => {
+	return (props: Object<Props> = {}): Render<Queries> => {
 		const view = customRender(<Component {...defaultProps} {...props} />);
 		const rerender = (newProps = props) =>
 			view.rerender(<Component {...defaultProps} {...newProps} />);

@@ -7,8 +7,7 @@ import { SideMenu } from "@/router/components";
 /**
  * Documentation container.
  */
-const DocumentationRenderer: FC<Props> = ({ children, sections }) =>
-{
+const DocumentationRenderer: FC<Props> = ({ children, sections }) => {
 	const size = useResponsive({
 		desktop: { page: 10, side: 2 },
 		mobile: { page: 12, side: 0 }
@@ -17,9 +16,7 @@ const DocumentationRenderer: FC<Props> = ({ children, sections }) =>
 	return (
 		<Grid container>
 			<Grid item xs={size.page}>
-				<Container maxWidth="md">
-					{children}
-				</Container>
+				<Container maxWidth="md">{children}</Container>
 			</Grid>
 			{size.side > 0 && (
 				<Grid item xs={size.side}>
@@ -31,7 +28,7 @@ const DocumentationRenderer: FC<Props> = ({ children, sections }) =>
 };
 
 type Props = {
-	sections?: string[]
+	sections?: string[];
 };
 
 export default DocumentationRenderer;

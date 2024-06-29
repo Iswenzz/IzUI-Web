@@ -9,14 +9,19 @@ import { BuilderOptions } from "./buildWebpack";
  * @param options - The builder options.
  */
 const buildLibraryPackageJson = async ({
-	packageJsonPath = "", outputPath = "", types, entry, copyTo
-}: BuilderOptions) =>
-{
+	packageJsonPath = "",
+	outputPath = "",
+	types,
+	entry,
+	copyTo
+}: BuilderOptions) => {
 	if (!packageJsonPath || !outputPath)
 		throw new Error("Must specify the 'packageJsonPath', 'outputPath' options.");
 
 	if (!fs.existsSync(packageJsonPath))
-		throw new Error("'packageJsonPath' option should have the library's package.json resolved path.");
+		throw new Error(
+			"'packageJsonPath' option should have the library's package.json resolved path."
+		);
 	const packageJson = require(packageJsonPath);
 
 	// Modify package.json

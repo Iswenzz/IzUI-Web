@@ -16,22 +16,22 @@ export const computeMasonryLayout = (
 	columns: number,
 	gutter: Partial<Size> = defaultSize,
 	itemSize: Partial<Size> = defaultSize
-): Layout =>
-{
-	const { width: gutterWidth = config.gutter.width, height: gutterHeight = config.gutter.height } = gutter;
+): Layout => {
+	const {
+		width: gutterWidth = config.gutter.width,
+		height: gutterHeight = config.gutter.height
+	} = gutter;
 	const { width: itemWidth = config.itemSize.width } = itemSize;
 
 	const columnHeights: number[] = [];
-	for (let i = 0; i < columns; i++)
-		columnHeights.push(0);
+	for (let i = 0; i < columns; i++) columnHeights.push(0);
 
-	const positions: Point[] = elements.map(element =>
-	{
+	const positions: Point[] = elements.map(element => {
 		const column = columnHeights.indexOf(Math.min.apply(null, columnHeights));
 		const { height } = element.props;
 
 		if (!(height && typeof height === "number"))
-			throw new Error("Each child must have an \"height\" prop.");
+			throw new Error('Each child must have an "height" prop.');
 
 		const x = column * itemWidth + column * gutterWidth;
 		const y = columnHeights[column];

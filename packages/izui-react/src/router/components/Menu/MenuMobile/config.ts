@@ -9,5 +9,5 @@ export const boxSx: SxProps = {
 
 export const drawerSx: SxProps = {
 	display: { xs: "block", md: "none" },
-	"& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+	"& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth }
 };

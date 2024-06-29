@@ -214,7 +214,7 @@ export const animationLeft: Animation = ({ all, enter, exit } = {}) => ({
 export type Animation = (options?: AnimationVariants) => Variants;
 
 type AnimationVariants = {
-	all?: Variant,
-	enter?: Variant,
-	exit?: Variant
+	all?: Variant;
+	enter?: Variant;
+	exit?: Variant;
 };

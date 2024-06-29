@@ -14,9 +14,15 @@ import scss from "./Carousel.module.scss";
  * @param props - EmblaCarouselProps
  */
 const Carousel: FC<CarouselProps> = ({
-	options, loop, delay, children, height, width, buttonSize, style
-}) =>
-{
+	options,
+	loop,
+	delay,
+	children,
+	height,
+	width,
+	buttonSize,
+	style
+}) => {
 	const [emblaRef, emblaApi] = useEmblaCarousel({ ...options, loop: false });
 
 	const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -24,7 +30,7 @@ const Carousel: FC<CarouselProps> = ({
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
-	const loopDelay = loop ? (delay || 2000) : null;
+	const loopDelay = loop ? delay || 2000 : null;
 
 	/**
 	 * Scroll to a specific index.
@@ -44,8 +50,7 @@ const Carousel: FC<CarouselProps> = ({
 	/**
 	 * On element select/changes.
 	 */
-	const onSelect = useCallback(() =>
-	{
+	const onSelect = useCallback(() => {
 		if (!emblaApi) return;
 		setSelectedIndex(emblaApi.selectedScrollSnap());
 		setPrevBtnEnabled(emblaApi.canScrollPrev());
@@ -55,8 +60,7 @@ const Carousel: FC<CarouselProps> = ({
 	/**
 	 * Set scroll snaps on changes.
 	 */
-	useEffect(() =>
-	{
+	useEffect(() => {
 		if (!emblaApi) return;
 		onSelect();
 
@@ -64,20 +68,22 @@ const Carousel: FC<CarouselProps> = ({
 		emblaApi.on("select", onSelect);
 	}, [emblaApi, onSelect, setScrollSnaps]);
 
-
 	/**
 	 * Carousel loop.
 	 */
-	useInterval(() =>
-	{
-		if (!emblaApi?.canScrollNext())
-			scrollTo(0);
-		else
-			scrollNext();
+	useInterval(() => {
+		if (!emblaApi?.canScrollNext()) scrollTo(0);
+		else scrollNext();
 	}, loopDelay);
 
 	return (
-		<Grid style={style} container justifyContent="center" alignItems="center" component="article">
+		<Grid
+			style={style}
+			container
+			justifyContent="center"
+			alignItems="center"
+			component="article"
+		>
 			<section style={{ width, height }} className={scss.carousel}>
 				<section className={scss.viewport} ref={emblaRef}>
 					<ul style={{ width, height }} className={scss.container}>
@@ -106,14 +112,14 @@ const Carousel: FC<CarouselProps> = ({
 };
 
 export type CarouselProps = {
-	children: ReactElement[],
-	options?: EmblaOptionsType,
-	loop?: boolean,
-	delay?: number,
-	height?: string,
-	width?: string,
-	buttonSize?: number,
-	style?: CSSProperties
+	children: ReactElement[];
+	options?: EmblaOptionsType;
+	loop?: boolean;
+	delay?: number;
+	height?: string;
+	width?: string;
+	buttonSize?: number;
+	style?: CSSProperties;
 };
 
 export default memo(Carousel);

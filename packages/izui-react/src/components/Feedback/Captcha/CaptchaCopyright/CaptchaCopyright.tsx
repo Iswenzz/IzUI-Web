@@ -6,8 +6,7 @@ import { Typography } from "@mui/material";
  * The ReCAPTCHA copyright.
  * @returns
  */
-const CaptchaCopyright: FC = () =>
-{
+const CaptchaCopyright: FC = () => {
 	const { t } = useTranslation();
 
 	return (
@@ -15,10 +14,12 @@ const CaptchaCopyright: FC = () =>
 			{t("GOOGLE_RECAPTCHA")}&nbsp;
 			<a className="link" href="https://policies.google.com/privacy">
 				{t("GOOGLE_RECAPTCHA_POLICY")}
-			</a> &&nbsp;
+			</a>{" "}
+			&&nbsp;
 			<a className="link" href="https://policies.google.com/terms">
 				{t("GOOGLE_RECAPTCHA_TERMS")}
-			</a> {t("GOOGLE_RECAPTCHA_APPLY")}
+			</a>{" "}
+			{t("GOOGLE_RECAPTCHA_APPLY")}
 		</Typography>
 	);
 };

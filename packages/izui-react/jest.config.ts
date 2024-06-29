@@ -16,7 +16,6 @@ const config: Config.InitialOptions = {
 		...createJestAliasesFromTSConfig(tsConfigPaths, __dirname),
 		".*\\.scss$": "identity-obj-proxy"
 	},
-	testURL: "http://localhost/",
 	testEnvironment: "jest-environment-jsdom",
 	moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "scss"],
 	coverageDirectory: "coverage",

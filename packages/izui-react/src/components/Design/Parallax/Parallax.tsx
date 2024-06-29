@@ -1,6 +1,9 @@
 import { memo, FC } from "react";
 import { ParallaxBanner } from "react-scroll-parallax";
-import type { BannerLayer, ParallaxBannerProps } from "react-scroll-parallax/dist/components/ParallaxBanner/types";
+import type {
+	BannerLayer,
+	ParallaxBannerProps
+} from "react-scroll-parallax/dist/components/ParallaxBanner/types";
 import stars from "@izui/assets/images/background/stars.svg";
 import clouds from "@izui/assets/images/background/clouds.svg";
 
@@ -11,17 +14,25 @@ import useThemeMode from "@/utils/hooks/useThemeMode";
  * Parallax background.
  */
 const Parallax: FC<Props> = ({
-	speed = -30, spacingTop, spacingBottom, image, blur = 0, children, style, ...rest
-}) =>
-{
+	speed = -30,
+	spacingTop,
+	spacingBottom,
+	image,
+	blur = 0,
+	children,
+	style,
+	...rest
+}) => {
 	const { parallaxImage } = useThemeMode({
 		parallaxImage: [stars, clouds]
 	});
 
-	const layers: BannerLayer[] = [{
-		image: image !== false ? image || parallaxImage : "",
-		speed
-	}];
+	const layers: BannerLayer[] = [
+		{
+			image: image !== false ? image || parallaxImage : "",
+			speed
+		}
+	];
 
 	return (
 		<ParallaxBanner layers={layers} style={{ ...style, filter: `blur(${blur}px)` }} {...rest}>
@@ -33,11 +44,11 @@ const Parallax: FC<Props> = ({
 };
 
 type Props = ParallaxBannerProps & {
-	spacingTop?: string,
-	spacingBottom?: string,
-	image?: string | false,
-	speed?: number,
-	blur?: number
+	spacingTop?: string;
+	spacingBottom?: string;
+	image?: string | false;
+	speed?: number;
+	blur?: number;
 };
 
 export default memo(Parallax);

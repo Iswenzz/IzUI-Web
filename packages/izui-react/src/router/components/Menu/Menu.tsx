@@ -8,28 +8,32 @@ import MenuMobile from "./MenuMobile/MenuMobile";
 /**
  * Responsive documentation menu.
  */
-const Menu: FC<Props> = ({ children, handleDrawerToggle, drawerOpen, desktopOpen = false }) => useResponsive({
-	desktop: (
-		<MenuDesktop handleDrawerToggle={handleDrawerToggle}
-			drawerOpen={drawerOpen || desktopOpen} desktopOpen={desktopOpen}>
-			{children}
-		</MenuDesktop>
-	),
-	mobile: (
-		<MenuMobile handleDrawerToggle={handleDrawerToggle}drawerOpen={drawerOpen}>
-			{children}
-		</MenuMobile>
-	)
-});
+const Menu: FC<Props> = ({ children, handleDrawerToggle, drawerOpen, desktopOpen = false }) =>
+	useResponsive({
+		desktop: (
+			<MenuDesktop
+				handleDrawerToggle={handleDrawerToggle}
+				drawerOpen={drawerOpen || desktopOpen}
+				desktopOpen={desktopOpen}
+			>
+				{children}
+			</MenuDesktop>
+		),
+		mobile: (
+			<MenuMobile handleDrawerToggle={handleDrawerToggle} drawerOpen={drawerOpen}>
+				{children}
+			</MenuMobile>
+		)
+	});
 
 type Props = MenuNavigationProps & {
-	children?: FC<MenuNavigationProps>,
-	drawerOpen: boolean,
-	desktopOpen?: boolean
+	children?: FC<MenuNavigationProps>;
+	drawerOpen: boolean;
+	desktopOpen?: boolean;
 };
 
 export type MenuNavigationProps = {
-	handleDrawerToggle: (state: boolean) => void
+	handleDrawerToggle: (state: boolean) => void;
 };
 
 export default Menu;

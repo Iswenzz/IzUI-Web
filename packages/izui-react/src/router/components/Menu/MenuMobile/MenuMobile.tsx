@@ -9,17 +9,22 @@ import { boxSx, drawerSx } from "./config";
  */
 const MenuMobile: FC<Props> = ({ handleDrawerToggle, drawerOpen, children: MenuNavigation }) => (
 	<Box component="nav" sx={boxSx}>
-		<Drawer variant="temporary" open={drawerOpen} onClose={() => handleDrawerToggle(false)}
-			ModalProps={{ keepMounted: true }} sx={drawerSx}>
+		<Drawer
+			variant="temporary"
+			open={drawerOpen}
+			onClose={() => handleDrawerToggle(false)}
+			ModalProps={{ keepMounted: true }}
+			sx={drawerSx}
+		>
 			{MenuNavigation && <MenuNavigation handleDrawerToggle={handleDrawerToggle} />}
 		</Drawer>
 	</Box>
 );
 
 type Props = {
-	handleDrawerToggle: (state: boolean) => void,
-	children?: FC<MenuNavigationProps>,
-	drawerOpen: boolean
+	handleDrawerToggle: (state: boolean) => void;
+	children?: FC<MenuNavigationProps>;
+	drawerOpen: boolean;
 };
 
 export default MenuMobile;

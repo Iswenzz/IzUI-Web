@@ -10,7 +10,7 @@ const Spacing: FC<SpacingProps> = ({ height, children, style, ...rest }) => (
 );
 
 type SpacingProps = React.HTMLAttributes<HTMLDivElement> & {
-	height?: string
+	height?: string;
 };
 
 export default Spacing;

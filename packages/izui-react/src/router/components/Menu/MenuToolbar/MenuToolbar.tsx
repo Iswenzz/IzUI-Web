@@ -23,10 +23,10 @@ const MenuToolbar: FC<Props> = ({ children, name = "", iconLeft, iconRight }) =>
 );
 
 type Props = {
-	children?: React.ReactElement,
-	name?: string,
-	iconLeft?: React.ReactElement,
-	iconRight?: React.ReactElement
+	children?: React.ReactElement;
+	name?: string;
+	iconLeft?: React.ReactElement;
+	iconRight?: React.ReactElement;
 };
 
 export default MenuToolbar;

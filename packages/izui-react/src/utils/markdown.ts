@@ -7,19 +7,17 @@ import hljs from "highlight.js/lib/core";
  * @param language - The highlight language.
  * @returns
  */
-export const highlight = (content: string, language: string) =>
-{
-	if (language && hljs.getLanguage(language))
-	{
-		try
-		{
-			return "<pre class=\"hljs\"><code>"
-				+ hljs.highlight(content, { language, ignoreIllegals: true }).value
-				+ "</code></pre>";
-		}
-		catch { }
+export const highlight = (content: string, language: string) => {
+	if (language && hljs.getLanguage(language)) {
+		try {
+			return (
+				'<pre class="hljs"><code>' +
+				hljs.highlight(content, { language, ignoreIllegals: true }).value +
+				"</code></pre>"
+			);
+		} catch {}
 	}
-	return "<pre class=\"hljs\"><code>" + MarkdownIt().utils.escapeHtml(content) + "</code></pre>";
+	return '<pre class="hljs"><code>' + MarkdownIt().utils.escapeHtml(content) + "</code></pre>";
 };
 
 /**
@@ -28,8 +26,7 @@ export const highlight = (content: string, language: string) =>
  * @param options - The markdown render options.
  * @returns
  */
-export const markdown = (content: string, options?: Options) =>
-{
+export const markdown = (content: string, options?: Options) => {
 	const markdownIt: MarkdownIt = MarkdownIt({
 		html: true,
 		xhtmlOut: false,

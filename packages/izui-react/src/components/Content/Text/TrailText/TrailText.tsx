@@ -11,11 +11,9 @@ import scss from "./TrailText.module.scss";
 /**
  * Trail text characters animation.
  */
-const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) =>
-{
+const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) => {
 	const { t } = useTranslation();
-	const items = useMemo(() =>
-	{
+	const items = useMemo(() => {
 		const array = Array.isArray(children) ? children : [children];
 		return array.map<string>(t).map(text => text.split(" ").join("\u00A0").split(""));
 	}, [children, t]);
@@ -24,8 +22,14 @@ const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) =>
 		<Typography className={scss.char} {...rest}>
 			{items.map(word =>
 				word.map((char, index) => (
-					<motion.div key={uuidv4()} className={scss.charMotion} initial="exit"
-						animate={visible ? "enter" : "exit"} variants={animationTrail()} custom={index}>
+					<motion.div
+						key={uuidv4()}
+						className={scss.charMotion}
+						initial="exit"
+						animate={visible ? "enter" : "exit"}
+						variants={animationTrail()}
+						custom={index}
+					>
 						{char}
 					</motion.div>
 				))
@@ -35,9 +39,9 @@ const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) =>
 };
 
 type TrailTextProps = TypographyProps & {
-	component?: ElementType,
-	visible?: boolean,
-	children: string[] | string
+	component?: ElementType;
+	visible?: boolean;
+	children: string[] | string;
 };
 
 export default memo(TrailText);

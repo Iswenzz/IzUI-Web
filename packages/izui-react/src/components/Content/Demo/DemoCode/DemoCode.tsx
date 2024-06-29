@@ -8,19 +8,14 @@ import { DemoPreview } from "../Demo";
 /**
  * Demo code file.
  */
-const DemoCode: FC<Props> = ({ preview }) =>
-{
+const DemoCode: FC<Props> = ({ preview }) => {
 	const { file } = useFile(preview.source);
 
-	return (
-		<Markdown>
-			{`\`\`\`${preview.language}\n${file}\n\`\`\``}
-		</Markdown>
-	);
+	return <Markdown>{`\`\`\`${preview.language}\n${file}\n\`\`\``}</Markdown>;
 };
 
 type Props = {
-	preview: DemoPreview
+	preview: DemoPreview;
 };
 
 export default DemoCode;

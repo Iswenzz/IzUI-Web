@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "esnext",
+		"target": "ESNext",
 		"lib": ["esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
@@ -11,15 +11,10 @@
 		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		"module": "commonjs",
+		"module": "CommonJS",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"jsx": "react-jsx"
 	},
-	"include": [
-		"mock",
-		"utils",
-		"webpack",
-		"yarn"
-	]
+	"include": ["mock", "utils", "webpack", "yarn"]
 }

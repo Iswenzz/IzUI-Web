@@ -8,53 +8,44 @@ import useCancellablePromises, { cancellablePromise } from "./useCancellableProm
  * @param onClick - The click callaback.
  * @param onDoubleClick - The double click callback.
  */
-const useDoubleClick = (onClick?: Callback, onDoubleClick?: Callback) =>
-{
+const useDoubleClick = (onClick?: Callback, onDoubleClick?: Callback) => {
 	const cancellable = useCancellablePromises();
 
 	/**
 	 * Handle single click.
 	 */
-	const handleClick = async (event: MouseEvent) =>
-	{
+	const handleClick = async (event: MouseEvent) => {
 		event.preventDefault();
 
 		cancellable.clearPendingPromises();
 		const waitForClick = cancellablePromise(delay(300));
 		cancellable.appendPendingPromise(waitForClick);
 
-		try
-		{
+		try {
 			await waitForClick.promise;
 			cancellable.removePendingPromise(waitForClick);
-			if (onClick)
-				onClick(event);
-		}
-		catch (errorInfo: any)
-		{
+			if (onClick) onClick(event);
+		} catch (errorInfo: any) {
 			cancellable.removePendingPromise(waitForClick);
-			if (!errorInfo.isCanceled)
-				throw errorInfo.error;
+			if (!errorInfo.isCanceled) throw errorInfo.error;
 		}
 	};
 
 	/**
 	 * Handle double click.
 	 */
-	const handleDoubleClick = (event: MouseEvent) =>
-	{
+	const handleDoubleClick = (event: MouseEvent) => {
 		event.preventDefault();
 		cancellable.clearPendingPromises();
 
-		if (onDoubleClick)
-			onDoubleClick(event);
+		if (onDoubleClick) onDoubleClick(event);
 	};
 
 	return [handleClick, handleDoubleClick];
 };
 
 type ClickCallback = (event?: React.MouseEvent) => void;
-type ClickCallbackHandler =  React.MouseEventHandler | undefined;
+type ClickCallbackHandler = React.MouseEventHandler | undefined;
 type Callback = ClickCallback | ClickCallbackHandler;
 
 export default useDoubleClick;

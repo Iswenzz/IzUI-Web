@@ -11,19 +11,34 @@ import scss from "./Backdrop.module.scss";
 /**
  * Backdrop component.
  */
-const Backdrop: FC<Props> = ({ disableClose = false, onClick = noop, open, className, ...props }) =>
-{
+const Backdrop: FC<Props> = ({
+	disableClose = false,
+	onClick = noop,
+	open,
+	className,
+	...props
+}) => {
 	/**
 	 * Handle closing backdrop on click.
 	 * @param e - Click event.
 	 */
-	const handleClose = (e: React.MouseEvent<HTMLElement>) => disableClose ? null : onClick(e);
+	const handleClose = (e: React.MouseEvent<HTMLElement>) => (disableClose ? null : onClick(e));
 
 	return (
 		<AnimatePresence>
-			<motion.div variants={animationFade()} initial="enter" animate={open ? "enter" : "exit"} exit="exit">
+			<motion.div
+				variants={animationFade()}
+				initial="enter"
+				animate={open ? "enter" : "exit"}
+				exit="exit"
+			>
 				<div className={classNames(className, scss.backdrop)}>
-					<MUIBackdrop {...props} className={scss.muiBackdrop} open={open} onClick={handleClose} />
+					<MUIBackdrop
+						{...props}
+						className={scss.muiBackdrop}
+						open={open}
+						onClick={handleClose}
+					/>
 				</div>
 			</motion.div>
 		</AnimatePresence>
@@ -36,11 +51,12 @@ const Backdrop: FC<Props> = ({ disableClose = false, onClick = noop, open, class
  * @returns
  */
 // eslint-disable-next-line react/display-name
-export const createBackdrop = (disableState: boolean) => (props: BackdropProps) =>
-	<Backdrop {...props} transitionDuration={0} disableClose={disableState} />;
+export const createBackdrop = (disableState: boolean) => (props: BackdropProps) => (
+	<Backdrop {...props} transitionDuration={0} disableClose={disableState} />
+);
 
 type Props = BackdropProps & {
-	disableClose?: boolean
+	disableClose?: boolean;
 };
 
 export default Backdrop;

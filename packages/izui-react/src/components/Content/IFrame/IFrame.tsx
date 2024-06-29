@@ -8,16 +8,14 @@ const defaultSize: Size = { width: 550, height: 300 };
 /**
  * Iframe wrapper.
  */
-const IFrame: FC<Props> = ({ children, size = defaultSize, title, ...props }) =>
-{
+const IFrame: FC<Props> = ({ children, size = defaultSize, title, ...props }) => {
 	const frameRef = useRef<Nullable<HTMLIFrameElement>>(null);
 	const frameDocument = frameRef.current?.contentDocument;
 
 	// If we portal content into the iframe before the load event then that content is dropped in firefox.
 	const [iframeLoaded, onLoad] = useReducer(() => true, false);
 
-	useEffect(() =>
-	{
+	useEffect(() => {
 		const frameDocument = frameRef.current?.contentDocument;
 
 		// When we hydrate the iframe then the load event is already dispatched
@@ -32,17 +30,27 @@ const IFrame: FC<Props> = ({ children, size = defaultSize, title, ...props }) =>
 	}, [iframeLoaded]);
 
 	return (
-		<iframe {...props} title={title} ref={frameRef} onLoad={onLoad} width={size.width} height={size.height}>
-			{iframeLoaded && frameDocument && createPortal((
-				<Sandbox frameDocument={frameDocument}>{children}</Sandbox>
-			), frameDocument.body)}
+		<iframe
+			{...props}
+			title={title}
+			ref={frameRef}
+			onLoad={onLoad}
+			width={size.width}
+			height={size.height}
+		>
+			{iframeLoaded &&
+				frameDocument &&
+				createPortal(
+					<Sandbox frameDocument={frameDocument}>{children}</Sandbox>,
+					frameDocument.body
+				)}
 		</iframe>
 	);
 };
 
 type Props = React.IframeHTMLAttributes<HTMLIFrameElement> & {
-	size?: Size,
-	title: string
+	size?: Size;
+	title: string;
 };
 
 export default IFrame;
