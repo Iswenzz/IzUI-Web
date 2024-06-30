@@ -12,7 +12,6 @@ const DocumentationRenderer: FC<Props> = ({ children, sections }) => {
 		desktop: { page: 10, side: 2 },
 		mobile: { page: 12, side: 0 }
 	});
-
 	return (
 		<Grid container>
 			<Grid item xs={size.page}>
@@ -28,6 +27,7 @@ const DocumentationRenderer: FC<Props> = ({ children, sections }) => {
 };
 
 type Props = {
+	children?: React.ReactNode;
 	sections?: string[];
 };
 

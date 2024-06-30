@@ -11,30 +11,24 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import TerserPlugin from "terser-webpack-plugin";
 
 import { createWebpackAliasesFromTSConfig } from "@izui/scripts/utils/createAliases";
-import tsConfigPaths from "./tsconfig.paths.json";
+import tsConfigPaths from "../tsconfig.paths.json";
 
-const config = () => {
+const base = () => {
 	const argv = yargs(hideBin(process.argv)).options({
-		mode: { type: "string", default: "production" },
 		analyze: { type: "boolean", default: false }
 	}).argv as CLI;
-	console.log(`Building in ${argv.mode} mode.\n`);
 
 	const configuration: Configuration = {
-		mode: argv.mode,
-		devtool: "source-map",
+		mode: "production",
 		entry: {
-			index: "./src/index.ts"
+			index: "./fixtures/index.tsx"
 		},
 		output: {
 			filename: "index.js",
-			path: path.resolve(__dirname, "build"),
-			library: {
-				type: "umd"
-			}
+			path: path.resolve("build")
 		},
 		resolve: {
-			extensions: ["*", ".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".json"],
+			extensions: [".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".json"],
 			alias: createWebpackAliasesFromTSConfig(tsConfigPaths)
 		},
 		plugins: [
@@ -47,20 +41,15 @@ const config = () => {
 				configFile: ".stylelintrc"
 			}),
 			new ESLintPlugin({
-				extensions: ["js", "jsx", "ts", "tsx"]
+				extensions: ["js", "jsx", "ts", "tsx"],
+				eslintPath: "eslint/use-at-your-own-risk",
+				configType: "flat"
 			})
 		],
 		module: {
 			rules: [
 				{
-					// typescript babel
-					test: /\.(tsx?)$/,
-					include: /(src)/,
-					exclude: /(__test__)/,
-					use: "babel-loader"
-				},
-				{
-					// typescript definitions
+					// typescript loader
 					test: /\.(tsx?)$/,
 					include: /(src)/,
 					exclude: /(__test__)/,
@@ -72,18 +61,13 @@ const config = () => {
 					type: "asset"
 				},
 				{
-					// font loader
-					test: /\.(woff|woff2|eot|ttf|otf)$/,
+					// svg & font loader
+					test: /\.(svg|woff|woff2|eot|ttf|otf)$/,
 					type: "asset/inline"
 				},
 				{
-					// svg inline loader
-					test: /\.(svg)$/,
-					type: "asset/inline"
-				},
-				{
-					// css & sass & postcss loader
-					test: /\.(s[ac]ss|css)$/i,
+					// css & scss & postcss loader
+					test: /\.(scss|css)$/i,
 					use: [
 						MiniCssExtractPlugin.loader,
 						{
@@ -95,7 +79,6 @@ const config = () => {
 								}
 							}
 						},
-						"resolve-url-loader",
 						"postcss-loader",
 						"sass-loader"
 					]
@@ -113,7 +96,6 @@ const config = () => {
 			]
 		}
 	};
-
 	if (configuration.plugins) {
 		if (argv.analyze) configuration.plugins.push(new BundleAnalyzerPlugin());
 	}
@@ -121,8 +103,7 @@ const config = () => {
 };
 
 export type CLI = {
-	mode: "none" | "development" | "production";
 	analyze: boolean;
 };
 
-export default config;
+export default base;

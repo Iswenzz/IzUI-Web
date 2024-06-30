@@ -8,7 +8,6 @@ import { Typography } from "@mui/material";
  */
 const CaptchaCopyright: FC = () => {
 	const { t } = useTranslation();
-
 	return (
 		<Typography variant="subtitle2" align="center" color="textPrimary" paragraph>
 			{t("GOOGLE_RECAPTCHA")}&nbsp;

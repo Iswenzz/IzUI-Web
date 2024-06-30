@@ -18,6 +18,6 @@ const useThemeMode = <V extends Values>(values: V) => {
 	) as { [key in keyof V]: V[key][0] } & Theme;
 };
 
-type Values<K extends string = string> = Record<K, [any, any]>;
+type Values<K extends string = string> = Record<K, [JSONValue, JSONValue]>;
 
 export default useThemeMode;

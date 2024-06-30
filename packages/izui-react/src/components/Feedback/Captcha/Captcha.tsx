@@ -8,7 +8,6 @@ import { useTheme } from "@mui/material";
  */
 const Captcha: ForwardRefRenderFunction<ReCAPTCHA> = (props, ref) => {
 	const { isDarkTheme } = useTheme();
-
 	return (
 		<ReCAPTCHA
 			ref={ref}

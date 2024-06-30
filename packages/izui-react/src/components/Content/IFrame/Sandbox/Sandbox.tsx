@@ -70,6 +70,7 @@ const Sandbox: FC<Props> = ({ children, frameDocument }) => {
 };
 
 type Props = {
+	children?: React.ReactNode;
 	frameDocument: Document;
 };
 

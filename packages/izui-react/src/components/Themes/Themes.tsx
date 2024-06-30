@@ -6,14 +6,11 @@ import { getElementByXPath } from "@/utils/elements";
 import "@izui/styles/scss/Main.scss";
 
 /**
- * App themes.
+ * Themes container.
  */
-export const Themes: FC<ThemesProps> = ({ theme, scrollLock, children }) => {
+const Themes: FC<ThemesProps> = ({ theme, scrollLock, children }) => {
 	const html = useRef<HTMLElement>(getElementByXPath("html") as HTMLElement);
 
-	/**
-	 * Dynamic changes.
-	 */
 	useEffect(() => {
 		html.current.style.overflowY = scrollLock ? "hidden" : "visible";
 	}, [scrollLock]);
@@ -33,6 +30,7 @@ export const Themes: FC<ThemesProps> = ({ theme, scrollLock, children }) => {
 export type ThemesProps = {
 	theme: Theme;
 	scrollLock?: boolean;
+	children: React.ReactNode;
 };
 
 export default Themes;

@@ -1,42 +1,32 @@
 // https://testing-library.com/docs/react-testing-library/setup#custom-render
-import { render, fireEvent, RenderResult } from "@testing-library/react";
+import { render, fireEvent, RenderResult, RenderOptions } from "@testing-library/react";
 import { FC, ReactElement } from "react";
 
-const mockQueries = <Queries,>() => ({}) as Queries;
-
-export const customRender = (ui: ReactElement) => ({
-	...render(ui)
+export const customRender = (ui: ReactElement, { ...renderOptions }: RenderOptions = {}) => ({
+	...render(ui, { ...renderOptions })
 });
-
-type Object<O> = O | {};
-
-type BuildRenderOptions<Props, Queries> = {
-	component: FC;
-	defaultProps?: Object<Props>;
-	queries?: (queries: Render) => Queries;
-};
-
-type Render<Queries = {}> = RenderResult & Queries;
 
 const buildRender = <Props, Queries>({
 	component: Component,
 	defaultProps = {},
 	queries = mockQueries
-}: BuildRenderOptions<Props, Queries>) => {
-	return (props: Object<Props> = {}): Render<Queries> => {
+}: BuildRender<Props, Queries>) => {
+	return (props = {}) => {
 		const view = customRender(<Component {...defaultProps} {...props} />);
-		const rerender = (newProps = props) =>
-			view.rerender(<Component {...defaultProps} {...newProps} />);
-
-		// There is another way to handle custom queries
-		// https://testing-library.com/docs/dom-testing-library/api-helpers#custom-queries
-		// but it seems to return only functions
-		return {
-			...view,
-			rerender,
-			...queries(view)
+		const rerender = (newProps = props) => {
+			return view.rerender(<Component {...defaultProps} {...newProps} />);
 		};
+		return { ...view, rerender, ...queries({ ...view }) };
 	};
+};
+
+type Object<O> = O | {};
+type Render = RenderResult;
+
+type BuildRender<Props, Queries> = {
+	component: FC;
+	defaultProps?: Object<Props>;
+	queries?: (screen: Render) => Queries;
 };
 
 const mockObserverFunc = jest.fn().mockImplementation(() => ({
@@ -44,6 +34,8 @@ const mockObserverFunc = jest.fn().mockImplementation(() => ({
 	observe: jest.fn(),
 	unobserve: jest.fn()
 }));
+
+const mockQueries = <Queries,>() => ({}) as Queries;
 
 window.ResizeObserver = window.ResizeObserver || mockObserverFunc;
 window.MutationObserver = window.MutationObserver || mockObserverFunc;

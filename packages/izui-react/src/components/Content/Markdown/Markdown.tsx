@@ -9,7 +9,6 @@ import { markdown } from "@/utils/markdown";
  */
 const Markdown: FC<Props> = ({ children }) => {
 	const { theme } = useTheme();
-
 	return (
 		<section
 			className={classNames("markdown", theme)}

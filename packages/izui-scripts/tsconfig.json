@@ -13,8 +13,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"module": "CommonJS",
 		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"jsx": "react-jsx"
+		"resolveJsonModule": true
 	},
 	"include": ["mock", "utils", "webpack", "yarn"]
 }

@@ -32,19 +32,8 @@ const Carousel: FC<CarouselProps> = ({
 
 	const loopDelay = loop ? delay || 2000 : null;
 
-	/**
-	 * Scroll to a specific index.
-	 */
 	const scrollTo = useCallback((index: number) => emblaApi?.scrollTo(index), [emblaApi]);
-
-	/**
-	 * Scroll to the prev element.
-	 */
 	const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-
-	/**
-	 * Scroll to the next element.
-	 */
 	const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
 	/**

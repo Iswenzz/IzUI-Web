@@ -10,7 +10,6 @@ import { DemoPreview } from "../Demo";
  */
 const DemoCode: FC<Props> = ({ preview }) => {
 	const { file } = useFile(preview.source);
-
 	return <Markdown>{`\`\`\`${preview.language}\n${file}\n\`\`\``}</Markdown>;
 };
 

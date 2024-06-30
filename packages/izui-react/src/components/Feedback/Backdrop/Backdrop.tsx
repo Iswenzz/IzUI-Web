@@ -18,12 +18,7 @@ const Backdrop: FC<Props> = ({
 	className,
 	...props
 }) => {
-	/**
-	 * Handle closing backdrop on click.
-	 * @param e - Click event.
-	 */
 	const handleClose = (e: React.MouseEvent<HTMLElement>) => (disableClose ? null : onClick(e));
-
 	return (
 		<AnimatePresence>
 			<motion.div
@@ -50,7 +45,6 @@ const Backdrop: FC<Props> = ({
  * @param disableState - The disable state for closing the backdrop.
  * @returns
  */
-// eslint-disable-next-line react/display-name
 export const createBackdrop = (disableState: boolean) => (props: BackdropProps) => (
 	<Backdrop {...props} transitionDuration={0} disableClose={disableState} />
 );

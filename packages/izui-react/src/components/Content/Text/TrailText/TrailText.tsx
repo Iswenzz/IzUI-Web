@@ -11,11 +11,12 @@ import scss from "./TrailText.module.scss";
 /**
  * Trail text characters animation.
  */
-const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) => {
+const TrailText: FC<Props> = ({ children, visible = true, ...rest }) => {
 	const { t } = useTranslation();
+
 	const items = useMemo(() => {
-		const array = Array.isArray(children) ? children : [children];
-		return array.map<string>(t).map(text => text.split(" ").join("\u00A0").split(""));
+		const array: string[] = Array.isArray(children) ? children : [children];
+		return array.map<string>(s => t(s)).map(text => text.split(" ").join("\u00A0").split(""));
 	}, [children, t]);
 
 	return (
@@ -38,7 +39,7 @@ const TrailText: FC<TrailTextProps> = ({ children, visible = true, ...rest }) =>
 	);
 };
 
-type TrailTextProps = TypographyProps & {
+type Props = TypographyProps & {
 	component?: ElementType;
 	visible?: boolean;
 	children: string[] | string;

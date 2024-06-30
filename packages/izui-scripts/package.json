@@ -25,7 +25,7 @@
 	},
 	"license": "GPL-3.0+",
 	"scripts": {
-		"build": "ts-node scripts/build.node",
+		"build": "tsc",
 		"lint": "yarn lint:ts",
 		"lint:ts": "eslint src",
 		"lint:ts:fix": "eslint src --fix",

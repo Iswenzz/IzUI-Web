@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 /**
- * Spacing div component.
+ * Spacing component.
  */
 const Spacing: FC<SpacingProps> = ({ height, children, style, ...rest }) => (
 	<div {...rest} style={{ ...style, height }}>

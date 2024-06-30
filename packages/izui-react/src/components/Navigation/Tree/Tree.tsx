@@ -11,6 +11,7 @@ const Tree: FC<Props> = ({ className, children }) => (
 );
 
 type Props = {
+	children?: React.ReactNode;
 	className?: string;
 };
 

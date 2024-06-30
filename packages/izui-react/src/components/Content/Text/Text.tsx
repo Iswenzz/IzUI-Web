@@ -9,7 +9,7 @@ import scss from "./Text.module.scss";
 /**
  * Typography wrapper for multiple strings.
  */
-const Text: FC<TextProps> = ({ children, className, raw, component = "h6", ...rest }) => {
+const Text: FC<Props> = ({ children, className, raw, component = "h6", ...rest }) => {
 	const { t } = useTranslation();
 	const items = Array.isArray(children) ? children : [children];
 
@@ -33,7 +33,7 @@ const Text: FC<TextProps> = ({ children, className, raw, component = "h6", ...re
 	);
 };
 
-type TextProps = TypographyProps & {
+type Props = TypographyProps & {
 	children: string[] | string;
 	raw?: boolean;
 	component?: ElementType;

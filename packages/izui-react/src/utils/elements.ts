@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
 /**
  * Check if the child node is a <style> element.
@@ -40,9 +40,7 @@ export const getComponentStyles = async (component: React.ReactNode): Promise<st
 	if (!component) return [];
 
 	const mockElement = document.createElement("div");
-	await new Promise(
-		(res: any) => void ReactDOM.render(component as React.ReactElement, mockElement, res)
-	);
+	ReactDOM.createRoot(mockElement).render(component);
 	return recurseChildClassNames(mockElement);
 };
 

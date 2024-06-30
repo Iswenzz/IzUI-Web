@@ -1,8 +1,6 @@
 import fs from "fs";
 import path from "path";
 
-import { FilePattern } from "@izui/scripts/webpack/buildWebpack";
-
 /**
  * Copy files to build directory.
  * @param files - The files to copy.
@@ -18,4 +16,9 @@ export const copyToBuild = (files: FilePattern[], outputPath = "build") => {
 			else fs.copyFileSync(from, path.join(path.join(outputPath, to), path.basename(from)));
 		}
 	});
+};
+
+export type FilePattern = {
+	from: string;
+	to?: string;
 };

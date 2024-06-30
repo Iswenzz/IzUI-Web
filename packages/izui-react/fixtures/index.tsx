@@ -1,13 +1,17 @@
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { DarkTheme, Themes } from "@izui/react";
 
-import Router from "router/routes";
-import "config/highlight";
-import "styles/Main.scss";
+import Router from "@/fixtures/router/routes";
+import "@/fixtures/config/highlight";
+import "@/fixtures/styles/Main.scss";
 
-ReactDOM.render(
-	<Themes theme={DarkTheme}>
-		<Router />
-	</Themes>,
-	document.getElementById("izui-web-root")
-);
+const container = document.getElementById("izui");
+
+if (container) {
+	const root = createRoot(container);
+	root.render(
+		<Themes theme={DarkTheme}>
+			<Router />
+		</Themes>
+	);
+}

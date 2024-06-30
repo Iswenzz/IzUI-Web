@@ -59,4 +59,9 @@ export type CancellablePromise<Result> = {
 	cancel: () => boolean;
 };
 
+export type CancellablePromiseException = {
+	isCanceled: boolean;
+	error: string;
+};
+
 export default useCancellablePromises;

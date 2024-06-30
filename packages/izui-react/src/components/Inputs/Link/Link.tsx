@@ -1,12 +1,12 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
 import { scroller } from "react-scroll";
-import { ReactScrollLinkProps } from "react-scroll/modules/components/Link";
 import { useNavigate } from "react-router-dom";
+import { ReactScrollLinkProps } from "react-scroll/modules/components/Link";
 
 import useDoubleClick from "@/utils/hooks/useDoubleClick";
 
 /**
- * React Router DOM Link wrapper.
+ * React Router link wrapper.
  */
 const Link: ForwardRefRenderFunction<HTMLAnchorElement, Props> = (props, ref) => {
 	const {

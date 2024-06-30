@@ -9,11 +9,6 @@ import scss from "./SideMenu.module.scss";
 const SideMenu: FC<Props> = ({ sections = [] }) => {
 	const [tabIndex, setTabIndex] = useState(0);
 
-	/**
-	 * Handle tab index change.
-	 * @param value - The tab index.
-	 * @returns
-	 */
 	const handleTabChange = (_: React.SyntheticEvent<Element, Event>, value: number) =>
 		setTabIndex(value);
 

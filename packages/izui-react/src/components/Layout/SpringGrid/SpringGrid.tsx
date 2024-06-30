@@ -1,5 +1,5 @@
 import { useMemo, ReactElement, FC, CSSProperties, memo } from "react";
-import { animated, useTransition } from "react-spring";
+import { motion } from "framer-motion";
 import { Grid } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 
@@ -12,7 +12,7 @@ import config from "./config";
 /**
  * Responsive grid component with masonry layout and spring animation.
  */
-export const SpringGrid: FC<SpringGridProps> = ({
+const SpringGrid: FC<SpringGridProps> = ({
 	children = [],
 	columns = config.columns,
 	gutter = config.gutter,
@@ -38,29 +38,23 @@ export const SpringGrid: FC<SpringGridProps> = ({
 		return { items, height: gridHeight, width: gridWidth };
 	}, [children, gutter, itemSize, layout, responsiveColumns]);
 
-	const transitions = useTransition(items, {
-		from: ({ top, left }) => ({ top, left }),
-		enter: ({ top, left }) => ({ top, left }),
-		update: ({ top, left }) => ({ top, left }),
-		keys: el => el.key,
-		config: config.spring
-	});
-
 	return (
 		<Grid container component="ul" style={{ ...style, width, height, position: "relative" }}>
 			{children.length &&
-				transitions(({ top, left, ...rest }: any, item) => (
-					<animated.li
-						key={item.key}
+				items.map(({ key, top, left, index }) => (
+					<motion.li
+						key={key}
 						style={{
 							position: "absolute",
-							top: top.to((top: string) => `${top}px`),
-							left: left.to((left: string) => `${left}px`),
-							...rest
+							top: `${top}px`,
+							left: `${left}px`
 						}}
+						initial={{ opacity: 0, scale: 0.8 }}
+						animate={{ opacity: 1, scale: 1 }}
+						transition={{ duration: 0.4 }}
 					>
-						{children[item.index]}
-					</animated.li>
+						{children[index]}
+					</motion.li>
 				))}
 		</Grid>
 	);

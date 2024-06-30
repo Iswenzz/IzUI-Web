@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import { defaultSize } from "@/utils/default";
 
 import type { Layout } from "../SpringGrid";
@@ -12,7 +13,7 @@ import config from "../config";
  * @returns
  */
 export const computeMasonryLayout = (
-	elements: any[],
+	elements: ReactElement[],
 	columns: number,
 	gutter: Partial<Size> = defaultSize,
 	itemSize: Partial<Size> = defaultSize

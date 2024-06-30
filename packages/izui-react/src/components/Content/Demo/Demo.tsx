@@ -15,26 +15,16 @@ import scss from "./Demo.module.scss";
  */
 const Demo: FC<Props> = ({ demo, children, iframe = false }) => {
 	const { previews = [], title = "", description = "", sandboxUrl, additionalComponent } = demo;
-
 	const [codeCollapse, setCodeCollapse] = useState(false);
 	const [iframeKey, setIframeKey] = useState(title || uuidv4());
 	const [tabIndex, setTabIndex] = useState(0);
 
-	/**
-	 * Reload the IFrame.
-	 */
 	const reloadIframe = () => setIframeKey(uuidv4());
 
-	/**
-	 * Handle tab index change.
-	 * @param value - The tab index.
-	 * @returns
-	 */
 	const handleTabChange = (_: React.SyntheticEvent<Element, Event>, value: number) =>
 		setTabIndex(value);
 
-	// eslint-disable-next-line react/display-name
-	const View: FC = useMemo(
+	const View: FC<{ children: React.ReactNode }> = useMemo(
 		() =>
 			({ children }) =>
 				iframe ? (
@@ -112,7 +102,6 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) => {
 				</Tabs>
 				<DemoCode key={previews[tabIndex].label} preview={previews[tabIndex]} />
 			</Collapse>
-
 			{additionalComponent}
 		</Grid>
 	);

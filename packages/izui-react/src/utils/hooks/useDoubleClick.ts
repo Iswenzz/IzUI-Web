@@ -1,7 +1,10 @@
 import { MouseEvent } from "react";
 
 import { delay } from "@/utils/misc";
-import useCancellablePromises, { cancellablePromise } from "./useCancellablePromises";
+import useCancellablePromises, {
+	cancellablePromise,
+	CancellablePromiseException
+} from "./useCancellablePromises";
 
 /**
  * Hook to handle double click with event prevention.
@@ -11,9 +14,6 @@ import useCancellablePromises, { cancellablePromise } from "./useCancellableProm
 const useDoubleClick = (onClick?: Callback, onDoubleClick?: Callback) => {
 	const cancellable = useCancellablePromises();
 
-	/**
-	 * Handle single click.
-	 */
 	const handleClick = async (event: MouseEvent) => {
 		event.preventDefault();
 
@@ -25,22 +25,19 @@ const useDoubleClick = (onClick?: Callback, onDoubleClick?: Callback) => {
 			await waitForClick.promise;
 			cancellable.removePendingPromise(waitForClick);
 			if (onClick) onClick(event);
-		} catch (errorInfo: any) {
+		} catch (ex) {
+			const e = ex as CancellablePromiseException;
 			cancellable.removePendingPromise(waitForClick);
-			if (!errorInfo.isCanceled) throw errorInfo.error;
+			if (!e.isCanceled) throw e.error;
 		}
 	};
 
-	/**
-	 * Handle double click.
-	 */
 	const handleDoubleClick = (event: MouseEvent) => {
 		event.preventDefault();
 		cancellable.clearPendingPromises();
 
 		if (onDoubleClick) onDoubleClick(event);
 	};
-
 	return [handleClick, handleDoubleClick];
 };
 

@@ -1,5 +1,3 @@
-import { easings } from "react-spring";
-
 const config = {
 	columns: {
 		xs: 2,
@@ -14,13 +12,6 @@ const config = {
 	itemSize: {
 		width: 200,
 		height: 200
-	},
-	spring: {
-		stiffness: 120,
-		damping: 12,
-		precision: 0.1,
-		friction: 19,
-		easing: easings.easeInOutCubic
 	}
 };
 

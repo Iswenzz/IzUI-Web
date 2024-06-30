@@ -14,7 +14,6 @@ const MenuDesktop: FC<Props> = ({
 	children: MenuNavigation
 }) => {
 	const isOpen = drawerOpen && desktopOpen;
-
 	return (
 		<Box component="nav" sx={boxSx}>
 			<Drawer variant={isOpen ? "permanent" : undefined} sx={drawerSx} open={isOpen}>

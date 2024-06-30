@@ -44,6 +44,7 @@ const DocumentationToolbar: FC<Props> = ({
 );
 
 type Props = {
+	children?: React.ReactNode;
 	className?: string;
 	handleDrawerToggle: (state: boolean) => void;
 	drawerOpen: boolean;

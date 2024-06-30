@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { CSSProperties, FC, memo, useState } from "react";
-import { useSpring, animated } from "react-spring";
 import { useMeasure, usePrevious } from "react-use";
+import { motion } from "framer-motion";
 
 import { CloseSquare, MinusSquare, PlusSquare } from "../TreeIcons/TreeIcons";
 
@@ -15,27 +15,45 @@ const TreeItem: FC<TreeProps> = ({ className, children, name, style, defaultOpen
 	const previous = usePrevious(isOpen);
 
 	const [ref, { height: viewHeight }] = useMeasure<HTMLDivElement>();
-	const { height, opacity, transform } = useSpring({
-		from: {
+
+	const variants = {
+		open: {
+			height: viewHeight,
+			opacity: 1,
+			x: 0,
+			transition: {
+				type: "spring",
+				stiffness: 300,
+				damping: 30
+			}
+		},
+		closed: {
 			height: 0,
 			opacity: 0,
-			transform: "translate3d(20px,0,0)"
-		},
-		to: {
-			height: isOpen ? viewHeight : 0,
-			opacity: isOpen ? 1 : 0,
-			transform: `translate3d(${isOpen ? 0 : 20}px,0,0)`
+			x: 20,
+			transition: {
+				type: "spring",
+				stiffness: 300,
+				damping: 30
+			}
 		}
-	});
-
+	};
+	const contentVariants = {
+		open: { opacity: 1, height: "auto" },
+		closed: { opacity: 0, height: 0 }
+	};
 	const Icon = children ? (isOpen ? MinusSquare : PlusSquare) : CloseSquare;
-	const Frame = children ? animated.ul : animated.li;
+	const Frame = children ? motion.ul : motion.li;
 
+	const contentHeight = isOpen && previous === isOpen ? "auto" : "0";
 	const iconOpacity = children ? 1 : 0.3;
-	const contentHeight = isOpen && previous === isOpen ? "auto" : height;
 
 	return (
-		<Frame className={classNames(scss.item, className)}>
+		<Frame
+			className={classNames(scss.item, className)}
+			initial="closed"
+			animate={isOpen ? "open" : "closed"}
+		>
 			<Icon
 				className={scss.icon}
 				style={{ opacity: iconOpacity }}
@@ -44,14 +62,16 @@ const TreeItem: FC<TreeProps> = ({ className, children, name, style, defaultOpen
 			<span className={scss.title} style={style}>
 				{name}
 			</span>
-			<animated.div
+			<motion.div
 				className={scss.content}
-				style={{ opacity: opacity, height: contentHeight }}
+				variants={contentVariants}
+				animate={isOpen ? "open" : "closed"}
+				style={{ overflow: "hidden", height: contentHeight }}
 			>
-				<animated.div ref={ref} style={{ transform }}>
+				<motion.div ref={ref} variants={variants}>
 					{children}
-				</animated.div>
-			</animated.div>
+				</motion.div>
+			</motion.div>
 		</Frame>
 	);
 };
