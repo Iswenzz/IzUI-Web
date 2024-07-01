@@ -24,7 +24,7 @@ $queries: map.merge($medias, $breakpoints);
 $sizes: (0, 25, 50, 75, 100) !default;
 
 @mixin media($keys...) {
-	@for $i from 0 to length($keys) {
+	@for $i from 0 to list.length($keys) {
 		$key: list.nth($keys, $i + 1);
 		@media (map.get($queries, $key)) {
 			@content;

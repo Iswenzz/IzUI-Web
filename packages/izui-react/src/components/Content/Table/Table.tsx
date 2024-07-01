@@ -82,6 +82,6 @@ export type TableProps = DataGridProps<Row> & {
 	loading?: boolean;
 };
 
-const defaultGetComparator = (column: string) => (a: Row, b: Row) => a.data.localeCompare(b.data);
+const defaultGetComparator = () => (a: Row, b: Row) => a.data.localeCompare(b.data);
 
 export default Table;

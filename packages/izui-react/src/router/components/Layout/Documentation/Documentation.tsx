@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Box, Grid, Toolbar } from "@mui/material";
 
-import { Menu, MenuNavigationProps } from "@/router/components";
+import { Menu, MenuNavigationProps } from "@/router";
 
 import DocumentationToolbar from "./DocumentationToolbar/DocumentationToolbar";
 import { appBarSx, boxSx } from "./config";

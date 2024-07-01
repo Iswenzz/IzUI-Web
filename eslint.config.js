@@ -27,6 +27,7 @@ export default tseslint.config(
 			"@typescript-eslint/semi": ["error", "always"],
 			"react/jsx-curly-brace-presence": ["error", { props: "never", children: "never" }],
 			"react/react-in-jsx-scope": "off",
+			"react/display-name": "off",
 			"testing-library/no-node-access": "off"
 		}
 	}

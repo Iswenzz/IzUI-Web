@@ -1,19 +1,19 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
-		"lib": ["esnext"],
 		"allowJs": true,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
 		"declaration": true,
 		"declarationDir": "build",
-		"outDir": "build",
-		"allowSyntheticDefaultImports": true,
-		"strict": true,
+		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
+		"lib": ["esnext"],
 		"module": "ESNext",
 		"moduleResolution": "node",
-		"resolveJsonModule": true
+		"outDir": "build",
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ESNext"
 	},
 	"include": ["commands", "mock", "utils"]
 }

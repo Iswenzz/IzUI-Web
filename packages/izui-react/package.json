@@ -1,7 +1,6 @@
 {
 	"name": "@izui/react",
 	"version": "1.0.4",
-	"type": "module",
 	"description": "UI component library allowing you to make modern designs using the various components it offers.",
 	"keywords": [
 		"react",
@@ -26,6 +25,7 @@
 		"url": "https://github.com/Iswenzz"
 	},
 	"license": "GPL-3.0+",
+	"type": "module",
 	"scripts": {
 		"build": "vite build",
 		"start": "vite",

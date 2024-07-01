@@ -1,7 +1,6 @@
 {
 	"name": "izui-web",
 	"private": true,
-	"type": "module",
 	"description": "UI component library allowing you to make modern designs using the various components it offers.",
 	"homepage": "https://iswenzz.com",
 	"bugs": {
@@ -16,8 +15,9 @@
 		"url": "https://github.com/Iswenzz"
 	},
 	"license": "GPL-3.0+",
+	"type": "module",
 	"scripts": {
-		"build": "pnpm workspaces foreach --parallel -v run build",
+		"build": "pnpm -r --parallel build",
 		"lint": "pnpm lint:ts && pnpm lint:scss",
 		"lint:scss": "stylelint **/*.{scss,css}",
 		"lint:scss:fix": "stylelint --fix **/*.{scss,css}",
@@ -25,7 +25,7 @@
 		"lint:ts:fix": "eslint **/*.{js,jsx,ts,tsx} --fix",
 		"prettier": "prettier --write **/*.{js,jsx,ts,tsx,scss}",
 		"prettier:check": "prettier --check **/*.{js,jsx,ts,tsx,scss}",
-		"react": "pnpm workspace @izui/react start",
+		"react": "pnpm start --filter @izui/react",
 		"release": "ts-node scripts/publish"
 	},
 	"devDependencies": {

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ListItem } from "@mui/material";
 
 import { Text } from "@/components";
-import { Route } from "@/router/utils";
+import { Route } from "@/router";
 
 /**
  * Build the navigation collapse.

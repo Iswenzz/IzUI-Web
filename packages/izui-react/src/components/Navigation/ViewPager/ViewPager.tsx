@@ -13,7 +13,6 @@ const ViewPager: FC<ViewPagerProps> = ({
 	startIndex = 0,
 	background,
 	style,
-	config,
 	onIndexChange,
 	onDragState
 }) => {
