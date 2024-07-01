@@ -11,9 +11,9 @@
 		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		"module": "CommonJS",
+		"module": "ESNext",
 		"moduleResolution": "node",
 		"resolveJsonModule": true
 	},
-	"include": ["mock", "utils", "webpack", "yarn"]
+	"include": ["commands", "mock", "utils"]
 }

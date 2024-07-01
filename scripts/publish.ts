@@ -3,11 +3,11 @@ import path from "path";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
-import publishPackage from "@izui/scripts/yarn/publish";
+import publishPackage from "@izui/scripts/commands/publish";
 
 type CLI = { _: string[] };
 
-const argv = yargs(hideBin(process.argv)).demandCommand(1, "Usage: yarn publish <packageDirectory>")
+const argv = yargs(hideBin(process.argv)).demandCommand(1, "Usage: pnpm publish <packageName>")
 	.argv as CLI;
 
 const commands = argv._;

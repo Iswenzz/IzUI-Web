@@ -18,8 +18,8 @@ npm install @izui/assets
 ## Building (Any Platform)
 
 _Pre-Requisites:_
-1. [NodeJS (version 14+)](https://nodejs.org/en/)
-2. [Yarn / NPM](https://yarnpkg.com/)
+1. [Node](https://nodejs.org/en/)
+2. [PNPM](https://pnpm.io/)
 
 ### [Download](https://github.com/Iswenzz/IzUI-Web/releases)
 

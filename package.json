@@ -1,6 +1,7 @@
 {
 	"name": "izui-web",
 	"private": true,
+	"type": "module",
 	"description": "UI component library allowing you to make modern designs using the various components it offers.",
 	"homepage": "https://iswenzz.com",
 	"bugs": {
@@ -15,18 +16,56 @@
 		"url": "https://github.com/Iswenzz"
 	},
 	"license": "GPL-3.0+",
-	"workspaces": [
-		"packages/*"
-	],
 	"scripts": {
-		"build": "yarn workspaces foreach --parallel -v run build",
-		"lint": "yarn workspaces foreach --parallel -v run lint",
-		"prettier": "yarn workspaces foreach --parallel -v run prettier",
-		"react": "yarn workspace @izui/react start",
+		"build": "pnpm workspaces foreach --parallel -v run build",
+		"lint": "pnpm lint:ts && pnpm lint:scss",
+		"lint:scss": "stylelint **/*.{scss,css}",
+		"lint:scss:fix": "stylelint --fix **/*.{scss,css}",
+		"lint:ts": "eslint **/*.{js,jsx,ts,tsx}",
+		"lint:ts:fix": "eslint **/*.{js,jsx,ts,tsx} --fix",
+		"prettier": "prettier --write **/*.{js,jsx,ts,tsx,scss}",
+		"prettier:check": "prettier --check **/*.{js,jsx,ts,tsx,scss}",
+		"react": "pnpm workspace @izui/react start",
 		"release": "ts-node scripts/publish"
 	},
 	"devDependencies": {
+		"@faker-js/faker": "^8.4.1",
+		"@testing-library/dom": "^10.2.0",
+		"@testing-library/jest-dom": "^6.4.6",
+		"@testing-library/react": "^16.0.0",
+		"@types/jest": "^29.5.12",
+		"@types/node": "^20.14.9",
+		"@vitejs/plugin-react": "^4.3.1",
+		"autoprefixer": "^10.4.19",
+		"cssnano": "^7.0.3",
+		"eslint": "^9.6.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-jest": "^28.6.0",
+		"eslint-plugin-react": "^7.34.3",
+		"identity-obj-proxy": "^3.0.0",
+		"jest": "^29.7.0",
+		"jsdoc": "^4.0.3",
+		"nodemon": "^3.1.4",
+		"postcss": "^8.4.39",
+		"postcss-import": "^16.1.0",
+		"postcss-preset-env": "^9.5.15",
+		"postcss-safe-parser": "^7.0.0",
+		"prettier": "^3.3.2",
+		"rollup-plugin-visualizer": "^5.12.0",
+		"sass": "^1.77.6",
+		"stylelint": "^16.6.1",
+		"stylelint-config-recommended-scss": "^14.0.0",
+		"stylelint-order": "^6.0.4",
+		"ts-jest": "^29.1.5",
 		"ts-node": "^10.9.2",
-		"typescript": "^5.5.2"
+		"tsc": "^2.0.4",
+		"tsc-alias": "^1.8.10",
+		"tslib": "^2.6.3",
+		"typescript": "^5.5.2",
+		"typescript-eslint": "^7.14.1",
+		"vite": "^5.3.2",
+		"vite-plugin-eslint": "^1.8.1",
+		"vite-plugin-stylelint": "^5.3.1",
+		"vite-tsconfig-paths": "^4.3.2"
 	}
 }

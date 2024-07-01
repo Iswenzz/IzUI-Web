@@ -16,8 +16,8 @@ export const publishPackage = async ({
 	// Build
 	process.chdir(packagePath);
 	console.log(chalk.green(`Building ${packageName}`));
-	execSync("yarn version patch");
-	execSync("yarn build");
+	execSync("pnpm version patch");
+	execSync("pnpm build");
 
 	// Publish
 	console.log(chalk.blue(`Publishing ${packageName}`));

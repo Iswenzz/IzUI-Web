@@ -24,14 +24,6 @@
 	},
 	"license": "GPL-3.0+",
 	"scripts": {
-		"lint": "yarn lint:scss",
-		"lint:scss": "stylelint **/*.{scss,css}",
-		"lint:scss:fix": "stylelint **/*.scss --fix",
-		"prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,scss}\"",
-		"prettier:check": "prettier --check \"**/*.{js,jsx,ts,tsx,scss}\""
-	},
-	"devDependencies": {
-		"prettier": "^3.3.2",
-		"stylelint": "^16.6.1"
+		"build": "pnpm sass"
 	}
 }

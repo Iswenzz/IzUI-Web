@@ -5,7 +5,7 @@
 [![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzUI-Web?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzUI-Web)
 [![License](https://img.shields.io/github/license/Iswenzz/IzUI-Web?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzUI-Web/blob/master/LICENSE)
 
-Utility scripts for jest mocking and webpack builds.
+Utility scripts for IzUI-Web.
 
 ## Installation
 
@@ -18,8 +18,8 @@ npm install @izui/scripts
 ## Building (Any Platform)
 
 _Pre-Requisites:_
-1. [NodeJS (version 16+)](https://nodejs.org/en/)
-2. [Yarn / NPM](https://yarnpkg.com/)
+1. [Node](https://nodejs.org/en/)
+2. [PNPM](https://pnpm.io/)
 
 ### [Download](https://github.com/Iswenzz/IzUI-Web/releases)
 

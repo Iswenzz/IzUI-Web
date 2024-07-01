@@ -33,16 +33,8 @@ npm install -D @izui/types
 ## Building (Any Platform)
 
 _Pre-Requisites:_
-1. [NodeJS (version 16+)](https://nodejs.org/en/)
-2. [Yarn / NPM](https://yarnpkg.com/)
-
-_Yarn Berry:_
-```sh
-yarn config set nodeLinker node-modules
-yarn plugin import workspace-tools
-yarn plugin import version
-yarn dlx @yarnpkg/sdks vscode
-```
+1. [Node](https://nodejs.org/en/)
+2. [PNPM](https://pnpm.io/)
 
 ### [Download](https://github.com/Iswenzz/IzUI-Web/releases)
 
