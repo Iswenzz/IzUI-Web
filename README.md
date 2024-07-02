@@ -16,18 +16,13 @@ Libraries can be found on [NPM](https://www.npmjs.com/package/@izui/react)
 
 **React**
 ```sh
-npm install @izui/react
-```
-```sh
-npm install @emotion/cache @emotion/react @emotion/styled @mui/material framer-motion react react-dom react-i18next react-router-dom
+npm install @izui/react @emotion/cache @emotion/react @emotion/styled @mui/material framer-motion react react-dom react-i18next react-router-dom
 ```
 
 **Individual libraries**
 ```sh
-npm install @izui/assets
-npm install -D @izui/scripts
-npm install -D @izui/styles
-npm install -D @izui/types
+npm install @izui/assets @izui/styles
+npm install -D @izui/scripts @izui/types
 ```
 
 ## Building (Any Platform)
