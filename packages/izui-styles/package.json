@@ -22,8 +22,5 @@
 		"type": "github",
 		"url": "https://github.com/Iswenzz"
 	},
-	"license": "GPL-3.0+",
-	"scripts": {
-		"build": "sass"
-	}
+	"license": "GPL-3.0+"
 }

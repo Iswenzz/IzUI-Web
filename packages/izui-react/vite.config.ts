@@ -1,5 +1,3 @@
-import { resolve } from "path";
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import eslintPlugin from "vite-plugin-eslint";
@@ -14,13 +12,11 @@ const config = defineConfig(({ mode }) => ({
 	base: "/",
 	build: {
 		outDir: "build",
+		lib: {
+			entry: "./src/index.ts",
+			formats: ["es"]
+		},
 		rollupOptions: {
-			input: {
-				index: resolve(__dirname, "fixtures/index.tsx")
-			},
-			output: {
-				entryFileNames: "index.js"
-			},
 			plugins: [
 				visualizer({
 					filename: "./build/stats.html",
@@ -51,7 +47,7 @@ const config = defineConfig(({ mode }) => ({
 		}),
 		tsconfigPaths({
 			configNames: ["tsconfig.paths.json"]
-		}),
+		})
 	],
 	server: {
 		open: true,

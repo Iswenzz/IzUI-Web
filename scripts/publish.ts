@@ -7,7 +7,7 @@ import publishPackage from "@izui/scripts/commands/publish";
 
 type CLI = { _: string[] };
 
-const argv = yargs(hideBin(process.argv)).demandCommand(1, "Usage: pnpm publish <packageName>")
+const argv = yargs(hideBin(process.argv)).demandCommand(1, "Usage: yarn publish <packageName>")
 	.argv as CLI;
 
 const commands = argv._;

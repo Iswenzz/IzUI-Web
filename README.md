@@ -16,7 +16,7 @@ Libraries can be found on [NPM](https://www.npmjs.com/package/@izui/react)
 
 **React**
 ```sh
-npm install @izui/react @emotion/cache @emotion/react @emotion/styled @mui/material framer-motion react react-dom react-i18next react-router-dom
+npm install @izui/react
 ```
 
 **Individual libraries**
@@ -29,7 +29,7 @@ npm install -D @izui/scripts @izui/types
 
 _Pre-Requisites:_
 1. [Node](https://nodejs.org/en/)
-2. [PNPM](https://pnpm.io/)
+2. [Yarn](https://yarnpkg.com/)
 
 ### [Download](https://github.com/Iswenzz/IzUI-Web/releases)
 
