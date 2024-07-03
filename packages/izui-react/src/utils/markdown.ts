@@ -11,13 +11,13 @@ export const highlight = (content: string, language: string) => {
 	if (language && hljs.getLanguage(language)) {
 		try {
 			return (
-				"<pre class=\"hljs\"><code>" +
+				'<pre class="hljs"><code>' +
 				hljs.highlight(content, { language, ignoreIllegals: true }).value +
 				"</code></pre>"
 			);
 		} catch {}
 	}
-	return "<pre class=\"hljs\"><code>" + MarkdownIt().utils.escapeHtml(content) + "</code></pre>";
+	return '<pre class="hljs"><code>' + MarkdownIt().utils.escapeHtml(content) + "</code></pre>";
 };
 
 /**

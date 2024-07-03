@@ -22,8 +22,8 @@
 	"scripts": {
 		"build": "yarn workspaces foreach --parallel build",
 		"lint": "yarn workspaces foreach --parallel lint",
-		"prettier": "prettier --check **/*.{js,jsx,ts,tsx,scss}",
-		"prettier:fix": "prettier --write **/*.{js,jsx,ts,tsx,scss}",
+		"prettier": "prettier --check '**/*.{js,jsx,ts,tsx,scss}'",
+		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'",
 		"release": "ts-node scripts/publish"
 	},
 	"devDependencies": {

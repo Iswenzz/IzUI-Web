@@ -32,7 +32,7 @@ export const computeMasonryLayout = (
 		const { height } = element.props;
 
 		if (!(height && typeof height === "number"))
-			throw new Error("Each child must have an \"height\" prop.");
+			throw new Error('Each child must have an "height" prop.');
 
 		const x = column * itemWidth + column * gutterWidth;
 		const y = columnHeights[column];
