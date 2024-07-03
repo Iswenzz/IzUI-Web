@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, PluginOption } from "vite";
 import react from "@vitejs/plugin-react";
 import eslintPlugin from "vite-plugin-eslint";
 import stylelintPlugin from "vite-plugin-stylelint";
@@ -21,7 +21,7 @@ const config = defineConfig(({ mode }) => ({
 				visualizer({
 					filename: "./build/stats.html",
 					open: mode === "development"
-				})
+				}) as PluginOption
 			]
 		}
 	},
