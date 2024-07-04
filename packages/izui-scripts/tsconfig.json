@@ -15,5 +15,5 @@
 		"strict": true,
 		"target": "ESNext"
 	},
-	"include": ["commands", "mock", "utils"]
+	"include": ["mock", "utils"]
 }

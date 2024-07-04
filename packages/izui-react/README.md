@@ -15,7 +15,7 @@ UI component library allowing you to make modern designs using the various compo
 This library can be found on [NPM](https://www.npmjs.com/package/@izui/react)
 
 ```sh
-npm install @izui/react @emotion/cache @emotion/react @emotion/styled @mui/material framer-motion react react-dom react-i18next react-router-dom
+npm install @izui/react
 ```
 
 ## Building (Any Platform)

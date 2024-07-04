@@ -23,15 +23,6 @@
 		"build": "yarn workspaces foreach --parallel build",
 		"lint": "yarn workspaces foreach --parallel lint",
 		"prettier": "prettier --check '**/*.{js,jsx,ts,tsx,scss}'",
-		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'",
-		"release": "ts-node scripts/publish"
-	},
-	"devDependencies": {
-		"@types/node": "^20.14.9",
-		"prettier": "^3.3.2",
-		"ts-node": "^10.9.2",
-		"tsc": "^2.0.4",
-		"typescript": "^5.5.2",
-		"yargs": "^17.7.2"
+		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'"
 	}
 }
