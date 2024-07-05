@@ -1,4 +1,4 @@
-import { memo, useMemo, FC, Fragment, useState } from "react";
+import { memo, useMemo, FC, Fragment, useState, PropsWithChildren } from "react";
 import { Collapse, Divider, Fab, Grid, Tab, Tabs, Tooltip } from "@mui/material";
 import ReplayIcon from "@mui/icons-material/Replay";
 import CodeIcon from "@mui/icons-material/Code";
@@ -24,7 +24,7 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) => {
 	const handleTabChange = (_: React.SyntheticEvent<Element, Event>, value: number) =>
 		setTabIndex(value);
 
-	const View: FC<{ children: React.ReactNode }> = useMemo(
+	const View: FC<PropsWithChildren> = useMemo(
 		() =>
 			({ children }) =>
 				iframe ? (
