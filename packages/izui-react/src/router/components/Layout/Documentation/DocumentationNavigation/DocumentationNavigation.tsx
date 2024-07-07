@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { MdArticle } from "react-icons/md";
 import { Button } from "@mui/material";
-import ArticleIcon from "@mui/icons-material/Article";
 
 import { Text } from "@/components";
 
@@ -12,7 +12,7 @@ const DocumentationNavigation: FC = () => (
 	<>
 		<li>
 			<Link className="nolink" to="/start/installation">
-				<Button size="large" color="secondary" startIcon={<ArticleIcon />}>
+				<Button size="large" color="secondary" startIcon={<MdArticle />}>
 					<Text color="textPrimary">Documentation</Text>
 				</Button>
 			</Link>

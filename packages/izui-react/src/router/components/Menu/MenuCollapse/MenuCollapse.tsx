@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
+import { MdExpandLess, MdExpandMore } from "react-icons/md";
 
 const MenuCollapse: FC<Props> = ({ children = [], icon, title, open = false }) => {
 	const [isOpen, setOpen] = useState(open);
@@ -12,7 +11,7 @@ const MenuCollapse: FC<Props> = ({ children = [], icon, title, open = false }) =
 			<ListItemButton onClick={handleClick}>
 				<ListItemIcon>{icon}</ListItemIcon>
 				<ListItemText primary={title} />
-				{isOpen ? <ExpandLess /> : <ExpandMore />}
+				{isOpen ? <MdExpandLess /> : <MdExpandMore />}
 			</ListItemButton>
 			<Collapse in={isOpen} timeout="auto" unmountOnExit>
 				<List disablePadding>{children}</List>

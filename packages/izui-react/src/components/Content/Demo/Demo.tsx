@@ -1,8 +1,6 @@
 import { memo, useMemo, FC, Fragment, useState, PropsWithChildren } from "react";
 import { Collapse, Divider, Fab, Grid, Tab, Tabs, Tooltip } from "@mui/material";
-import ReplayIcon from "@mui/icons-material/Replay";
-import CodeIcon from "@mui/icons-material/Code";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { MdReplay, MdCode, MdOpenInNew } from "react-icons/md";
 import { v4 as uuidv4 } from "uuid";
 
 import { IFrame, Text, Image } from "@/components";
@@ -66,20 +64,20 @@ const Demo: FC<Props> = ({ demo, children, iframe = false }) => {
 						color="secondary"
 						onClick={() => setCodeCollapse(!codeCollapse)}
 					>
-						<CodeIcon />
+						<MdCode />
 					</Fab>
 				</Tooltip>
 				{sandboxUrl && (
 					<Tooltip title="Sandbox">
 						<Fab href={sandboxUrl} className={scss.fab} color="secondary">
-							<OpenInNewIcon />
+							<MdOpenInNew />
 						</Fab>
 					</Tooltip>
 				)}
 				{iframe && (
 					<Tooltip title="Replay">
 						<Fab className={scss.fab} color="secondary" onClick={reloadIframe}>
-							<ReplayIcon />
+							<MdReplay />
 						</Fab>
 					</Tooltip>
 				)}

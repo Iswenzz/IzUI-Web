@@ -20,9 +20,12 @@
 		"packages/*"
 	],
 	"scripts": {
-		"build": "yarn workspaces foreach --parallel build",
-		"lint": "yarn workspaces foreach --parallel lint",
+		"build": "yarn workspaces foreach -Wpt run build",
+		"lint": "yarn workspaces foreach -Wpt run lint",
 		"prettier": "prettier --check '**/*.{js,jsx,ts,tsx,scss}'",
 		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'"
+	},
+	"devDependencies": {
+		"prettier": "^3.3.2"
 	}
 }

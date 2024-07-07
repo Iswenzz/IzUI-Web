@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { AppBar, Grid, IconButton, SxProps, Toolbar } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { MdMenu } from "react-icons/md";
 import classNames from "classnames";
 
 import DocumentationNavigation from "../DocumentationNavigation/DocumentationNavigation";
@@ -33,7 +33,7 @@ const DocumentationToolbar: FC<Props> = ({
 				onClick={() => handleDrawerToggle(!drawerOpen)}
 				sx={iconButtonSx}
 			>
-				<MenuIcon />
+				<MdMenu />
 			</IconButton>
 			<Grid container component="ul" justifyContent="flex-end" alignItems="center">
 				<DocumentationNavigation />
