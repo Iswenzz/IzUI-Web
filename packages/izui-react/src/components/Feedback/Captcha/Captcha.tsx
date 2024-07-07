@@ -11,7 +11,7 @@ const Captcha: ForwardRefRenderFunction<ReCAPTCHA> = (props, ref) => {
 	return (
 		<ReCAPTCHA
 			ref={ref}
-			sitekey={import.meta.env.VITE_RECAPTCHA_TOKEN as string}
+			sitekey={process.env.VITE_RECAPTCHA_TOKEN as string}
 			size="invisible"
 			badge="inline"
 			theme={isDarkTheme ? "dark" : "light"}

@@ -1,1 +1,3 @@
-export const process = () => "export default {};";
+export const process = () => ({
+	code: "export default {};"
+});

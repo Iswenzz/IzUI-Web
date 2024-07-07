@@ -1,4 +1,5 @@
-import { basename } from "path";
+import path from "path";
 
-export const process = (src: string, filename: string) =>
-	`export default ${JSON.stringify(basename(filename))};`;
+export const process = (sourceText: string, sourcePath: string) => ({
+	code: `export default ${JSON.stringify(path.basename(sourcePath))};`
+});
