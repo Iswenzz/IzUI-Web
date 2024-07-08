@@ -1,14 +1,18 @@
 import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 import prettier from "eslint-config-prettier";
-import react from "eslint-plugin-react/configs/recommended.js";
+import react from "eslint-plugin-react";
+import storybook from "eslint-plugin-storybook";
 
 export default tseslint.config(
 	eslint.configs.recommended,
 	...tseslint.configs.recommended,
 	prettier,
-	react,
 	{
+		plugins: {
+			react,
+			storybook
+		},
 		settings: {
 			react: {
 				version: "detect"
