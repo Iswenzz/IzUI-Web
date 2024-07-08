@@ -54,6 +54,11 @@ const config = defineConfig(({ mode }) => ({
 	server: {
 		open: true,
 		port: 3000
+	},
+	test: {
+		globals: true,
+		environment: "jsdom",
+		setupFiles: "src/__test__/setup.ts"
 	}
 }));
 

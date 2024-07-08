@@ -10,7 +10,7 @@ export const customRender = (
 const buildRender = <Props, Queries>({
 	component: Component,
 	defaultProps = {},
-	queries = mockQueries
+	queries = () => ({}) as Queries
 }: BuildRenderOptions<Props, Queries>) => {
 	return (props = defaultProps): BuildRenderResult<Props, Queries> => {
 		const view = customRender(<Component {...defaultProps} {...props} />);
@@ -35,17 +35,6 @@ type BuildRenderResult<Props, Queries> = CustomRenderResult &
 	Queries & {
 		rerender: (props: Object<Props>) => void;
 	};
-
-const mockObserverFunc = jest.fn().mockImplementation(() => ({
-	disconnect: jest.fn(),
-	observe: jest.fn(),
-	unobserve: jest.fn()
-}));
-
-const mockQueries = <Queries,>() => ({}) as Queries;
-
-window.ResizeObserver = window.ResizeObserver || mockObserverFunc;
-window.MutationObserver = window.MutationObserver || mockObserverFunc;
 
 export * from "@testing-library/react";
 export { buildRender, customRender as render };

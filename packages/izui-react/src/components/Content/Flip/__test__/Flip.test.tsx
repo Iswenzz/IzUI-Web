@@ -43,7 +43,7 @@ describe("Flip", () => {
 	});
 
 	it("should call the flip callback", () => {
-		const flipCallback = jest.fn();
+		const flipCallback = vi.fn();
 		const { front } = view({ flipCallback });
 
 		expect(flipCallback).not.toHaveBeenCalled();
