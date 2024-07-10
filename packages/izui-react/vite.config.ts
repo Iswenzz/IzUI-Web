@@ -54,10 +54,11 @@ const config = defineConfig(({ mode }) => ({
 		})
 	],
 	test: {
+		root: "src",
 		globals: true,
 		watch: false,
 		environment: "jsdom",
-		setupFiles: "src/__test__/setup.ts"
+		setupFiles: "__test__/setup.ts"
 	}
 }));
 
