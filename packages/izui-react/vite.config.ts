@@ -1,29 +1,32 @@
-import { defineConfig, PluginOption } from "vite";
+import { PluginOption } from "vite";
+import { defineConfig } from "vitest/config";
+
 import react from "@vitejs/plugin-react";
 import eslintPlugin from "vite-plugin-eslint";
 import stylelintPlugin from "vite-plugin-stylelint";
 import tsconfigPaths from "vite-tsconfig-paths";
 import dts from "vite-plugin-dts";
-import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
-
 import { visualizer } from "rollup-plugin-visualizer";
 
 const config = defineConfig(({ mode }) => ({
 	root: ".",
 	base: "/",
 	build: {
-		outDir: "build",
+		outDir: "dist",
 		lib: {
+			name: "@izui/react",
 			entry: "./src/index.ts",
+			fileName: "index",
 			formats: ["es"]
 		},
 		rollupOptions: {
 			plugins: [
 				visualizer({
-					filename: "./build/stats.html",
+					filename: "./dist/stats.html",
 					open: mode === "development"
 				}) as PluginOption
-			]
+			],
+			external: /node_modules/
 		}
 	},
 	css: {
@@ -35,7 +38,6 @@ const config = defineConfig(({ mode }) => ({
 	plugins: [
 		dts(),
 		react(),
-		cssInjectedByJsPlugin(),
 		eslintPlugin({
 			cache: false,
 			fix: true,
@@ -51,12 +53,9 @@ const config = defineConfig(({ mode }) => ({
 			configNames: ["tsconfig.paths.json"]
 		})
 	],
-	server: {
-		open: true,
-		port: 3000
-	},
 	test: {
 		globals: true,
+		watch: false,
 		environment: "jsdom",
 		setupFiles: "src/__test__/setup.ts"
 	}

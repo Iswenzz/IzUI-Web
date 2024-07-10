@@ -2,7 +2,4 @@
 .vs/*
 .vscode/*
 .yarn/*
-.nx/*
 node_modules/*
-coverage/*
-build/*

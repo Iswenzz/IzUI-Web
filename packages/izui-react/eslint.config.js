@@ -33,6 +33,7 @@ export default tseslint.config(
 			"react/react-in-jsx-scope": "off",
 			"react/display-name": "off",
 			"testing-library/no-node-access": "off"
-		}
+		},
+		ignores: ["dist/*"]
 	}
 );

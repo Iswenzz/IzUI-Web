@@ -23,10 +23,10 @@
 		"build": "yarn workspaces foreach -Wpt run build",
 		"lint": "yarn workspaces foreach -Wpt run lint",
 		"prettier": "prettier --check '**/*.{js,jsx,ts,tsx,scss}'",
-		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'"
+		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'",
+		"release": "yarn workspaces foreach -Wpt yarn version --patch && yarn build && yarn npm publish --access public --tag dev"
 	},
 	"devDependencies": {
-		"lerna": "^8.1.6",
 		"prettier": "^3.3.2"
 	},
 	"packageManager": "yarn@4.3.1"
