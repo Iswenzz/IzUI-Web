@@ -14,34 +14,12 @@ UI component library allowing you to make modern designs using the various compo
 
 Libraries can be found on [NPM](https://www.npmjs.com/package/@izui/react)
 
-**React**
-
 ```sh
-npm install @izui/react
-```
-
-**Scripts**
-
-```sh
-npm install -D @izui/scripts
-```
-
-**Assets**
-
-```sh
-npm install @izui/assets
-```
-
-**Styles**
-
-```sh
-npm install @izui/styles
-```
-
-**Types**
-
-```sh
-npm install -D @izui/types
+yarn add @izui/react
+yarn add @izui/styles
+yarn add @izui/assets
+yarn add -D @izui/scripts
+yarn add -D @izui/types
 ```
 
 ## Building (Any Platform)

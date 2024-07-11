@@ -34,6 +34,7 @@
 		"lint:scss:fix": "stylelint --fix '**/*.{scss,css}'",
 		"lint:ts": "eslint '**/*.{js,jsx,ts,tsx}'",
 		"lint:ts:fix": "eslint --fix '**/*.{js,jsx,ts,tsx}'",
+		"release": "yarn version patch && npm publish",
 		"storybook": "storybook dev -p 6006",
 		"storybook:build": "storybook build",
 		"test": "vitest",

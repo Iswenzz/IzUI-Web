@@ -1,5 +1,6 @@
 {
 	"name": "izui-web",
+	"version": "1.0.5",
 	"private": true,
 	"description": "UI component library allowing you to make modern designs using the various components it offers.",
 	"homepage": "https://iswenzz.com",
@@ -23,7 +24,8 @@
 		"build": "yarn workspaces foreach -Wpt run build",
 		"lint": "yarn workspaces foreach -Wpt run lint",
 		"prettier": "prettier --check '**/*.{js,jsx,ts,tsx,scss}'",
-		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'"
+		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'",
+		"release": "yarn workspaces foreach -Wpt run release"
 	},
 	"devDependencies": {
 		"prettier": "^3.3.2"

@@ -12,12 +12,13 @@ Types used within izui-web libraries.
 This library can be found on [NPM](https://www.npmjs.com/package/@izui/types)
 
 ```sh
-npm install @izui/types
+yarn add @izui/types
 ```
 
 ## Building (Any Platform)
 
 _Pre-Requisites:_
+
 1. [Node](https://nodejs.org/en/)
 2. [Yarn](https://yarnpkg.com/)
 
@@ -25,5 +26,5 @@ _Pre-Requisites:_
 
 ## Contributors
 
-***Note:*** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code.
+**_Note:_** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code.
 Also feel free to post about any problems that may arise in the issues section of the repository.

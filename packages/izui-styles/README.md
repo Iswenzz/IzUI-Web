@@ -5,19 +5,20 @@
 [![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzUI-Web?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzUI-Web)
 [![License](https://img.shields.io/github/license/Iswenzz/IzUI-Web?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzUI-Web/blob/master/LICENSE)
 
-Styles used within izui-web libraries.
+Styles used within IzUI-Web libraries.
 
 ## Installation
 
 This library can be found on [NPM](https://www.npmjs.com/package/@izui/styles)
 
 ```sh
-npm install @izui/styles
+yarn add @izui/styles
 ```
 
 ## Building (Any Platform)
 
 _Pre-Requisites:_
+
 1. [Node](https://nodejs.org/en/)
 2. [Yarn](https://yarnpkg.com/)
 
@@ -25,5 +26,5 @@ _Pre-Requisites:_
 
 ## Contributors
 
-***Note:*** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code.
+**_Note:_** If you would like to contribute to this repository, feel free to send a pull request, and I will review your code.
 Also feel free to post about any problems that may arise in the issues section of the repository.

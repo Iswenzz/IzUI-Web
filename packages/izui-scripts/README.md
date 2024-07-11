@@ -12,7 +12,7 @@ Utility scripts for IzUI-Web.
 This library can be found on [NPM](https://www.npmjs.com/package/@izui/scripts)
 
 ```sh
-npm install @izui/scripts
+yarn add @izui/scripts
 ```
 
 ## Building (Any Platform)

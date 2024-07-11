@@ -24,6 +24,9 @@
 		"url": "https://github.com/Iswenzz"
 	},
 	"license": "GPL-3.0+",
+	"scripts": {
+		"release": "yarn version patch && npm publish"
+	},
 	"devDependencies": {
 		"@mui/material": "^5.15.21",
 		"@types/react": "^18.3",

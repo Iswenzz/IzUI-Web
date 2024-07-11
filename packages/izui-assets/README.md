@@ -12,7 +12,7 @@ Assets used within izui-web libraries.
 This library can be found on [NPM](https://www.npmjs.com/package/@izui/assets)
 
 ```sh
-npm install @izui/assets
+yarn add @izui/assets
 ```
 
 ## Building (Any Platform)
