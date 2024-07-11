@@ -1,4 +1,4 @@
-import { FC, memo, ReactElement } from "react";
+import { FC, memo, PropsWithChildren, ReactElement } from "react";
 import { Grid } from "@mui/material";
 import classNames from "classnames";
 
@@ -68,7 +68,7 @@ type HeaderProps = {
 	background?: string;
 	parallaxStrength?: number;
 	parallaxBlur?: number;
-	TextComponent?: FC;
+	TextComponent?: FC<PropsWithChildren>;
 };
 
 export default memo(Header);

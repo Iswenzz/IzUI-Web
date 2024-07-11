@@ -7,15 +7,7 @@
 			"@/config/*": ["src/config/*"],
 			"@/router": ["src/router"],
 			"@/styles/*": ["src/styles/*"],
-			"@/utils/*": ["src/utils/*"],
-
-			"@/fixtures/test/*": ["fixtures/__test__/*"],
-			"@/fixtures/assets/*": ["fixtures/assets/*"],
-			"@/fixtures/components": ["fixtures/components"],
-			"@/fixtures/pages": ["fixtures/pages"],
-			"@/fixtures/router": ["fixtures/router"],
-			"@/fixtures/styles/*": ["fixtures/styles/*"],
-			"@/fixtures/utils/*": ["fixtures/utils/*"]
+			"@/utils/*": ["src/utils/*"]
 		}
 	}
 }

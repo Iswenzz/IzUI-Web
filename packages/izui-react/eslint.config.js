@@ -27,7 +27,6 @@ export default tseslint.config(
 			"@typescript-eslint/no-var-requires": "off",
 			"@typescript-eslint/no-explicit-any": "off",
 			"@typescript-eslint/ban-types": "off",
-			"@typescript-eslint/quotes": ["error", "double"],
 			"@typescript-eslint/semi": ["error", "always"],
 			"react/jsx-curly-brace-presence": ["error", { props: "never", children: "never" }],
 			"react/react-in-jsx-scope": "off",
