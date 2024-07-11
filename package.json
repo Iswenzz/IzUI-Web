@@ -23,8 +23,7 @@
 		"build": "yarn workspaces foreach -Wpt run build",
 		"lint": "yarn workspaces foreach -Wpt run lint",
 		"prettier": "prettier --check '**/*.{js,jsx,ts,tsx,scss}'",
-		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'",
-		"release": "yarn workspaces foreach -Wpt yarn version --patch && yarn build && yarn npm publish --access public --tag dev"
+		"prettier:fix": "prettier --write '**/*.{js,jsx,ts,tsx,scss}'"
 	},
 	"devDependencies": {
 		"prettier": "^3.3.2"

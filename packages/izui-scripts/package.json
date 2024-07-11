@@ -23,6 +23,7 @@
 		"url": "https://github.com/Iswenzz"
 	},
 	"license": "GPL-3.0+",
+	"main": "src/index.ts",
 	"scripts": {
 		"build": "tsc"
 	},
