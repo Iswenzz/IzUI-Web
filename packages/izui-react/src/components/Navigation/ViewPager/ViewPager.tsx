@@ -1,5 +1,4 @@
 import { useEffect, RefObject, memo, FC, useRef, useCallback } from "react";
-import { useDrag } from "@use-gesture/react";
 import { motion, useAnimation } from "framer-motion";
 import clamp from "lodash/clamp";
 
@@ -10,7 +9,7 @@ import scss from "./ViewPager.module.scss";
  */
 const ViewPager: FC<ViewPagerProps> = ({
 	items,
-	startIndex = 0,
+	index: startIndex = 0,
 	background,
 	style,
 	onIndexChange,
@@ -20,24 +19,28 @@ const ViewPager: FC<ViewPagerProps> = ({
 	const controls = useAnimation();
 	const width = window.innerWidth;
 
-	const bind = useDrag(({ active, movement: [mx], direction: [xDir], cancel }) => {
-		if (active && Math.abs(mx) > width / 2) {
-			index.current = clamp(index.current + (xDir > 0 ? -1 : 1), 0, items.length - 1);
-			if (onIndexChange) onIndexChange(index.current);
-			cancel();
+	const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: any) => {
+		const { offset, velocity } = info;
+		const swipe = Math.abs(offset.x) * velocity.x;
+
+		if (swipe < -width / 2 || (swipe < 0 && offset.x < -width / 2)) {
+			index.current = clamp(index.current + 1, 0, items.length - 1);
+		} else if (swipe > width / 2 || (swipe > 0 && offset.x > width / 2)) {
+			index.current = clamp(index.current - 1, 0, items.length - 1);
 		}
+		if (onIndexChange) onIndexChange(index.current);
+
 		controls.start(i => ({
-			x: (i - index.current) * width + (active ? mx : 0),
-			scale: active ? 1 - Math.abs(mx) / width / 2 : 1,
+			x: (i - index.current) * width,
+			scale: 1,
 			display: "block"
 		}));
-		if (onDragState) onDragState(active);
-	});
-	const { onPointerUp } = bind();
 
-	const handlePointerUp = (e: React.PointerEvent<EventTarget>) => {
-		if (onPointerUp) onPointerUp(e);
 		if (onDragState) onDragState(false);
+	};
+
+	const handleDragStart = () => {
+		if (onDragState) onDragState(true);
 	};
 
 	const moveToStart = useCallback(async () => {
@@ -68,7 +71,10 @@ const ViewPager: FC<ViewPagerProps> = ({
 					key={i}
 					animate={controls}
 					className={scss.viewpager}
-					onPointerUp={handlePointerUp}
+					drag="x"
+					onDragStart={handleDragStart}
+					onDragEnd={handleDragEnd}
+					dragConstraints={{ left: 0, right: 0 }}
 				>
 					<motion.div style={{ background }}>{item}</motion.div>
 				</motion.div>
@@ -81,7 +87,7 @@ export type ViewPagerProps = {
 	items: JSX.Element[];
 	style?: React.CSSProperties;
 	background?: string;
-	startIndex?: number;
+	index?: number;
 	config?: ViewPagerConfig;
 	onIndexChange?: (index: number) => void;
 	onDragState?: (state: boolean) => void;

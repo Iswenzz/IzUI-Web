@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { defaultSize } from "@/utils/default";
 
 import type { Layout } from "../SpringGrid";
-import config from "../config";
+import { config } from "../config";
 
 /**
  * Calculate the grid layout.

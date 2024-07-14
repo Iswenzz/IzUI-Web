@@ -1,4 +1,6 @@
-const config = {
+import { Variants } from "framer-motion";
+
+export const config = {
 	columns: {
 		xs: 2,
 		sm: 3,
@@ -15,4 +17,16 @@ const config = {
 	}
 };
 
-export default config;
+export const animation = (x: number, y: number): Variants => ({
+	enter: {
+		x,
+		y,
+		scale: 1,
+		opacity: 1,
+		transition: {
+			type: "spring",
+			stiffness: 120,
+			damping: 12
+		}
+	}
+});

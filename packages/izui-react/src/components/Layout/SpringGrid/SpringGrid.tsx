@@ -1,13 +1,13 @@
 import { useMemo, ReactElement, FC, CSSProperties, memo } from "react";
-import { motion } from "framer-motion";
 import { Grid } from "@mui/material";
+import { motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
 
 import useBreakpoint, { BreakpointValues } from "@/utils/hooks/useBreakpoint";
 
 import computeSimpleLayout from "./utils/computeSimpleLayout";
 import computeMasonryLayout from "./utils/computeMasonryLayout";
-import config from "./config";
+import { config, animation } from "./config";
 
 /**
  * Responsive grid component with masonry layout and spring animation.
@@ -30,8 +30,8 @@ const SpringGrid: FC<SpringGridProps> = ({
 
 		const items = children.map<Item>((item: ReactElement, index: number) => ({
 			key: item.key || uuidv4(),
-			top: positions[index].y,
-			left: positions[index].x,
+			x: positions[index].x,
+			y: positions[index].y,
 			index
 		}));
 
@@ -41,17 +41,13 @@ const SpringGrid: FC<SpringGridProps> = ({
 	return (
 		<Grid container component="ul" style={{ ...style, width, height, position: "relative" }}>
 			{children.length &&
-				items.map(({ key, top, left, index }) => (
+				items.map(({ key, x, y, index }) => (
 					<motion.li
 						key={key}
-						style={{
-							position: "absolute",
-							top: `${top}px`,
-							left: `${left}px`
-						}}
-						initial={{ opacity: 0, scale: 0.8 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ duration: 0.4 }}
+						style={{ position: "absolute" }}
+						variants={animation(x, y)}
+						animate="enter"
+						initial="enter"
 					>
 						{children[index]}
 					</motion.li>
@@ -77,8 +73,8 @@ export type Layout = {
 
 type Item = {
 	key: React.Key;
-	top: number;
-	left: number;
+	x: number;
+	y: number;
 	index: number;
 };
 

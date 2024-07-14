@@ -18,9 +18,9 @@ describe("Flip", () => {
 	it("should flip the component", () => {
 		const { front, component } = view();
 
-		expect(component).toHaveClass("front");
+		expect(component.ariaLabel).toEqual("front");
 		fireEvent.click(front);
-		expect(component).toHaveClass("back");
+		expect(component.ariaLabel).toEqual("back");
 	});
 
 	it("should render both front and back", () => {
@@ -33,13 +33,13 @@ describe("Flip", () => {
 	it("should render front", () => {
 		const { component } = view();
 
-		expect(component).toHaveClass("front");
+		expect(component.ariaLabel).toEqual("front");
 	});
 
 	it("should render back", () => {
 		const { component } = view({ flipped: true });
 
-		expect(component).toHaveClass("back");
+		expect(component.ariaLabel).toEqual("back");
 	});
 
 	it("should call the flip callback", () => {
