@@ -3,7 +3,6 @@ import { ParallaxProvider } from "react-scroll-parallax";
 import { CssBaseline, StyledEngineProvider, Theme, ThemeProvider } from "@mui/material";
 
 import { getElementByXPath } from "@/utils/elements";
-import "@izui/styles/scss/Main.scss";
 
 /**
  * Themes container.

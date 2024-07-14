@@ -5,7 +5,6 @@
 			"@/test/*": ["src/__test__/*"],
 			"@/components": ["src/components"],
 			"@/config/*": ["src/config/*"],
-			"@/router": ["src/router"],
 			"@/styles/*": ["src/styles/*"],
 			"@/utils/*": ["src/utils/*"]
 		}
