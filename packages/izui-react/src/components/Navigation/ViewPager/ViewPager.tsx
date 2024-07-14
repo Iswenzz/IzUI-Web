@@ -1,5 +1,5 @@
-import { useEffect, RefObject, memo, FC, useRef, useCallback } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { useEffect, RefObject, memo, FC, useRef } from "react";
+import { motion, PanInfo, useAnimation } from "framer-motion";
 import clamp from "lodash/clamp";
 
 import scss from "./ViewPager.module.scss";
@@ -12,6 +12,7 @@ const ViewPager: FC<ViewPagerProps> = ({
 	index: startIndex = 0,
 	background,
 	style,
+	config = {},
 	onIndexChange,
 	onDragState
 }) => {
@@ -19,7 +20,7 @@ const ViewPager: FC<ViewPagerProps> = ({
 	const controls = useAnimation();
 	const width = window.innerWidth;
 
-	const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: any) => {
+	const handleDragEnd = (e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
 		const { offset, velocity } = info;
 		const swipe = Math.abs(offset.x) * velocity.x;
 
@@ -39,18 +40,16 @@ const ViewPager: FC<ViewPagerProps> = ({
 		if (onDragState) onDragState(false);
 	};
 
+	const handleDrag = async (e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) =>
+		await controls.start(i => ({
+			x: (i - index.current) * width + info.point.x - info.offset.x,
+			scale: 0.9,
+			display: "block"
+		}));
+
 	const handleDragStart = () => {
 		if (onDragState) onDragState(true);
 	};
-
-	const moveToStart = useCallback(async () => {
-		if (startIndex) index.current = startIndex;
-		await controls.start(i => ({
-			x: (i - index.current) * width,
-			scale: 1,
-			display: items.length <= 1 || i >= index.current - 1 ? "block" : "none"
-		}));
-	}, [controls, items.length, startIndex, width]);
 
 	/**
 	 * Refresh the page on index change.
@@ -62,19 +61,29 @@ const ViewPager: FC<ViewPagerProps> = ({
 	/**
 	 * Move to the start index.
 	 */
-	useEffect(() => void moveToStart(), [moveToStart]);
+	useEffect(() => {
+		index.current = startIndex;
+		controls.start(i => ({
+			x: (i - index.current) * width,
+			scale: 1,
+			display: "block"
+		}));
+	}, [controls, items.length, startIndex, width]);
 
 	return (
 		<section style={style}>
 			{items.map((item, i) => (
 				<motion.div
 					key={i}
+					custom={i}
 					animate={controls}
 					className={scss.viewpager}
 					drag="x"
+					onDrag={handleDrag}
 					onDragStart={handleDragStart}
 					onDragEnd={handleDragEnd}
 					dragConstraints={{ left: 0, right: 0 }}
+					style={config}
 				>
 					<motion.div style={{ background }}>{item}</motion.div>
 				</motion.div>

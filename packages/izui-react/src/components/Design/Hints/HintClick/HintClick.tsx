@@ -15,7 +15,7 @@ const HintClick: FC<Partial<TooltipProps>> = props => {
 	return (
 		<Tooltip
 			placement="right"
-			title={t("TOOLTIP_CLICK_ME") as string}
+			title={t("TOOLTIP_CLICK_ME")}
 			arrow
 			disableFocusListener
 			disableTouchListener

@@ -15,7 +15,7 @@ const HintDrag: FC<Partial<TooltipProps>> = props => {
 	return (
 		<Tooltip
 			placement="right"
-			title={t("PROJECT_TOOLTIP_DRAG") as string}
+			title={t("PROJECT_TOOLTIP_DRAG")}
 			arrow
 			disableFocusListener
 			disableTouchListener
