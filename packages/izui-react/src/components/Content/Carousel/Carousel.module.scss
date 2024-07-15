@@ -58,7 +58,7 @@
 	}
 
 	&:disabled {
-		fill: #e9e9e9;
+		fill: #bababa;
 	}
 }
 
@@ -94,7 +94,7 @@
 	align-items: center;
 
 	&::after {
-		background-color: #efefef;
+		background-color: #bababa;
 		width: 100%;
 		height: 0.4rem;
 		content: "";

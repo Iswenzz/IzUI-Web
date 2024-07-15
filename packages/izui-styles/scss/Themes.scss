@@ -1,6 +1,5 @@
 @use "./Transitions";
 
-// name: mode
 $themes: (
 	light: "light",
 	dark: "dark"
@@ -11,7 +10,6 @@ $themes: (
 		@if ($mode == "light") {
 			&.#{$theme} {
 				@content;
-
 				@include Transitions.colors(0.5s);
 			}
 		}
@@ -23,7 +21,6 @@ $themes: (
 		@if ($mode == "dark") {
 			&.#{$theme} {
 				@content;
-
 				@include Transitions.colors(0.5s);
 			}
 		}
@@ -33,7 +30,6 @@ $themes: (
 @mixin theme($theme) {
 	&.#{$theme} {
 		@content;
-
 		@include Transitions.colors(0.5s);
 	}
 }
