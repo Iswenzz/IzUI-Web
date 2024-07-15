@@ -11,6 +11,7 @@ import scss from "./Header.module.scss";
  */
 const Header: FC<HeaderProps> = ({
 	children,
+	id,
 	className,
 	titleClassName,
 	descriptionClassName,
@@ -21,7 +22,7 @@ const Header: FC<HeaderProps> = ({
 	parallaxBlur = 0,
 	TextComponent = FadeText
 }) => (
-	<header>
+	<header id={id}>
 		<Parallax
 			className={classNames(scss.parallax, className)}
 			image={background || false}
@@ -60,6 +61,7 @@ const Header: FC<HeaderProps> = ({
 
 type HeaderProps = {
 	children?: ReactElement;
+	id?: string;
 	className?: string;
 	titleClassName?: string;
 	descriptionClassName?: string;

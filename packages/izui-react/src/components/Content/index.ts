@@ -26,6 +26,9 @@ export * from "./Markdown/Markdown";
 export { default as Paper } from "./Paper/Paper";
 export * from "./Paper/Paper";
 
+export { default as SpringGrid } from "./SpringGrid/SpringGrid";
+export * from "./SpringGrid/SpringGrid";
+
 export { default as Table } from "./Table/Table";
 export * from "./Table/Table";
 

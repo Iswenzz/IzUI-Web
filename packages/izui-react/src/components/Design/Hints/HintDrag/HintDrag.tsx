@@ -22,7 +22,13 @@ const HintDrag: FC<Partial<TooltipProps>> = props => {
 			{...props}
 		>
 			<Forward>
-				<Image onDragStart={preventDefault} alt="drag" src={dragIcon} />
+				<Image
+					onDragStart={preventDefault}
+					alt="drag"
+					src={dragIcon}
+					width={64}
+					height={64}
+				/>
 			</Forward>
 		</Tooltip>
 	);

@@ -40,13 +40,6 @@ const ViewPager: FC<ViewPagerProps> = ({
 		if (onDragState) onDragState(false);
 	};
 
-	const handleDrag = async (e: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) =>
-		await controls.start(i => ({
-			x: (i - index.current) * width + info.point.x - info.offset.x,
-			scale: 0.9,
-			display: "block"
-		}));
-
 	const handleDragStart = () => {
 		if (onDragState) onDragState(true);
 	};
@@ -79,7 +72,7 @@ const ViewPager: FC<ViewPagerProps> = ({
 					animate={controls}
 					className={scss.viewpager}
 					drag="x"
-					onDrag={handleDrag}
+					whileDrag={{ scale: 0.9 }}
 					onDragStart={handleDragStart}
 					onDragEnd={handleDragEnd}
 					dragConstraints={{ left: 0, right: 0 }}
