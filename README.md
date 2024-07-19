@@ -8,7 +8,7 @@
 UI component library allowing you to make modern designs using the various components it offers.
 
 ![](https://i.imgur.com/cZOJbXK.jpg)
-![](https://i.imgur.com/aDGGNxx.jpg)
+![](https://i.imgur.com/wd9MXQK.png)
 
 ## Libraries
 
