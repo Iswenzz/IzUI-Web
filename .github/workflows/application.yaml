@@ -13,10 +13,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: PNYarnPM
-      run: |
-        corepack enable
-
     - name: Build
       run: |
         yarn
@@ -27,10 +23,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Yarn
-      run: |
-        corepack enable
 
     - name: Tests
       run: |
@@ -52,10 +44,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Yarn
-      run: |
-        corepack enable
 
     - name: Lint
       run: |
