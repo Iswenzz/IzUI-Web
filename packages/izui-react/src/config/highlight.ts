@@ -41,7 +41,7 @@ export const languages: Record<string, LanguageFn> = {
 	scss
 };
 
-// Register configured languages
-Object.entries(languages).forEach(([languageName, language]) =>
-	hljs.registerLanguage(languageName, language)
-);
+export const initializeHighlight = () =>
+	Object.entries(languages).forEach(([languageName, language]) =>
+		hljs.registerLanguage(languageName, language)
+	);
