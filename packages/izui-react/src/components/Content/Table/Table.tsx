@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import DataGrid, { Column, DataGridProps, SortColumn } from "react-data-grid";
 import { useTheme, Pagination } from "@mui/material";
 import classNames from "classnames";
@@ -8,9 +8,28 @@ import { Loader } from "@/components";
 import scss from "./Table.module.scss";
 
 /**
+ * Create rows.
+ * @param data - The data.
+ * @param keyGetter - The key getter for searching an element.
+ * @param idGetter - The id getter for an element.
+ * @returns
+ */
+export const createRows = <T,>(
+	data: T[],
+	keyGetter: (item: T) => string,
+	idGetter?: (item: T) => string
+): Row<T>[] =>
+	data.map((item, index) => ({
+		id: idGetter ? idGetter(item) : index.toString(),
+		key: keyGetter(item),
+		data: item,
+		index
+	}));
+
+/**
  * Data grid table.
  */
-const Table: FC<TableProps> = ({
+const Table = <T,>({
 	rows,
 	rowsPage = 10,
 	columns = [],
@@ -18,14 +37,14 @@ const Table: FC<TableProps> = ({
 	getComparator = defaultGetComparator,
 	className,
 	...rest
-}) => {
+}: TableProps<T>) => {
 	const { theme } = useTheme();
 
 	const [page, setPage] = useState(1);
 	const [sortColumns, setSortColumns] = useState<readonly SortColumn[]>([]);
-	const rowKeyGetter = (row: Row) => row.id;
+	const rowGetter = (row: Row<T>) => row.id;
 
-	const sortedRows = useMemo((): readonly Row[] => {
+	const sortedRows = useMemo((): readonly Row<T>[] => {
 		const startIndex = (page - 1) * rowsPage;
 		if (sortColumns.length === 0) {
 			return rows;
@@ -47,7 +66,7 @@ const Table: FC<TableProps> = ({
 	return (
 		<section className={classNames(scss.table, scss[theme], className)}>
 			<DataGrid
-				rowKeyGetter={rowKeyGetter}
+				rowKeyGetter={rowGetter}
 				columns={columns}
 				rows={sortedRows}
 				rowHeight={70}
@@ -66,22 +85,26 @@ const Table: FC<TableProps> = ({
 	);
 };
 
-export type Row<R = string> = {
+export type Row<R> = {
 	id: string;
-	index: number;
+	key: string;
 	data: R;
+	index: number;
 };
 export type { Column };
 
-export type TableProps = DataGridProps<Row> & {
+export type TableProps<T> = DataGridProps<Row<T>> & {
 	name?: string;
-	columns?: Column<Row>[];
-	rows: Row[];
+	columns?: Column<Row<T>>[];
+	rows: Row<T>[];
 	rowsPage?: number;
-	getComparator?: (column: string) => (a: Row, b: Row) => number;
+	getComparator?: (column: string) => (a: Row<T>, b: Row<T>) => number;
 	loading?: boolean;
 };
 
-const defaultGetComparator = () => (a: Row, b: Row) => a.data.localeCompare(b.data);
+const defaultGetComparator =
+	() =>
+	<T,>(a: Row<T>, b: Row<T>) =>
+		a.key.localeCompare(b.key);
 
 export default Table;
