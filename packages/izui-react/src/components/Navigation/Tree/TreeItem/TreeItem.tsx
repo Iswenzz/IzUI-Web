@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { CSSProperties, FC, memo, useState } from "react";
+import { CSSProperties, FC, useState } from "react";
 import { useMeasure, usePrevious } from "react-use";
 import { motion } from "framer-motion";
 
@@ -84,4 +84,4 @@ export type TreeProps = {
 	children?: React.ReactNode[] | React.ReactNode;
 };
 
-export default memo(TreeItem);
+export default TreeItem;

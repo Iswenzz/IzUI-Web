@@ -1,4 +1,4 @@
-import { useCallback, FC, memo, ReactElement, CSSProperties, useState, useEffect } from "react";
+import { useCallback, FC, ReactElement, CSSProperties, useState, useEffect } from "react";
 import { useInterval } from "react-use";
 import { Grid } from "@mui/material";
 import { EmblaOptionsType } from "embla-carousel";
@@ -111,4 +111,4 @@ export type CarouselProps = {
 	style?: CSSProperties;
 };
 
-export default memo(Carousel);
+export default Carousel;

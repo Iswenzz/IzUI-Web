@@ -1,4 +1,4 @@
-import { memo, useMemo, FC, Fragment, useState, PropsWithChildren } from "react";
+import { useMemo, FC, Fragment, useState, PropsWithChildren } from "react";
 import { Collapse, Divider, Fab, Grid, Tab, Tabs, Tooltip } from "@mui/material";
 import { MdReplay, MdCode, MdOpenInNew } from "react-icons/md";
 import { v4 as uuidv4 } from "uuid";
@@ -133,4 +133,4 @@ export type DemoSources = {
 	sources: DemoSource[];
 };
 
-export default memo(Demo);
+export default Demo;

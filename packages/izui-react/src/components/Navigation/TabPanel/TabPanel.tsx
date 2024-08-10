@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 
 /**
  * Tab panel component.
@@ -21,4 +21,4 @@ export type TabPanelProps = React.HTMLProps<HTMLDivElement> & {
 	value: number | string;
 };
 
-export default memo(TabPanel);
+export default TabPanel;

@@ -1,4 +1,4 @@
-import { FC, memo } from "react";
+import { FC } from "react";
 
 import useResponsive from "@/utils/hooks/useResponsive";
 
@@ -23,4 +23,4 @@ export type PaperProps = {
 	style?: React.CSSProperties;
 };
 
-export default memo(Paper);
+export default Paper;

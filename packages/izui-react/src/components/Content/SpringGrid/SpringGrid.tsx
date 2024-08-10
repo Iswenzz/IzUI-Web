@@ -1,4 +1,4 @@
-import { useMemo, ReactElement, FC, CSSProperties, memo } from "react";
+import { useMemo, ReactElement, FC, CSSProperties } from "react";
 import { Grid } from "@mui/material";
 import { motion } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
@@ -78,4 +78,4 @@ type Item = {
 	index: number;
 };
 
-export default memo(SpringGrid);
+export default SpringGrid;

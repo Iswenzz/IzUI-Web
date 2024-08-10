@@ -1,4 +1,4 @@
-import { FC, memo, PropsWithChildren, ReactElement } from "react";
+import { FC, PropsWithChildren, ReactElement } from "react";
 import { Grid } from "@mui/material";
 import classNames from "classnames";
 
@@ -73,4 +73,4 @@ type HeaderProps = {
 	TextComponent?: FC<PropsWithChildren>;
 };
 
-export default memo(Header);
+export default Header;

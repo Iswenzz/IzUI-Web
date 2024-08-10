@@ -1,4 +1,4 @@
-import { memo, FC } from "react";
+import { FC } from "react";
 import { ParallaxBanner } from "react-scroll-parallax";
 import { BannerLayer, ParallaxBannerProps } from "react-scroll-parallax";
 import stars from "@izui/assets/images/background/stars.svg";
@@ -46,4 +46,4 @@ type Props = ParallaxBannerProps & {
 	blur?: number;
 };
 
-export default memo(Parallax);
+export default Parallax;

@@ -1,4 +1,4 @@
-import { useEffect, RefObject, memo, FC, useRef } from "react";
+import { useEffect, RefObject, FC, useRef } from "react";
 import { motion, PanInfo, useAnimation } from "framer-motion";
 import clamp from "lodash/clamp";
 
@@ -13,8 +13,7 @@ const ViewPager: FC<ViewPagerProps> = ({
 	background,
 	style,
 	config = {},
-	onIndexChange,
-	onDragState
+	onChange
 }) => {
 	const index = useRef(startIndex);
 	const controls = useAnimation();
@@ -29,27 +28,21 @@ const ViewPager: FC<ViewPagerProps> = ({
 		} else if (swipe > width / 2 || (swipe > 0 && offset.x > width / 2)) {
 			index.current = clamp(index.current - 1, 0, items.length - 1);
 		}
-		if (onIndexChange) onIndexChange(index.current);
+		if (onChange) onChange(index.current);
 
 		controls.start(i => ({
 			x: (i - index.current) * width,
 			scale: 1,
 			display: "block"
 		}));
-
-		if (onDragState) onDragState(false);
-	};
-
-	const handleDragStart = () => {
-		if (onDragState) onDragState(true);
 	};
 
 	/**
 	 * Refresh the page on index change.
 	 */
 	useEffect(() => {
-		if (onIndexChange) onIndexChange(index.current);
-	}, [index, onIndexChange]);
+		if (onChange) onChange(index.current);
+	}, [index, onChange]);
 
 	/**
 	 * Move to the start index.
@@ -73,7 +66,6 @@ const ViewPager: FC<ViewPagerProps> = ({
 					className={scss.viewpager}
 					drag="x"
 					whileDrag={{ scale: 0.9 }}
-					onDragStart={handleDragStart}
 					onDragEnd={handleDragEnd}
 					dragConstraints={{ left: 0, right: 0 }}
 					style={config}
@@ -91,8 +83,7 @@ export type ViewPagerProps = {
 	background?: string;
 	index?: number;
 	config?: ViewPagerConfig;
-	onIndexChange?: (index: number) => void;
-	onDragState?: (state: boolean) => void;
+	onChange?: (index: number) => void;
 };
 
 export type ViewPagerConfig = {
@@ -109,4 +100,4 @@ export type ViewPagerState = {
 	mainRef?: RefObject<HTMLDivElement>;
 };
 
-export default memo(ViewPager);
+export default ViewPager;
