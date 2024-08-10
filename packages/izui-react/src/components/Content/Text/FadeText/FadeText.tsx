@@ -1,4 +1,4 @@
-import { FC, ElementType } from "react";
+import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Typography, TypographyProps } from "@mui/material";
 import { motion } from "framer-motion";
@@ -34,7 +34,6 @@ const FadeText: FC<Props> = ({ children, className, component = "h6", ...rest })
 
 type Props = TypographyProps & {
 	children: string[] | string;
-	component?: ElementType;
 };
 
 export default FadeText;

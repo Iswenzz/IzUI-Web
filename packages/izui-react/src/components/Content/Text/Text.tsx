@@ -1,4 +1,4 @@
-import { FC, ElementType } from "react";
+import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { Typography, TypographyProps } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
@@ -31,7 +31,6 @@ const Text: FC<Props> = ({ children, className, component = "h6", ...rest }) => 
 
 type Props = TypographyProps & {
 	children: string[] | string;
-	component?: ElementType;
 };
 
 export default Text;

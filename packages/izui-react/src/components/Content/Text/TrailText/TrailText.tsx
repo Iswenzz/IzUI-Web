@@ -1,4 +1,4 @@
-import { ElementType, FC, useMemo } from "react";
+import { FC, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Typography, TypographyProps } from "@mui/material";
@@ -40,7 +40,6 @@ const TrailText: FC<Props> = ({ children, visible = true, ...rest }) => {
 };
 
 type Props = TypographyProps & {
-	component?: ElementType;
 	visible?: boolean;
 	children: string[] | string;
 };
