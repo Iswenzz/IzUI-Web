@@ -6,18 +6,10 @@ import useDoubleClick from "@/utils/hooks/useDoubleClick";
 /**
  * React Router link wrapper.
  */
-const Link: ForwardRefRenderFunction<HTMLAnchorElement, Props> = (props, ref) => {
-	const {
-		className,
-		children,
-		to,
-		onDoubleClick,
-		onClick,
-		redirectOnDoubleClick,
-		smooth,
-		...rest
-	} = props;
-
+const Link: ForwardRefRenderFunction<HTMLAnchorElement, Props> = (
+	{ className, children, mode = "click", to, onClick, onDoubleClick, smooth, ...rest },
+	ref
+) => {
 	const navigate = useNavigate();
 
 	const scrollToElement = (element: HTMLElement, duration: number) => {
@@ -39,34 +31,35 @@ const Link: ForwardRefRenderFunction<HTMLAnchorElement, Props> = (props, ref) =>
 		requestAnimationFrame(step);
 	};
 
-	const onLinkClick = (event: React.MouseEvent) => {
+	const handleRedirect = (handler: Mode) => (event: React.MouseEvent) => {
 		event.preventDefault();
 		event.stopPropagation();
 
-		// Handle double click or single click
-		if (redirectOnDoubleClick && onDoubleClick) onDoubleClick(event);
-		else if (onClick) onClick(event);
+		if (handler === "click") onClick?.(event);
+		if (handler === "doubleclick") onDoubleClick?.(event);
 
-		if (smooth) {
-			const element = document.getElementById(to.replace("#", ""));
-			if (element) scrollToElement(element, 1000);
+		if (handler === mode) {
+			if (smooth) {
+				const element = document.getElementById(to.replace("#", ""));
+				if (element) scrollToElement(element, 1000);
+			}
+			navigate(to);
 		}
-		navigate(to);
 	};
 
 	const [onClickHook, onDoubleClickHook] = useDoubleClick(
-		!redirectOnDoubleClick ? onLinkClick : onClick,
-		redirectOnDoubleClick ? onLinkClick : onDoubleClick
+		handleRedirect("click"),
+		handleRedirect("doubleclick")
 	);
 
 	return (
 		<a
 			ref={ref}
 			className={`nolink ${className}`}
-			{...rest}
 			href={to}
 			onClick={onClickHook}
 			onDoubleClick={onDoubleClickHook}
+			{...rest}
 		>
 			{children}
 		</a>
@@ -75,10 +68,12 @@ const Link: ForwardRefRenderFunction<HTMLAnchorElement, Props> = (props, ref) =>
 
 type Props = React.HTMLAttributes<HTMLAnchorElement> & {
 	to: string;
+	mode?: Mode;
 	smooth?: boolean;
-	onClick?: (event?: React.MouseEvent) => void;
-	onDoubleClick?: (event?: React.MouseEvent) => void;
-	redirectOnDoubleClick?: boolean;
+	onClick?: React.MouseEventHandler;
+	onDoubleClick?: React.MouseEventHandler;
 };
+
+type Mode = "click" | "doubleclick";
 
 export default forwardRef(Link);
