@@ -46,19 +46,17 @@ const Table = <T,>({
 
 	const sortedRows = useMemo((): readonly Row<T>[] => {
 		const startIndex = (page - 1) * rowsPage;
-		if (sortColumns.length === 0) {
-			return rows;
-		}
-		return rows.slice(startIndex, startIndex + rowsPage).sort((a, b) => {
+		const data = rows.sort((a, b) => {
 			for (const sort of sortColumns) {
 				const comparator = getComparator(sort.columnKey);
 				const compResult = comparator(a, b);
-				if (compResult !== 0) {
+				if (compResult) {
 					return sort.direction === "ASC" ? compResult : -compResult;
 				}
 			}
 			return 0;
 		});
+		return data.slice(startIndex, startIndex + rowsPage);
 	}, [rows, sortColumns, rowsPage, page]);
 
 	const onPageChange = (_: React.ChangeEvent<unknown>, value: number) => setPage(value);

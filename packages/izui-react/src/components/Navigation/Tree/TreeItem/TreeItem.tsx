@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { CSSProperties, FC, useState } from "react";
-import { useMeasure, usePrevious } from "react-use";
+import { usePrevious } from "react-use";
 import { motion } from "framer-motion";
 
 import { CloseSquare, MinusSquare, PlusSquare } from "../TreeIcons/TreeIcons";
@@ -14,11 +14,9 @@ const TreeItem: FC<TreeProps> = ({ className, children, name, style, defaultOpen
 	const [isOpen, setOpen] = useState(defaultOpen);
 	const previous = usePrevious(isOpen);
 
-	const [ref, { height: viewHeight }] = useMeasure<HTMLDivElement>();
-
 	const variants = {
 		open: {
-			height: viewHeight,
+			height: "100%",
 			opacity: 1,
 			x: 0,
 			transition: {
@@ -68,9 +66,7 @@ const TreeItem: FC<TreeProps> = ({ className, children, name, style, defaultOpen
 				animate={isOpen ? "open" : "closed"}
 				style={{ overflow: "hidden", height: contentHeight }}
 			>
-				<motion.div ref={ref} variants={variants}>
-					{children}
-				</motion.div>
+				<motion.div variants={variants}>{children}</motion.div>
 			</motion.div>
 		</Frame>
 	);
