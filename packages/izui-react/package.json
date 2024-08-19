@@ -1,6 +1,6 @@
 {
 	"name": "@izui/react",
-	"version": "1.0.5",
+	"version": "1.0.9",
 	"description": "UI component library allowing you to make modern designs using the various components it offers.",
 	"keywords": [
 		"react",
@@ -17,7 +17,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Iswenzz/IzUI-Web.git",
+		"url": "git+https://github.com/Iswenzz/IzUI-Web.git",
 		"directory": "packages/izui-react"
 	},
 	"funding": {
@@ -42,8 +42,8 @@
 		"test:watch": "vitest --watch"
 	},
 	"dependencies": {
-		"@izui/assets": "workspace:*",
-		"@izui/styles": "workspace:*"
+		"@izui/assets": "*",
+		"@izui/styles": "*"
 	},
 	"devDependencies": {
 		"@emotion/cache": "^11.11.0",
@@ -51,8 +51,8 @@
 		"@emotion/styled": "^11.11.5",
 		"@eslint/js": "^9.6.0",
 		"@faker-js/faker": "^8.4.1",
-		"@izui/scripts": "workspace:*",
-		"@izui/types": "workspace:*",
+		"@izui/scripts": "*",
+		"@izui/types": "*",
 		"@mui/material": "^5.15.21",
 		"@storybook/addon-essentials": "^8.2.1",
 		"@storybook/addon-interactions": "^8.2.1",

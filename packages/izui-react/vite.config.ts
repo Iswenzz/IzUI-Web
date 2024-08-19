@@ -9,9 +9,9 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import dts from "vite-plugin-dts";
 import { visualizer } from "rollup-plugin-visualizer";
 
+import packageJson from "./package.json";
+
 const config = defineConfig(({ mode }) => ({
-	root: ".",
-	base: "/",
 	build: {
 		outDir: "dist",
 		lib: {
@@ -27,7 +27,13 @@ const config = defineConfig(({ mode }) => ({
 					open: mode === "development"
 				}) as PluginOption
 			],
-			external: /node_modules/
+			external: [
+				...Object.keys(packageJson.peerDependencies),
+				/react\/jsx-runtime/,
+				/react-icons\/*/,
+				/highlight.js\/*/,
+				/lodash\/*/
+			]
 		}
 	},
 	css: {
