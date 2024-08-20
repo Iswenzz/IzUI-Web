@@ -62,11 +62,15 @@ const config = defineConfig(({ mode }) => ({
 		})
 	],
 	test: {
-		root: "src",
+		include: ["src/**/*.test.*"],
 		globals: true,
 		watch: false,
 		environment: "jsdom",
-		setupFiles: "__test__/setup.ts"
+		setupFiles: "src/__test__/setup.ts",
+		coverage: {
+			enabled: true,
+			reporter: ["cobertura", "html"]
+		}
 	}
 }));
 
