@@ -15,7 +15,7 @@ jobs:
 
     - name: Build
       run: |
-        yarn
+        yarn --no-immutable
         yarn build
 
   tests:
@@ -26,7 +26,7 @@ jobs:
 
     - name: Tests
       run: |
-        yarn
+        yarn --no-immutable
         yarn test
 
     - name: CodeCov
@@ -47,5 +47,5 @@ jobs:
 
     - name: Lint
       run: |
-        yarn
+        yarn --no-immutable
         yarn lint
