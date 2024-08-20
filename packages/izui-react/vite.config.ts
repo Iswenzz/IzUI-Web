@@ -63,6 +63,7 @@ const config = defineConfig(({ mode }) => ({
 	],
 	test: {
 		include: ["src/**/*.test.*"],
+		passWithNoTests: true,
 		globals: true,
 		watch: false,
 		environment: "jsdom",
