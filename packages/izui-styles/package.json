@@ -1,6 +1,6 @@
 {
 	"name": "@izui/styles",
-	"version": "1.0.5",
+	"version": "1.1.0",
 	"description": "Styles used within izui-web libraries.",
 	"keywords": [
 		"styles",
@@ -15,7 +15,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Iswenzz/IzUI-Web.git",
+		"url": "git+https://github.com/Iswenzz/IzUI-Web.git",
 		"directory": "packages/izui-styles"
 	},
 	"funding": {
