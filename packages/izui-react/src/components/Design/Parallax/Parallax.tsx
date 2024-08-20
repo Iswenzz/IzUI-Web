@@ -7,6 +7,8 @@ import white from "@izui/assets/images/background/white.jpg";
 import { Spacing } from "@/components";
 import useThemeMode from "@/utils/hooks/useThemeMode";
 
+import scss from "./Parallax.module.scss";
+
 /**
  * Parallax background.
  */
@@ -25,12 +27,17 @@ const Parallax: FC<Props> = ({
 	});
 	const layers: BannerLayer[] = [
 		{
+			className: scss.layer,
 			image: image !== false ? image || parallaxImage : "",
 			speed
 		}
 	];
 	return (
-		<ParallaxBanner layers={layers} style={{ ...style, filter: `blur(${blur}px)` }} {...rest}>
+		<ParallaxBanner
+			layers={layers}
+			style={{ ...style, filter: `blur(${blur}px)`, zIndex: -1 }}
+			{...rest}
+		>
 			{spacingTop && <Spacing height={spacingTop} />}
 			{children}
 			{spacingBottom && <Spacing height={spacingBottom} />}
