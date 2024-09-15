@@ -1,13 +1,8 @@
 import { FC } from "react";
 import { ParallaxBanner } from "react-scroll-parallax";
-import { BannerLayer, ParallaxBannerProps } from "react-scroll-parallax";
-import starsDark from "@izui/assets/images/background/stars-dark.svg";
-import starsLight from "@izui/assets/images/background/stars-light.svg";
+import { ParallaxBannerProps } from "react-scroll-parallax";
 
 import { Spacing } from "@/components";
-import { useThemeMode } from "@/utils/hooks";
-
-import scss from "./Parallax.module.scss";
 
 /**
  * Parallax background.
@@ -21,29 +16,17 @@ const Parallax: FC<Props> = ({
 	children,
 	style,
 	...rest
-}) => {
-	const { parallaxImage } = useThemeMode({
-		parallaxImage: [starsDark, starsLight]
-	});
-	const layers: BannerLayer[] = [
-		{
-			className: scss.layer,
-			image: image || parallaxImage,
-			speed
-		}
-	];
-	return (
-		<ParallaxBanner
-			layers={layers}
-			style={{ ...style, filter: `blur(${blur}px)`, zIndex: -1 }}
-			{...rest}
-		>
-			{spacingTop && <Spacing height={spacingTop} />}
-			{children}
-			{spacingBottom && <Spacing height={spacingBottom} />}
-		</ParallaxBanner>
-	);
-};
+}) => (
+	<ParallaxBanner
+		layers={[{ image, speed }]}
+		style={{ ...style, filter: `blur(${blur}px)` }}
+		{...rest}
+	>
+		{spacingTop && <Spacing height={spacingTop} />}
+		{children}
+		{spacingBottom && <Spacing height={spacingBottom} />}
+	</ParallaxBanner>
+);
 
 type Props = ParallaxBannerProps & {
 	spacingTop?: string;
