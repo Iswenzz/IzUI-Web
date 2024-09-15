@@ -2,7 +2,7 @@ import { Variants } from "framer-motion";
 
 export const config = {
 	columns: {
-		xs: 2,
+		xs: 1,
 		sm: 3,
 		md: 4,
 		lg: 6

@@ -25,7 +25,7 @@ const Header: FC<HeaderProps> = ({
 	<header id={id}>
 		<Parallax
 			className={classNames(scss.parallax, className)}
-			image={background || false}
+			image={background}
 			blur={parallaxBlur}
 			speed={parallaxStrength}
 		>

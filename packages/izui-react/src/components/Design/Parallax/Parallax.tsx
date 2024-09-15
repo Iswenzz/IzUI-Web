@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { ParallaxBanner } from "react-scroll-parallax";
 import { BannerLayer, ParallaxBannerProps } from "react-scroll-parallax";
-import stars from "@izui/assets/images/background/stars.svg";
-import white from "@izui/assets/images/background/white.jpg";
+import starsDark from "@izui/assets/images/background/stars-dark.svg";
+import starsLight from "@izui/assets/images/background/stars-light.svg";
 
 import { Spacing } from "@/components";
-import useThemeMode from "@/utils/hooks/useThemeMode";
+import { useThemeMode } from "@/utils/hooks";
 
 import scss from "./Parallax.module.scss";
 
@@ -23,12 +23,12 @@ const Parallax: FC<Props> = ({
 	...rest
 }) => {
 	const { parallaxImage } = useThemeMode({
-		parallaxImage: [stars, white]
+		parallaxImage: [starsDark, starsLight]
 	});
 	const layers: BannerLayer[] = [
 		{
 			className: scss.layer,
-			image: image !== false ? image || parallaxImage : "",
+			image: image || parallaxImage,
 			speed
 		}
 	];
@@ -48,7 +48,7 @@ const Parallax: FC<Props> = ({
 type Props = ParallaxBannerProps & {
 	spacingTop?: string;
 	spacingBottom?: string;
-	image?: string | false;
+	image?: string;
 	speed?: number;
 	blur?: number;
 };
