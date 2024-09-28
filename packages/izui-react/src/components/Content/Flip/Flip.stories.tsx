@@ -3,11 +3,11 @@ import { fn } from "@storybook/test";
 
 import Flip from "./Flip";
 
-const meta = {
+const meta: Meta<typeof Flip> = {
 	title: "Content/Flip",
 	component: Flip,
 	args: { flipCallback: fn() }
-} satisfies Meta<typeof Flip>;
+};
 
 type Story = StoryObj<typeof meta>;
 
