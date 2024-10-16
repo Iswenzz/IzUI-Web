@@ -5,10 +5,10 @@
 
 $medias: (
 	desktop: "min-width: 1224px",
-	tabletOrMobile: "max-device-width: 1224px",
+	tabletOrMobile: "max-width: 1224px",
 	portrait: "orientation: portrait",
 	retina: "min-resolution: 2dppx",
-	big: "min-device-width: 1824px"
+	big: "min-width: 1824px"
 );
 
 $breakpoints: (

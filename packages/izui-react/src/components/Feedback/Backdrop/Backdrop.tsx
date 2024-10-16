@@ -19,6 +19,7 @@ const Backdrop: FC<Props> = ({
 	...props
 }) => {
 	const handleClose = (e: React.MouseEvent<HTMLElement>) => (disableClose ? null : onClick(e));
+
 	return (
 		<AnimatePresence>
 			<motion.div
@@ -27,14 +28,12 @@ const Backdrop: FC<Props> = ({
 				animate={open ? "enter" : "exit"}
 				exit="exit"
 			>
-				<div className={classNames(className, scss.backdrop)}>
-					<MBackdrop
-						{...props}
-						className={scss.muiBackdrop}
-						open={open}
-						onClick={handleClose}
-					/>
-				</div>
+				<MBackdrop
+					{...props}
+					className={classNames(className, scss.backdrop)}
+					open={open}
+					onClick={handleClose}
+				/>
 			</motion.div>
 		</AnimatePresence>
 	);

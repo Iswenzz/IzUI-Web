@@ -1,0 +1,35 @@
+.card {
+	position: relative;
+	margin: 2rem;
+	background-color: rgba(20, 20, 20, 0.7);
+	background-image: none;
+
+	h2 {
+		text-align: center;
+	}
+
+	h2,
+	p {
+		color: gainsboro;
+	}
+
+	span {
+		color: orange;
+	}
+
+	img {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+	}
+}
+
+.container {
+	height: 100%;
+}
+
+.actions {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}

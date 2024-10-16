@@ -12,7 +12,7 @@ const useThemeMode = <V extends Values>(values: V) => {
 	return Object.entries(values).reduce(
 		(prev, [key, [dark, light]]) => ({
 			...prev,
-			[key]: theme.isDarkTheme ? dark : light
+			[key]: theme.isDark ? dark : light
 		}),
 		theme
 	) as { [key in KeyOf<V>]: V[key][0] } & Theme;

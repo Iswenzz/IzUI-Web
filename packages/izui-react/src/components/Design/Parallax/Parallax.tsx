@@ -7,7 +7,7 @@ import { Spacing } from "@/components";
 /**
  * Parallax background.
  */
-const Parallax: FC<Props> = ({
+const Parallax: FC<ParallaxProps> = ({
 	speed = -30,
 	spacingTop,
 	spacingBottom,
@@ -28,7 +28,7 @@ const Parallax: FC<Props> = ({
 	</ParallaxBanner>
 );
 
-type Props = ParallaxBannerProps & {
+export type ParallaxProps = ParallaxBannerProps & {
 	spacingTop?: string;
 	spacingBottom?: string;
 	image?: string;
