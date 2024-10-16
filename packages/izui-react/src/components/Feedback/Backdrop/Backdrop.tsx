@@ -1,6 +1,6 @@
 import { FC } from "react";
 import noop from "lodash/noop";
-import { Backdrop as MUIBackdrop, BackdropProps } from "@mui/material";
+import { Backdrop as MBackdrop, BackdropProps } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import classNames from "classnames";
 
@@ -28,7 +28,7 @@ const Backdrop: FC<Props> = ({
 				exit="exit"
 			>
 				<div className={classNames(className, scss.backdrop)}>
-					<MUIBackdrop
+					<MBackdrop
 						{...props}
 						className={scss.muiBackdrop}
 						open={open}

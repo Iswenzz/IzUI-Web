@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 
 import {
-	Card as MUICard,
+	Card as MCard,
 	CardActionArea,
 	CardActions,
 	CardContent,
@@ -24,7 +24,7 @@ const Card: FC<CardProps> = ({
 	description,
 	children
 }) => (
-	<MUICard className={`${scss.card} ${className}`}>
+	<MCard className={`${scss.card} ${className}`}>
 		{image && (
 			<CardActionArea component="header">
 				<CardMedia component="img" className={mediaClass} image={image} title={title} />
@@ -49,7 +49,7 @@ const Card: FC<CardProps> = ({
 			</CardContent>
 			<CardActions className={scss.actions}>{children}</CardActions>
 		</Grid>
-	</MUICard>
+	</MCard>
 );
 
 export type CardProps = React.HTMLProps<HTMLElement> & {
