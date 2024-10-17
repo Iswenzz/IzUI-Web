@@ -13,20 +13,16 @@ const Text: FC<Props> = ({ children, className, component = "h6", ...rest }) => 
 	const { t } = useTranslation();
 	const items = Array.isArray(children) ? children : [children];
 
-	return (
-		<>
-			{items.map(item => (
-				<Typography
-					{...rest}
-					className={classNames(scss.text, className)}
-					component={component}
-					key={uuidv4()}
-				>
-					{t(item)}
-				</Typography>
-			))}
-		</>
-	);
+	return items.map(item => (
+		<Typography
+			{...rest}
+			className={classNames(scss.text, className)}
+			component={component}
+			key={uuidv4()}
+		>
+			{t(item)}
+		</Typography>
+	));
 };
 
 type Props = TypographyProps & {

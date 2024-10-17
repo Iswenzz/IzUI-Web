@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import DataGrid, { Column, DataGridProps, SortColumn } from "react-data-grid";
-import { useTheme, Pagination } from "@mui/material";
+import { Pagination } from "@mui/material";
 import classNames from "classnames";
 
 import { Loader } from "@/components";
@@ -38,8 +38,6 @@ const Table = <T,>({
 	className,
 	...rest
 }: TableProps<T>) => {
-	const { theme } = useTheme();
-
 	const [page, setPage] = useState(1);
 	const [sortColumns, setSortColumns] = useState<readonly SortColumn[]>([]);
 	const rowGetter = (row: Row<T>) => row.id;
@@ -62,7 +60,7 @@ const Table = <T,>({
 	const onPageChange = (_: React.ChangeEvent<unknown>, value: number) => setPage(value);
 
 	return (
-		<section className={classNames(scss.table, scss[theme], className)}>
+		<section className={classNames(scss.table, className)}>
 			<DataGrid
 				rowKeyGetter={rowGetter}
 				columns={columns}

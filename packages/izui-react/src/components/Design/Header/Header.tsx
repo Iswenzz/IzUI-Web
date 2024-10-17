@@ -30,8 +30,8 @@ const Header: FC<HeaderProps> = ({
 			speed={parallaxStrength}
 		>
 			<Grid
-				component="section"
 				container
+				component="section"
 				className={scss.grid}
 				direction="column"
 				justifyContent="center"

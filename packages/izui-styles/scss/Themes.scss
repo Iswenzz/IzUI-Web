@@ -8,7 +8,7 @@ $themes: (
 @mixin lightMode() {
 	@each $theme, $mode in $themes {
 		@if ($mode == "light") {
-			&.#{$theme} {
+			[data-theme="light"] & {
 				@content;
 				@include Transitions.colors(0.5s);
 			}
@@ -19,7 +19,7 @@ $themes: (
 @mixin darkMode() {
 	@each $theme, $mode in $themes {
 		@if ($mode == "dark") {
-			&.#{$theme} {
+			[data-theme="dark"] & {
 				@content;
 				@include Transitions.colors(0.5s);
 			}

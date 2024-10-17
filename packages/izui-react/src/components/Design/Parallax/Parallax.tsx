@@ -8,6 +8,7 @@ import { Spacing } from "@/components";
  * Parallax background.
  */
 const Parallax: FC<ParallaxProps> = ({
+	className,
 	speed = -30,
 	spacingTop,
 	spacingBottom,
@@ -18,6 +19,7 @@ const Parallax: FC<ParallaxProps> = ({
 	...rest
 }) => (
 	<ParallaxBanner
+		className={className}
 		layers={[{ image, speed }]}
 		style={{ ...style, filter: `blur(${blur}px)` }}
 		{...rest}

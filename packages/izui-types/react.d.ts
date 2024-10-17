@@ -2,12 +2,12 @@ import "@mui/material/styles";
 
 declare module "@mui/material/styles" {
 	interface Theme {
-		theme: string;
+		name: string;
 		isDark: boolean;
 	}
 
 	interface ThemeOptions {
-		theme?: string;
+		name?: string;
 		isDark?: boolean;
 	}
 }
