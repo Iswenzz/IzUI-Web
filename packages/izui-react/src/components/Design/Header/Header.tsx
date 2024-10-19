@@ -45,14 +45,16 @@ const Header: FC<HeaderProps> = ({
 				>
 					{title}
 				</TextComponent>
-				<TextComponent
-					className={classNames("poiret bold noselect", descriptionClassName)}
-					align="center"
-					variant="h3"
-					component="h3"
-				>
-					{description}
-				</TextComponent>
+				{description && (
+					<TextComponent
+						className={classNames("poiret bold noselect", descriptionClassName)}
+						align="center"
+						variant="h3"
+						component="h3"
+					>
+						{description}
+					</TextComponent>
+				)}
 				{children}
 			</Grid>
 		</Parallax>
