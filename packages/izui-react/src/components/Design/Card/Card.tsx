@@ -6,7 +6,6 @@ import {
 	CardActions,
 	CardContent,
 	CardMedia,
-	Grid,
 	Typography
 } from "@mui/material";
 
@@ -31,24 +30,19 @@ const Card: FC<CardProps> = ({
 			</CardActionArea>
 		)}
 		{icon && <figure>{icon}</figure>}
-		<Grid
-			container
-			component="section"
-			className={scss.container}
-			direction="column"
-			alignItems="center"
-			justifyContent="space-between"
-		>
-			<CardContent>
+		<CardContent>
+			{title && (
 				<Typography gutterBottom variant="h5" component="h2">
 					{title}
 				</Typography>
+			)}
+			{description && (
 				<Typography variant="body2" color="textSecondary" paragraph>
 					{description}
 				</Typography>
-			</CardContent>
-			<CardActions className={scss.actions}>{children}</CardActions>
-		</Grid>
+			)}
+		</CardContent>
+		{children && <CardActions>{children}</CardActions>}
 	</MCard>
 );
 
