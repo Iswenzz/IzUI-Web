@@ -7,9 +7,6 @@
 
 UI component library allowing you to make modern designs using the various components it offers.
 
-![](https://i.imgur.com/cZOJbXK.jpg)
-![](https://i.imgur.com/wd9MXQK.png)
-
 ## Installation
 
 This library can be found on [NPM](https://www.npmjs.com/package/@izui/react)
