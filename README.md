@@ -5,10 +5,9 @@
 [![CodeCov](https://img.shields.io/codecov/c/github/Iswenzz/IzUI-Web?label=codecov&logo=codecov)](https://codecov.io/gh/Iswenzz/IzUI-Web)
 [![License](https://img.shields.io/github/license/Iswenzz/IzUI-Web?color=blue&logo=gitbook&logoColor=white)](https://github.com/Iswenzz/IzUI-Web/blob/master/LICENSE)
 
-UI component library allowing you to make modern designs using the various components it offers.
+![](https://i.imgur.com/S8Hkpon.jpeg)
 
-![](https://i.imgur.com/cZOJbXK.jpg)
-![](https://i.imgur.com/wd9MXQK.png)
+UI component library allowing you to make modern designs using the various components it offers.
 
 ## Libraries
 
